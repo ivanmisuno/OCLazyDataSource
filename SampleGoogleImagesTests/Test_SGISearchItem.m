@@ -53,4 +53,27 @@
     XCTAssertNil(searchItem);
 }
 
+- (void)testToJsonArray
+{
+    NSArray<SGISearchItem *> *items = @[[SGISearchItem searchItemWithSearch:@"robbie williams"],
+                                        [SGISearchItem searchItemWithSearch:@"david gilmour"]];
+    NSArray<NSDictionary *> *jsonArray = [SGISearchItem toJsonArray:items];
+    XCTAssertNotNil(jsonArray);
+    XCTAssertEqual(jsonArray.count, 2);
+    XCTAssertEqualObjects(jsonArray[0][@"search"], @"robbie williams");
+    XCTAssertEqualObjects(jsonArray[1][@"search"], @"david gilmour");
+}
+
+- (void)testFromJsonArray
+{
+    NSArray<NSDictionary *> *jsonArray = @[@{@"search":@"robbie williams"},
+                                           @{@"asdf":@"qwerty"},
+                                           @{@"search":@"david gilmour"}];
+    NSArray<SGISearchItem *> *items = [SGISearchItem fromJsonArray:jsonArray];
+    XCTAssertNotNil(items);
+    XCTAssertEqual(items.count, 2);
+    XCTAssertEqualObjects(items[0].search, @"robbie williams");
+    XCTAssertEqualObjects(items[1].search, @"david gilmour");
+}
+
 @end

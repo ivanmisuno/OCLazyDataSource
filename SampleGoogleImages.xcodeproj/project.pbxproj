@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1400A8421BFD0B9600D39D0E /* SGIResultsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1400A8411BFD0B9600D39D0E /* SGIResultsTableController.m */; };
 		783605AC1BFCED230014D558 /* SGISearchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605AB1BFCED230014D558 /* SGISearchItem.m */; };
 		783605B31BFCEEC90014D558 /* NSDictionary+SGITypedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605B21BFCEEC90014D558 /* NSDictionary+SGITypedDictionary.m */; };
 		783605B51BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605B41BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m */; };
@@ -33,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1400A8401BFD0B9600D39D0E /* SGIResultsTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGIResultsTableController.h; sourceTree = "<group>"; };
+		1400A8411BFD0B9600D39D0E /* SGIResultsTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGIResultsTableController.m; sourceTree = "<group>"; };
 		783605AA1BFCED230014D558 /* SGISearchItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGISearchItem.h; sourceTree = "<group>"; };
 		783605AB1BFCED230014D558 /* SGISearchItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGISearchItem.m; sourceTree = "<group>"; };
 		783605AD1BFCED530014D558 /* SGIJSONConvertibleProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGIJSONConvertibleProtocol.h; sourceTree = "<group>"; };
@@ -148,6 +151,8 @@
 				789B75A01BFCE8210081A34B /* AppDelegate.m */,
 				789B75A21BFCE8210081A34B /* SGIFirstViewController.h */,
 				789B75A31BFCE8210081A34B /* SGIFirstViewController.m */,
+				1400A8401BFD0B9600D39D0E /* SGIResultsTableController.h */,
+				1400A8411BFD0B9600D39D0E /* SGIResultsTableController.m */,
 				789B75A51BFCE8210081A34B /* SGISecondViewController.h */,
 				789B75A61BFCE8210081A34B /* SGISecondViewController.m */,
 				789B75A81BFCE8210081A34B /* Main.storyboard */,
@@ -287,6 +292,7 @@
 				789B75A11BFCE8210081A34B /* AppDelegate.m in Sources */,
 				789B75A41BFCE8210081A34B /* SGIFirstViewController.m in Sources */,
 				789B759E1BFCE8210081A34B /* main.m in Sources */,
+				1400A8421BFD0B9600D39D0E /* SGIResultsTableController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

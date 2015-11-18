@@ -43,4 +43,26 @@
     return [self searchItemWithSearch:search];
 }
 
++ (NSArray<NSDictionary *> * _Nonnull)toJsonArray:(NSArray<SGISearchItem *> * _Nonnull)itemArray
+{
+    NSMutableArray<NSDictionary *> *result = [NSMutableArray new];
+    [itemArray enumerateObjectsUsingBlock:^(SGISearchItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSDictionary *json = obj.toJson;
+        [result addObject:json];
+    }];
+    return [result copy];
+}
++ (NSArray<SGISearchItem *> * _Nonnull)fromJsonArray:(NSArray<NSDictionary *> * _Nonnull)jsonArray
+{
+    NSMutableArray<SGISearchItem *> *result = [NSMutableArray new];
+    [jsonArray enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        SGISearchItem *item = [SGISearchItem fromJson:obj];
+        if (item)
+        {
+            [result addObject:item];
+        }
+    }];
+    return [result copy];
+}
+
 @end
