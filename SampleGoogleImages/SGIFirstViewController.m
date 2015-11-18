@@ -9,6 +9,7 @@
 #import "SGIFirstViewController.h"
 #import "SGIResultsTableController.h"
 #import "SGISearchItem.h"
+#import "SGISavedSearchesManager.h"
 
 @interface SGIFirstViewController() <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
 
@@ -28,9 +29,31 @@
 {
     if (!_savedSearches)
     {
-        _savedSearches = [NSMutableArray new];
+        _savedSearches = [[[self class] loadSearches] mutableCopy];
     }
     return _savedSearches;
+}
+
++ (SGISavedSearchesManager *)saveManager
+{
+    return [SGISavedSearchesManager new];
+}
++ (NSArray<SGISearchItem *> *)loadSearches
+{
+    SGISavedSearchesManager *saveManager = [self saveManager];
+    return [saveManager loadSearches];
+}
+- (void)saveSearches
+{
+    SGISavedSearchesManager *saveManager = [[self class] saveManager];
+    [saveManager saveSearches:self.savedSearches];
+}
+
+- (NSString *)searchString
+{
+    NSString *searchText = self.searchController.searchBar.text;
+    NSString *strippedString = [searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    return strippedString;
 }
 
 - (void)viewDidLoad
@@ -59,11 +82,26 @@
     self.definesPresentationContext = YES;  // know where you want UISearchController to be displayed
 }
 
+- (void)doSearch:(NSString *)searchString
+{
+    SGISearchItem *search = [SGISearchItem searchItemWithSearch:searchString];
+    [self.savedSearches insertObject:search atIndex:0];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self saveSearches];
+}
+
 #pragma mark - UISearchBarDelegate
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
+    if (searchBar != self.searchController.searchBar) return;
     [searchBar resignFirstResponder];
+
+    NSString *searchString = [self searchString];
+    [self doSearch:searchString];
+
+    // this resets search bar
+    self.searchController.active = NO;
 }
 
 #pragma mark - UISearchControllerDelegate
@@ -99,14 +137,39 @@
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
 {
-    NSString *searchText = searchController.searchBar.text;
-    NSString *strippedString = [searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if (searchController != self.searchController) return;
 
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"search like %@", strippedString];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"search like %@", [self searchString]];
     NSArray<SGISearchItem *> *searchResults = [self.savedSearches filteredArrayUsingPredicate:predicate];
 
     // hand over the filtered results to our search results table
     self.resultsTableController.filteredSearches = searchResults;
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.savedSearches.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *const kReuseIdentifier = @"SavedSearchCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kReuseIdentifier];
+    if (!cell)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:kReuseIdentifier];
+    }
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
+
+    if (indexPath.row < self.savedSearches.count)
+    {
+        SGISearchItem *item = self.savedSearches[indexPath.row];
+        cell.textLabel.text = item.search;
+    }
+
+    return cell;
 }
 
 @end

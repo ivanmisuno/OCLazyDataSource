@@ -20,7 +20,7 @@
 - (void)setUp
 {
     [super setUp];
-    self.sut = @{@"string":@"string", @"number":@1};
+    self.sut = @{@"string":@"string", @"number":@1, @"array":@[@"1",@"2",@"3"]};
 }
 
 - (void)testValueString
@@ -31,6 +31,16 @@
 - (void)testValueNotString
 {
     XCTAssertNil([self.sut sgi_stringForKey:@"number"]);
+}
+
+- (void)testValueArray
+{
+    XCTAssertNotNil([self.sut sgi_arrayForKey:@"array"]);
+}
+
+- (void)testValueNotArray
+{
+    XCTAssertNil([self.sut sgi_arrayForKey:@"number"]);
 }
 
 @end

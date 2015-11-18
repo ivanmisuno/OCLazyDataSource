@@ -11,5 +11,6 @@
 @interface NSDictionary (SGITypedDictionary)
 
 - (NSString * _Nullable)sgi_stringForKey:(NSString * _Nonnull)key;
+- (NSArray * _Nullable)sgi_arrayForKey:(NSString * _Nonnull)key;
 
 @end

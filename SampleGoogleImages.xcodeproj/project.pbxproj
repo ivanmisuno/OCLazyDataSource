@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1400A8421BFD0B9600D39D0E /* SGIResultsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1400A8411BFD0B9600D39D0E /* SGIResultsTableController.m */; };
+		140881261BFD1C0100457B57 /* NSFileManager+SGICommonDirectories.m in Sources */ = {isa = PBXBuildFile; fileRef = 140881251BFD1C0100457B57 /* NSFileManager+SGICommonDirectories.m */; };
+		1408812E1BFD20BF00457B57 /* SGISavedSearchesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1408812D1BFD20BF00457B57 /* SGISavedSearchesManager.m */; };
+		140881301BFD235900457B57 /* Test_SGISavedSearchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1408812F1BFD235900457B57 /* Test_SGISavedSearchManager.m */; };
 		783605AC1BFCED230014D558 /* SGISearchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605AB1BFCED230014D558 /* SGISearchItem.m */; };
 		783605B31BFCEEC90014D558 /* NSDictionary+SGITypedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605B21BFCEEC90014D558 /* NSDictionary+SGITypedDictionary.m */; };
 		783605B51BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605B41BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m */; };
@@ -36,6 +39,11 @@
 /* Begin PBXFileReference section */
 		1400A8401BFD0B9600D39D0E /* SGIResultsTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGIResultsTableController.h; sourceTree = "<group>"; };
 		1400A8411BFD0B9600D39D0E /* SGIResultsTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGIResultsTableController.m; sourceTree = "<group>"; };
+		140881241BFD1C0100457B57 /* NSFileManager+SGICommonDirectories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+SGICommonDirectories.h"; sourceTree = "<group>"; };
+		140881251BFD1C0100457B57 /* NSFileManager+SGICommonDirectories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+SGICommonDirectories.m"; sourceTree = "<group>"; };
+		1408812C1BFD20BF00457B57 /* SGISavedSearchesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGISavedSearchesManager.h; sourceTree = "<group>"; };
+		1408812D1BFD20BF00457B57 /* SGISavedSearchesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGISavedSearchesManager.m; sourceTree = "<group>"; };
+		1408812F1BFD235900457B57 /* Test_SGISavedSearchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_SGISavedSearchManager.m; sourceTree = "<group>"; };
 		783605AA1BFCED230014D558 /* SGISearchItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGISearchItem.h; sourceTree = "<group>"; };
 		783605AB1BFCED230014D558 /* SGISearchItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGISearchItem.m; sourceTree = "<group>"; };
 		783605AD1BFCED530014D558 /* SGIJSONConvertibleProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGIJSONConvertibleProtocol.h; sourceTree = "<group>"; };
@@ -90,6 +98,8 @@
 				783605AD1BFCED530014D558 /* SGIJSONConvertibleProtocol.h */,
 				783605AA1BFCED230014D558 /* SGISearchItem.h */,
 				783605AB1BFCED230014D558 /* SGISearchItem.m */,
+				1408812C1BFD20BF00457B57 /* SGISavedSearchesManager.h */,
+				1408812D1BFD20BF00457B57 /* SGISavedSearchesManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -99,6 +109,8 @@
 			children = (
 				783605B11BFCEEC90014D558 /* NSDictionary+SGITypedDictionary.h */,
 				783605B21BFCEEC90014D558 /* NSDictionary+SGITypedDictionary.m */,
+				140881241BFD1C0100457B57 /* NSFileManager+SGICommonDirectories.h */,
+				140881251BFD1C0100457B57 /* NSFileManager+SGICommonDirectories.m */,
 			);
 			path = FoundationExtensions;
 			sourceTree = "<group>";
@@ -180,6 +192,7 @@
 				789B75BB1BFCE8210081A34B /* Info.plist */,
 				783605B41BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m */,
 				783605BF1BFCF9940014D558 /* Test_SGISearchItem.m */,
+				1408812F1BFD235900457B57 /* Test_SGISavedSearchManager.m */,
 			);
 			path = SampleGoogleImagesTests;
 			sourceTree = "<group>";
@@ -288,9 +301,11 @@
 				783605AC1BFCED230014D558 /* SGISearchItem.m in Sources */,
 				783605B31BFCEEC90014D558 /* NSDictionary+SGITypedDictionary.m in Sources */,
 				783605BD1BFCF14D0014D558 /* RACEXTRuntimeExtensions.m in Sources */,
+				140881261BFD1C0100457B57 /* NSFileManager+SGICommonDirectories.m in Sources */,
 				789B75A71BFCE8210081A34B /* SGISecondViewController.m in Sources */,
 				789B75A11BFCE8210081A34B /* AppDelegate.m in Sources */,
 				789B75A41BFCE8210081A34B /* SGIFirstViewController.m in Sources */,
+				1408812E1BFD20BF00457B57 /* SGISavedSearchesManager.m in Sources */,
 				789B759E1BFCE8210081A34B /* main.m in Sources */,
 				1400A8421BFD0B9600D39D0E /* SGIResultsTableController.m in Sources */,
 			);
@@ -301,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				789B75BA1BFCE8210081A34B /* SampleGoogleImagesTests.m in Sources */,
+				140881301BFD235900457B57 /* Test_SGISavedSearchManager.m in Sources */,
 				783605B51BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m in Sources */,
 				783605C01BFCF9940014D558 /* Test_SGISearchItem.m in Sources */,
 			);
