@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SGIJSONConvertibleProtocol.h"
 
-// TODO: better use
 @interface SGISearchItem : NSObject <SGIJSONConvertibleProtocol>
 
 @property (nonatomic, readonly) NSString * _Nonnull search;

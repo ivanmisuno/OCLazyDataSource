@@ -11,19 +11,6 @@
 
 @implementation SGISearchItem
 
-- (NSDictionary * _Nonnull)toJson
-{
-    return @{ @keypath(self, search) : self.search };
-}
-
-+ (id _Nullable)fromJson:(NSDictionary * _Nonnull)json
-{
-    if (![json isKindOfClass:[NSDictionary class]]) return nil;
-    NSString *search = [json sgi_stringForKey:@keypath([SGISearchItem new], search)];
-    if (!search) return nil;
-    return [self searchItemWithSearch:search];
-}
-
 + (instancetype _Nonnull)searchItemWithSearch:(NSString * _Nonnull)search
 {
     return [[self alloc] initWithSearch:search];
@@ -38,5 +25,22 @@
     return self;
 }
 
+#pragma mark - SGIJSONConvertibleProtocol conformance
+
+// For an indie project, better use JSONModel or similar 3-rd party object/property mapping framework,
+// for an enterprise app, develop one internally,
+// for this example just write some boilerplate code
+- (NSDictionary * _Nonnull)toJson
+{
+    return @{ @keypath(self, search) : self.search };
+}
+
++ (id _Nullable)fromJson:(NSDictionary * _Nonnull)json
+{
+    if (![json isKindOfClass:[NSDictionary class]]) return nil;
+    NSString *search = [json sgi_stringForKey:@keypath([SGISearchItem new], search)];
+    if (!search) return nil;
+    return [self searchItemWithSearch:search];
+}
 
 @end

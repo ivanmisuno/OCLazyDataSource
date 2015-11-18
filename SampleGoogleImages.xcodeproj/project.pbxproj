@@ -123,6 +123,7 @@
 		789B75901BFCE8210081A34B = {
 			isa = PBXGroup;
 			children = (
+				783605B61BFCF14D0014D558 /* ExternalDependencies */,
 				789B759B1BFCE8210081A34B /* SampleGoogleImages */,
 				789B75B81BFCE8210081A34B /* SampleGoogleImagesTests */,
 				789B759A1BFCE8210081A34B /* Products */,
@@ -141,7 +142,6 @@
 		789B759B1BFCE8210081A34B /* SampleGoogleImages */ = {
 			isa = PBXGroup;
 			children = (
-				783605B61BFCF14D0014D558 /* ExternalDependencies */,
 				783605B01BFCEEB20014D558 /* FoundationExtensions */,
 				783605A91BFCEC850014D558 /* Model */,
 				789B759F1BFCE8210081A34B /* AppDelegate.h */,
