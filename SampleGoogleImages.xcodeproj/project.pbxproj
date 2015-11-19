@@ -45,6 +45,7 @@
 		1408812C1BFD20BF00457B57 /* SGIJsonStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGIJsonStorageManager.h; sourceTree = "<group>"; };
 		1408812D1BFD20BF00457B57 /* SGIJsonStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGIJsonStorageManager.m; sourceTree = "<group>"; };
 		1408812F1BFD235900457B57 /* Test_SGIObjectStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_SGIObjectStore.m; sourceTree = "<group>"; };
+		140881351BFE8CB500457B57 /* SGIResultsTableControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGIResultsTableControllerDelegate.h; sourceTree = "<group>"; };
 		783605AA1BFCED230014D558 /* SGISearchItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGISearchItem.h; sourceTree = "<group>"; };
 		783605AB1BFCED230014D558 /* SGISearchItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGISearchItem.m; sourceTree = "<group>"; };
 		783605AD1BFCED530014D558 /* SGIJSONConvertibleProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGIJSONConvertibleProtocol.h; sourceTree = "<group>"; };
@@ -168,6 +169,7 @@
 				789B75A01BFCE8210081A34B /* AppDelegate.m */,
 				789B75A21BFCE8210081A34B /* SGIFirstViewController.h */,
 				789B75A31BFCE8210081A34B /* SGIFirstViewController.m */,
+				140881351BFE8CB500457B57 /* SGIResultsTableControllerDelegate.h */,
 				1400A8401BFD0B9600D39D0E /* SGIResultsTableController.h */,
 				1400A8411BFD0B9600D39D0E /* SGIResultsTableController.m */,
 				789B75A51BFCE8210081A34B /* SGISecondViewController.h */,

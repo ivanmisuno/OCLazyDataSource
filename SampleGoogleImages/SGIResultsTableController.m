@@ -8,6 +8,7 @@
 
 #import "SGIResultsTableController.h"
 #import "SGISearchItem.h"
+#import "SGIResultsTableControllerDelegate.h"
 
 @interface SGIResultsTableController()
 @property (nonatomic) NSArray<SGISearchItem *> *filteredSearches;
@@ -67,6 +68,17 @@
     }
 
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    if (indexPath.row < self.filteredSearches.count)
+    {
+        SGISearchItem *selectedSearch = self.filteredSearches[indexPath.row];
+        [self.searchDelegate resultsTableController:self didSelectSearch:selectedSearch];
+    }
 }
 
 @end

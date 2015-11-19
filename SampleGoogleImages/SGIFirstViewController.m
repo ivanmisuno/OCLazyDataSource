@@ -10,8 +10,9 @@
 #import "SGIResultsTableController.h"
 #import "SGISearchItem.h"
 #import "SGIObjectStore.h"
+#import "SGIResultsTableControllerDelegate.h"
 
-@interface SGIFirstViewController() <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
+@interface SGIFirstViewController() <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating, SGIResultsTableControllerDelegate>
 
 @property (nonatomic, readonly) NSMutableArray<SGISearchItem *> *savedSearches;
 @property (nonatomic, readwrite) NSArray<SGISearchItem *> *sortedSearches;
@@ -60,6 +61,7 @@
     self.title = NSLocalizedString(@"Search Google Images", nil);
 
     _resultsTableController = [[SGIResultsTableController alloc] init];
+    self.resultsTableController.searchDelegate = self;
 
     _searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultsTableController];
     self.searchController.searchResultsUpdater = self;
@@ -136,6 +138,17 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    if (indexPath.row < self.sortedSearches.count)
+    {
+        SGISearchItem *searchItem = self.sortedSearches[indexPath.row];
+        [self doSearch:searchItem.search];
+    }
+}
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
@@ -154,6 +167,16 @@
             [self removeSearchItem:item];
         }
     }
+}
+
+#pragma mark - SGIResultsTableControllerDelegate
+
+- (void)resultsTableController:(SGIResultsTableController *)resultsTableController
+               didSelectSearch:(SGISearchItem *)searchItem
+{
+    self.searchController.active = NO;
+
+    [self doSearch:searchItem.search];
 }
 
 #pragma mark - UI Operations

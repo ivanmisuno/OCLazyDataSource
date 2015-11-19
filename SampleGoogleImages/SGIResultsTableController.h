@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @class SGISearchItem;
+@protocol SGIResultsTableControllerDelegate;
 
 @interface SGIResultsTableController : UITableViewController
+
+@property (nonatomic, weak) id<SGIResultsTableControllerDelegate> searchDelegate;
 
 - (void)setFilteredSearches:(NSArray<SGISearchItem *> *)filteredSearches
             forSearchString:(NSString *)searchString;
