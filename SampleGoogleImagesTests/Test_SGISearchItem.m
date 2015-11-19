@@ -15,18 +15,36 @@
 
 @implementation Test_SGISearchItem
 
+- (void)testNewSearchId
+{
+    SGISearchItem *item = [SGISearchItem createSearchItemWithSearch:@"robbie williams"];
+    XCTAssertNotEqual(item.searchId, 0);
+}
+
+- (void)testUniqueSearchId
+{
+    NSMutableSet *ids = [NSMutableSet new];
+    for (int i = 0; i < 1000; i++)
+    {
+        SGISearchItem *item = [SGISearchItem createSearchItemWithSearch:@"robbie williams"];
+        [ids addObject:@(item.searchId)];
+    }
+    XCTAssertEqual(ids.count, 1000); // set contains 1000 unique elements
+}
+
 - (void)testToJson
 {
-    SGISearchItem *item = [SGISearchItem searchItemWithSearch:@"robbie williams"];
+    SGISearchItem *item = [SGISearchItem createSearchItemWithSearch:@"robbie williams"];
     NSDictionary *json = item.toJson;
     XCTAssertNotNil(json);
-    XCTAssertEqual(json.count, 1);
+    XCTAssertEqual(json.count, 2);
+    XCTAssertTrue([json.allKeys containsObject:@"searchId"]);
     XCTAssertEqualObjects(json[@"search"], @"robbie williams");
 }
 
 - (void)testFromValidJson
 {
-    NSDictionary *json = @{@"search": @"robbie williams"};
+    NSDictionary *json = @{@"searchId":@(1234), @"search": @"robbie williams"};
     SGISearchItem *searchItem = [SGISearchItem fromJson:json];
     XCTAssertNotNil(searchItem);
     XCTAssertEqualObjects(searchItem.search, @"robbie williams");
@@ -46,7 +64,7 @@
     XCTAssertNil(searchItem);
 }
 
-- (void)testFromNonconformigJson
+- (void)testFromNonconformingJson
 {
     NSDictionary *json = @{@"asdf": @"qwerty"};
     SGISearchItem *searchItem = [SGISearchItem fromJson:json];
@@ -55,8 +73,8 @@
 
 - (void)testToJsonArray
 {
-    NSArray<SGISearchItem *> *items = @[[SGISearchItem searchItemWithSearch:@"robbie williams"],
-                                        [SGISearchItem searchItemWithSearch:@"david gilmour"]];
+    NSArray<SGISearchItem *> *items = @[[SGISearchItem createSearchItemWithSearch:@"robbie williams"],
+                                        [SGISearchItem createSearchItemWithSearch:@"david gilmour"]];
     NSArray<NSDictionary *> *jsonArray = [SGISearchItem toJsonArray:items];
     XCTAssertNotNil(jsonArray);
     XCTAssertEqual(jsonArray.count, 2);
@@ -66,14 +84,29 @@
 
 - (void)testFromJsonArray
 {
-    NSArray<NSDictionary *> *jsonArray = @[@{@"search":@"robbie williams"},
-                                           @{@"asdf":@"qwerty"},
-                                           @{@"search":@"david gilmour"}];
+    NSArray<NSDictionary *> *jsonArray = @[@{@"searchId":@(1234),@"search":@"robbie williams"},
+                                           @{@"asdf":@"qwerty"}, // will skip this on loading
+                                           @{@"searchId":@(1235),@"search":@"david gilmour"}];
     NSArray<SGISearchItem *> *items = [SGISearchItem fromJsonArray:jsonArray];
     XCTAssertNotNil(items);
     XCTAssertEqual(items.count, 2);
     XCTAssertEqualObjects(items[0].search, @"robbie williams");
+    XCTAssertEqual(items[0].searchId, 1234);
     XCTAssertEqualObjects(items[1].search, @"david gilmour");
+    XCTAssertEqual(items[1].searchId, 1235);
+}
+
+- (void)testLoadingAllowNonUniqueIds
+{
+    NSArray<NSDictionary *> *jsonArray = @[@{@"searchId":@(1234),@"search":@"robbie williams"},
+                                           @{@"searchId":@(1234),@"search":@"david gilmour"}];
+    NSArray<SGISearchItem *> *items = [SGISearchItem fromJsonArray:jsonArray];
+    XCTAssertNotNil(items);
+    XCTAssertEqual(items.count, 2);
+    XCTAssertEqual(items[0].searchId, 1234);
+
+    // we're writing just a bunch of JSON, don't enforce uniqueness
+    XCTAssertEqual(items[1].searchId, 1234);
 }
 
 @end

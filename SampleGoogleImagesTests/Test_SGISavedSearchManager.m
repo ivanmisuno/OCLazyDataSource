@@ -44,6 +44,7 @@
 - (void)testLoadMissingFile
 {
     NSArray<SGISearchItem *> *result = [self.sut loadSearches];
+    // should still return empty array
     XCTAssertNotNil(result);
     XCTAssertTrue([result isKindOfClass:[NSArray class]]);
     XCTAssertEqual(result.count, 0);
@@ -51,8 +52,8 @@
 
 - (NSArray<SGISearchItem *> *)defaultItems
 {
-    return @[[SGISearchItem searchItemWithSearch:@"robbie williams"],
-             [SGISearchItem searchItemWithSearch:@"robert guthrie"]];
+    return @[[SGISearchItem createSearchItemWithSearch:@"robbie williams"],
+             [SGISearchItem createSearchItemWithSearch:@"robert guthrie"]];
 }
 
 - (void)testSave
@@ -67,10 +68,16 @@
     NSArray<SGISearchItem *> *items = self.defaultItems;
     [self.sut saveSearches:items];
 
-    NSArray *loadedItems = [self.sut loadSearches];
+    NSArray<SGISearchItem *> *loadedItems = [self.sut loadSearches];
     XCTAssertNotNil(loadedItems);
     XCTAssertTrue([loadedItems isKindOfClass:[NSArray class]]);
     XCTAssertEqual(loadedItems.count, items.count);
+
+    for (int i = 0; i < items.count; i++)
+    {
+        XCTAssertEqual(items[i].searchId, loadedItems[i].searchId);
+        XCTAssertEqualObjects(items[i].search, loadedItems[i].search);
+    }
 }
 
 @end

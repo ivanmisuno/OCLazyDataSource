@@ -84,7 +84,7 @@
 
 - (void)doSearch:(NSString *)searchString
 {
-    SGISearchItem *search = [SGISearchItem searchItemWithSearch:searchString];
+    SGISearchItem *search = [SGISearchItem createSearchItemWithSearch:searchString];
     [self.savedSearches insertObject:search atIndex:0];
     [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self saveSearches];

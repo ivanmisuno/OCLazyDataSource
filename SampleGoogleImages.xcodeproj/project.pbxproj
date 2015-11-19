@@ -23,7 +23,6 @@
 		789B75AA1BFCE8210081A34B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789B75A81BFCE8210081A34B /* Main.storyboard */; };
 		789B75AC1BFCE8210081A34B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 789B75AB1BFCE8210081A34B /* Assets.xcassets */; };
 		789B75AF1BFCE8210081A34B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789B75AD1BFCE8210081A34B /* LaunchScreen.storyboard */; };
-		789B75BA1BFCE8210081A34B /* SampleGoogleImagesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 789B75B91BFCE8210081A34B /* SampleGoogleImagesTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +69,6 @@
 		789B75AE1BFCE8210081A34B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		789B75B01BFCE8210081A34B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		789B75B51BFCE8210081A34B /* SampleGoogleImagesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleGoogleImagesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		789B75B91BFCE8210081A34B /* SampleGoogleImagesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleGoogleImagesTests.m; sourceTree = "<group>"; };
 		789B75BB1BFCE8210081A34B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,7 +186,6 @@
 		789B75B81BFCE8210081A34B /* SampleGoogleImagesTests */ = {
 			isa = PBXGroup;
 			children = (
-				789B75B91BFCE8210081A34B /* SampleGoogleImagesTests.m */,
 				789B75BB1BFCE8210081A34B /* Info.plist */,
 				783605B41BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m */,
 				783605BF1BFCF9940014D558 /* Test_SGISearchItem.m */,
@@ -315,7 +312,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				789B75BA1BFCE8210081A34B /* SampleGoogleImagesTests.m in Sources */,
 				140881301BFD235900457B57 /* Test_SGISavedSearchManager.m in Sources */,
 				783605B51BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m in Sources */,
 				783605C01BFCF9940014D558 /* Test_SGISearchItem.m in Sources */,

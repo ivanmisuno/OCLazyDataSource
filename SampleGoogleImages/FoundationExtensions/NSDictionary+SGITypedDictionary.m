@@ -10,6 +10,11 @@
 
 @implementation NSDictionary (SGITypedDictionary)
 
+- (NSNumber * _Nullable)sgi_numberForKey:(NSString * _Nonnull)key
+{
+    NSNumber *result = self[key];
+    return [result isKindOfClass:[NSNumber class]] ? result : nil;
+}
 - (NSString * _Nullable)sgi_stringForKey:(NSString * _Nonnull)key
 {
     NSString *result = self[key];
