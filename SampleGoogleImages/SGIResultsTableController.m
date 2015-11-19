@@ -9,12 +9,37 @@
 #import "SGIResultsTableController.h"
 #import "SGISearchItem.h"
 
+@interface SGIResultsTableController()
+@property (nonatomic) NSArray<SGISearchItem *> *filteredSearches;
+@property (nonatomic) NSString *searchString;
+@end
+
 @implementation SGIResultsTableController
 
 - (void)setFilteredSearches:(NSArray<SGISearchItem *> *)filteredSearches
+            forSearchString:(NSString *)searchString
 {
     _filteredSearches = filteredSearches;
+    _searchString = searchString;
     [self.tableView reloadData];
+}
+
+- (NSAttributedString *)prepareAttributedStringForTitle:(NSString *)title
+                                                 search:(NSString *)search
+{
+    NSDictionary *defaultAttributes = @{NSFontAttributeName:[UIFont preferredFontForTextStyle:UIFontTextStyleBody],
+                                        NSForegroundColorAttributeName:[UIColor grayColor]};
+    NSMutableAttributedString *resultString = [[NSMutableAttributedString alloc] initWithString:title attributes:defaultAttributes];
+
+    NSDictionary *highlightAttributes = @{NSForegroundColorAttributeName:[UIColor blackColor]};
+
+    NSError *error = nil;
+    NSRegularExpression *rg = [NSRegularExpression regularExpressionWithPattern:search options:NSRegularExpressionCaseInsensitive error:&error];
+    [rg enumerateMatchesInString:title options:0 range:NSMakeRange(0, title.length) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+        [resultString setAttributes:highlightAttributes range:result.range];
+    }];
+
+    return resultString;
 }
 
 #pragma mark - UITableViewDataSource
@@ -38,7 +63,7 @@
     if (indexPath.row < self.filteredSearches.count)
     {
         SGISearchItem *item = self.filteredSearches[indexPath.row];
-        cell.textLabel.text = item.search;
+        cell.textLabel.attributedText = [self prepareAttributedStringForTitle:item.search search:self.searchString];
     }
 
     return cell;

@@ -72,7 +72,7 @@
 //    self.resultsTableController.tableView.delegate = self;
 
     self.searchController.delegate = self;
-    self.searchController.dimsBackgroundDuringPresentation = NO; // default is YES
+    self.searchController.dimsBackgroundDuringPresentation = YES; // default is YES
     self.searchController.searchBar.delegate = self; // so we can monitor text changes + others
 
     // Search is now just presenting a view controller. As such, normal view controller
@@ -104,46 +104,18 @@
     self.searchController.active = NO;
 }
 
-#pragma mark - UISearchControllerDelegate
-
-// Called after the search controller's search bar has agreed to begin editing or when
-// 'active' is set to YES.
-// If you choose not to present the controller yourself or do not implement this method,
-// a default presentation is performed on your behalf.
-//
-// Implement this method if the default presentation is not adequate for your purposes.
-//
-- (void)presentSearchController:(UISearchController *)searchController {
-
-}
-
-- (void)willPresentSearchController:(UISearchController *)searchController {
-    // do something before the search controller is presented
-}
-
-- (void)didPresentSearchController:(UISearchController *)searchController {
-    // do something after the search controller is presented
-}
-
-- (void)willDismissSearchController:(UISearchController *)searchController {
-    // do something before the search controller is dismissed
-}
-
-- (void)didDismissSearchController:(UISearchController *)searchController {
-    // do something after the search controller is dismissed
-}
-
 #pragma mark - UISearchResultsUpdating
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
 {
     if (searchController != self.searchController) return;
 
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"search like %@", [self searchString]];
+    NSString *searchString = [self searchString];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"search contains[cd] %@", searchString]; // [c]ase- and [d]iacritic- insensitiveness
     NSArray<SGISearchItem *> *searchResults = [self.savedSearches filteredArrayUsingPredicate:predicate];
 
     // hand over the filtered results to our search results table
-    self.resultsTableController.filteredSearches = searchResults;
+    [self.resultsTableController setFilteredSearches:searchResults forSearchString:searchString];
 }
 
 #pragma mark - UITableViewDataSource

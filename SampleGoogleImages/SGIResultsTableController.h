@@ -12,6 +12,7 @@
 
 @interface SGIResultsTableController : UITableViewController
 
-@property (nonatomic) NSArray<SGISearchItem *> *filteredSearches;
+- (void)setFilteredSearches:(NSArray<SGISearchItem *> *)filteredSearches
+            forSearchString:(NSString *)searchString;
 
 @end
