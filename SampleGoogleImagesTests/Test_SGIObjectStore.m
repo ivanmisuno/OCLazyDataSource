@@ -1,5 +1,5 @@
 //
-//  Test_SGISavedSearchManager.m
+//  Test_SGIObjectStore.m
 //  SampleGoogleImages
 //
 //  Created by Ivan Misuno on 18-11-2015.
@@ -7,14 +7,14 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "SGISavedSearchesManager.h"
+#import "SGIObjectStore.h"
 #import "NSFileManager+SGICommonDirectories.h"
 #import "SGISearchItem.h"
 
 @interface Test_SGISavedSearchManager : XCTestCase
 
 @property (nonatomic, readonly) NSString *tempFilename;
-@property (nonatomic, readonly) SGISavedSearchesManager *sut;
+@property (nonatomic, readonly) SGIObjectStore *sut;
 
 @end
 
@@ -30,7 +30,7 @@
 {
     [super setUp];
     _tempFilename = [[self class] tempFileName];
-    _sut = [SGISavedSearchesManager new];
+    _sut = [SGIObjectStore new];
     _sut.savedSearchesFilePath = self.tempFilename;
 }
 

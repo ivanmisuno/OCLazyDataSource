@@ -9,7 +9,7 @@
 #import "SGIFirstViewController.h"
 #import "SGIResultsTableController.h"
 #import "SGISearchItem.h"
-#import "SGISavedSearchesManager.h"
+#import "SGIObjectStore.h"
 
 @interface SGIFirstViewController() <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating>
 
@@ -34,18 +34,18 @@
     return _savedSearches;
 }
 
-+ (SGISavedSearchesManager *)saveManager
++ (SGIObjectStore *)saveManager
 {
-    return [SGISavedSearchesManager new];
+    return [SGIObjectStore new];
 }
 + (NSArray<SGISearchItem *> *)loadSearches
 {
-    SGISavedSearchesManager *saveManager = [self saveManager];
+    SGIObjectStore *saveManager = [self saveManager];
     return [saveManager loadSearches];
 }
 - (void)saveSearches
 {
-    SGISavedSearchesManager *saveManager = [[self class] saveManager];
+    SGIObjectStore *saveManager = [[self class] saveManager];
     [saveManager saveSearches:self.savedSearches];
 }
 

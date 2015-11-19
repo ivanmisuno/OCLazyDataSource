@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		1400A8421BFD0B9600D39D0E /* SGIResultsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1400A8411BFD0B9600D39D0E /* SGIResultsTableController.m */; };
 		140881261BFD1C0100457B57 /* NSFileManager+SGICommonDirectories.m in Sources */ = {isa = PBXBuildFile; fileRef = 140881251BFD1C0100457B57 /* NSFileManager+SGICommonDirectories.m */; };
-		1408812E1BFD20BF00457B57 /* SGISavedSearchesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1408812D1BFD20BF00457B57 /* SGISavedSearchesManager.m */; };
-		140881301BFD235900457B57 /* Test_SGISavedSearchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1408812F1BFD235900457B57 /* Test_SGISavedSearchManager.m */; };
+		1408812E1BFD20BF00457B57 /* SGIJsonStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1408812D1BFD20BF00457B57 /* SGIJsonStorageManager.m */; };
+		140881301BFD235900457B57 /* Test_SGIObjectStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1408812F1BFD235900457B57 /* Test_SGIObjectStore.m */; };
 		783605AC1BFCED230014D558 /* SGISearchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605AB1BFCED230014D558 /* SGISearchItem.m */; };
 		783605B31BFCEEC90014D558 /* NSDictionary+SGITypedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605B21BFCEEC90014D558 /* NSDictionary+SGITypedDictionary.m */; };
 		783605B51BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605B41BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m */; };
@@ -23,6 +23,7 @@
 		789B75AA1BFCE8210081A34B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789B75A81BFCE8210081A34B /* Main.storyboard */; };
 		789B75AC1BFCE8210081A34B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 789B75AB1BFCE8210081A34B /* Assets.xcassets */; };
 		789B75AF1BFCE8210081A34B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789B75AD1BFCE8210081A34B /* LaunchScreen.storyboard */; };
+		78E338331BFE35020015586B /* SGIObjectStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E338321BFE35020015586B /* SGIObjectStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,9 +41,9 @@
 		1400A8411BFD0B9600D39D0E /* SGIResultsTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGIResultsTableController.m; sourceTree = "<group>"; };
 		140881241BFD1C0100457B57 /* NSFileManager+SGICommonDirectories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+SGICommonDirectories.h"; sourceTree = "<group>"; };
 		140881251BFD1C0100457B57 /* NSFileManager+SGICommonDirectories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+SGICommonDirectories.m"; sourceTree = "<group>"; };
-		1408812C1BFD20BF00457B57 /* SGISavedSearchesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGISavedSearchesManager.h; sourceTree = "<group>"; };
-		1408812D1BFD20BF00457B57 /* SGISavedSearchesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGISavedSearchesManager.m; sourceTree = "<group>"; };
-		1408812F1BFD235900457B57 /* Test_SGISavedSearchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_SGISavedSearchManager.m; sourceTree = "<group>"; };
+		1408812C1BFD20BF00457B57 /* SGIJsonStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGIJsonStorageManager.h; sourceTree = "<group>"; };
+		1408812D1BFD20BF00457B57 /* SGIJsonStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGIJsonStorageManager.m; sourceTree = "<group>"; };
+		1408812F1BFD235900457B57 /* Test_SGIObjectStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_SGIObjectStore.m; sourceTree = "<group>"; };
 		783605AA1BFCED230014D558 /* SGISearchItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGISearchItem.h; sourceTree = "<group>"; };
 		783605AB1BFCED230014D558 /* SGISearchItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGISearchItem.m; sourceTree = "<group>"; };
 		783605AD1BFCED530014D558 /* SGIJSONConvertibleProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGIJSONConvertibleProtocol.h; sourceTree = "<group>"; };
@@ -70,6 +71,8 @@
 		789B75B01BFCE8210081A34B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		789B75B51BFCE8210081A34B /* SampleGoogleImagesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleGoogleImagesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		789B75BB1BFCE8210081A34B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78E338311BFE35020015586B /* SGIObjectStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGIObjectStore.h; sourceTree = "<group>"; };
+		78E338321BFE35020015586B /* SGIObjectStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGIObjectStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +99,10 @@
 				783605AD1BFCED530014D558 /* SGIJSONConvertibleProtocol.h */,
 				783605AA1BFCED230014D558 /* SGISearchItem.h */,
 				783605AB1BFCED230014D558 /* SGISearchItem.m */,
-				1408812C1BFD20BF00457B57 /* SGISavedSearchesManager.h */,
-				1408812D1BFD20BF00457B57 /* SGISavedSearchesManager.m */,
+				1408812C1BFD20BF00457B57 /* SGIJsonStorageManager.h */,
+				1408812D1BFD20BF00457B57 /* SGIJsonStorageManager.m */,
+				78E338311BFE35020015586B /* SGIObjectStore.h */,
+				78E338321BFE35020015586B /* SGIObjectStore.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,7 +194,7 @@
 				789B75BB1BFCE8210081A34B /* Info.plist */,
 				783605B41BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m */,
 				783605BF1BFCF9940014D558 /* Test_SGISearchItem.m */,
-				1408812F1BFD235900457B57 /* Test_SGISavedSearchManager.m */,
+				1408812F1BFD235900457B57 /* Test_SGIObjectStore.m */,
 			);
 			path = SampleGoogleImagesTests;
 			sourceTree = "<group>";
@@ -302,7 +307,8 @@
 				789B75A71BFCE8210081A34B /* SGISecondViewController.m in Sources */,
 				789B75A11BFCE8210081A34B /* AppDelegate.m in Sources */,
 				789B75A41BFCE8210081A34B /* SGIFirstViewController.m in Sources */,
-				1408812E1BFD20BF00457B57 /* SGISavedSearchesManager.m in Sources */,
+				1408812E1BFD20BF00457B57 /* SGIJsonStorageManager.m in Sources */,
+				78E338331BFE35020015586B /* SGIObjectStore.m in Sources */,
 				789B759E1BFCE8210081A34B /* main.m in Sources */,
 				1400A8421BFD0B9600D39D0E /* SGIResultsTableController.m in Sources */,
 			);
@@ -312,7 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				140881301BFD235900457B57 /* Test_SGISavedSearchManager.m in Sources */,
+				140881301BFD235900457B57 /* Test_SGIObjectStore.m in Sources */,
 				783605B51BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m in Sources */,
 				783605C01BFCF9940014D558 /* Test_SGISearchItem.m in Sources */,
 			);
@@ -380,6 +386,7 @@
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_SHADOW = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
@@ -418,6 +425,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_SHADOW = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
