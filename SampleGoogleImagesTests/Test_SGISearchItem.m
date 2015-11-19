@@ -19,6 +19,7 @@
 {
     SGISearchItem *item = [SGISearchItem createSearchItemWithSearch:@"robbie williams"];
     XCTAssertNotEqual(item.searchId, 0);
+    XCTAssertNotEqual(item.hash, 0);
 }
 
 - (void)testUniqueSearchId
@@ -39,6 +40,8 @@
     XCTAssertNotNil(json);
     XCTAssertEqual(json.count, 3);
     XCTAssertTrue([json.allKeys containsObject:@"searchId"]);
+    XCTAssertTrue([json.allKeys containsObject:@"search"]);
+    XCTAssertTrue([json.allKeys containsObject:@"timestamp"]);
     XCTAssertEqualObjects(json[@"search"], @"robbie williams");
 }
 
@@ -109,6 +112,30 @@
 
     // we're writing just a bunch of JSON, don't enforce uniqueness
     XCTAssertEqual(items[1].searchId, 1234);
+}
+
+- (void)testNotEqual
+{
+    SGISearchItem *item1 = [SGISearchItem createSearchItemWithSearch:@"robbie williams"];
+    SGISearchItem *item2 = [SGISearchItem createSearchItemWithSearch:@"david gilmour"];
+
+    XCTAssertFalse([item1 isEqual:nil]);
+    XCTAssertFalse([item1 isEqual:@""]);
+    XCTAssertFalse([item1 isEqual:item2]);
+}
+
+- (void)testUpdateTimestamp
+{
+    NSDictionary *json = @{@"searchId":@(1234), @"search": @"robbie williams", @"timestamp":@(1234.56)};
+    SGISearchItem *searchItem = [SGISearchItem fromJson:json];
+    XCTAssertNotNil(searchItem);
+    XCTAssertEqualObjects(searchItem.search, @"robbie williams");
+    XCTAssertEqual(searchItem.searchId, 1234);
+    XCTAssertEqualWithAccuracy(searchItem.timestamp, 1234.56, 0.001);
+
+    [searchItem updateTimestamp];
+    XCTAssertNotEqualWithAccuracy(searchItem.timestamp, 1234.56, 0.001);
+    XCTAssertTrue(searchItem.timestamp > 1234.56 + 0.001);
 }
 
 @end

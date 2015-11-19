@@ -13,7 +13,9 @@
 
 @property (nonatomic, readonly) long long searchId;
 @property (nonatomic, readonly) NSString * _Nonnull search;
-@property (nonatomic, readwrite) NSTimeInterval timestamp; // could be updated to bring recently used search to the top
+@property (nonatomic, readonly) NSTimeInterval timestamp;
+
+- (void)updateTimestamp;
 
 /// Creates new searchId (uses current timestamp)
 + (instancetype _Nonnull)createSearchItemWithSearch:(NSString * _Nonnull)search;

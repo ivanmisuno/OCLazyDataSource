@@ -22,13 +22,23 @@
     return __prevSearchId++;
 }
 
++ (NSTimeInterval)currentTimestamp
+{
+    return [NSDate timeIntervalSinceReferenceDate];
+}
+
 + (instancetype _Nonnull)createSearchItemWithSearch:(NSString * _Nonnull)search
 {
     long long newSearchId = [self newSearchId];
-    NSTimeInterval timestamp = [NSDate timeIntervalSinceReferenceDate];
     return [[self alloc] initWithSearchId:newSearchId
-                                   search:search
-                                timestamp:timestamp];
+                                   search:search];
+}
+- (instancetype _Nonnull)initWithSearchId:(long long)searchId
+                                   search:(NSString * _Nonnull)search
+{
+    return [self initWithSearchId:searchId
+                           search:search
+                        timestamp:[[self class] currentTimestamp]];
 }
 - (instancetype _Nonnull)initWithSearchId:(long long)searchId
                                    search:(NSString * _Nonnull)search
@@ -42,6 +52,33 @@
         _timestamp = timestamp;
     }
     return self;
+}
+
+- (void)updateTimestamp
+{
+    _timestamp = [[self class] currentTimestamp];
+}
+
+#pragma mark - Object equality
+
+- (BOOL)isEqual:(id)object
+{
+    if (object == self) return YES;
+    if (![object isKindOfClass:[SGISearchItem class]]) return NO;
+    return [self isEqualToSearchItem:object];
+}
+- (NSUInteger)hash
+{
+    return (self.searchId & 0xFFFFFFFF)
+        ^ self.search.hash
+        ^ ((NSUInteger)self.timestamp);
+}
+- (BOOL)isEqualToSearchItem:(SGISearchItem *)other
+{
+    return self.hash == other.hash
+        && self.searchId == other.searchId
+        && [self.search isEqualToString:other.search]
+        && self.timestamp == other.timestamp;
 }
 
 #pragma mark - SGIJSONConvertibleProtocol conformance

@@ -76,7 +76,9 @@
     for (int i = 0; i < items.count; i++)
     {
         XCTAssertEqual(items[i].searchId, loadedItems[i].searchId);
+        XCTAssertEqual(items[i].hash, loadedItems[i].hash);
         XCTAssertEqualObjects(items[i].search, loadedItems[i].search);
+        XCTAssertEqualObjects(items[i], loadedItems[i]);
     }
 }
 
