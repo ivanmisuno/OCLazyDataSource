@@ -11,14 +11,14 @@
 #import "NSFileManager+SGICommonDirectories.h"
 #import "SGISearchItem.h"
 
-@interface Test_SGISavedSearchManager : XCTestCase
+@interface Test_SGIObjectStore : XCTestCase
 
 @property (nonatomic, readonly) NSString *tempFilename;
 @property (nonatomic, readonly) SGIObjectStore *sut;
 
 @end
 
-@implementation Test_SGISavedSearchManager
+@implementation Test_SGIObjectStore
 
 + (NSString *)tempFileName
 {

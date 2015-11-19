@@ -93,8 +93,14 @@
             return;
         }
 
-        [jsonData writeToFile:filePath atomically:YES];
-        callback(nil);
+        [jsonData writeToFile:filePath options:NSDataWritingAtomic error:&error];
+        if (error)
+        {
+            callback([NSError errorWithDomain:@"SGIJsonStorageManager" code:-1/*define error codes!*/ userInfo:@{NSLocalizedDescriptionKey:NSLocalizedString(@"Could not write file", nil), NSUnderlyingErrorKey:error}]);
+            return;
+        }
+
+        callback(error);
     });
 }
 
