@@ -37,17 +37,19 @@
     SGISearchItem *item = [SGISearchItem createSearchItemWithSearch:@"robbie williams"];
     NSDictionary *json = item.toJson;
     XCTAssertNotNil(json);
-    XCTAssertEqual(json.count, 2);
+    XCTAssertEqual(json.count, 3);
     XCTAssertTrue([json.allKeys containsObject:@"searchId"]);
     XCTAssertEqualObjects(json[@"search"], @"robbie williams");
 }
 
 - (void)testFromValidJson
 {
-    NSDictionary *json = @{@"searchId":@(1234), @"search": @"robbie williams"};
+    NSDictionary *json = @{@"searchId":@(1234), @"search": @"robbie williams", @"timestamp":@(1234.56)};
     SGISearchItem *searchItem = [SGISearchItem fromJson:json];
     XCTAssertNotNil(searchItem);
     XCTAssertEqualObjects(searchItem.search, @"robbie williams");
+    XCTAssertEqual(searchItem.searchId, 1234);
+    XCTAssertEqualWithAccuracy(searchItem.timestamp, 1234.56, 0.001);
 }
 
 - (void)testFromNilJson
@@ -84,9 +86,9 @@
 
 - (void)testFromJsonArray
 {
-    NSArray<NSDictionary *> *jsonArray = @[@{@"searchId":@(1234),@"search":@"robbie williams"},
+    NSArray<NSDictionary *> *jsonArray = @[@{@"searchId":@(1234),@"search":@"robbie williams", @"timestamp":@(1234.56)},
                                            @{@"asdf":@"qwerty"}, // will skip this on loading
-                                           @{@"searchId":@(1235),@"search":@"david gilmour"}];
+                                           @{@"searchId":@(1235),@"search":@"david gilmour", @"timestamp":@(1234.56)}];
     NSArray<SGISearchItem *> *items = [SGISearchItem fromJsonArray:jsonArray];
     XCTAssertNotNil(items);
     XCTAssertEqual(items.count, 2);
@@ -98,8 +100,8 @@
 
 - (void)testLoadingAllowNonUniqueIds
 {
-    NSArray<NSDictionary *> *jsonArray = @[@{@"searchId":@(1234),@"search":@"robbie williams"},
-                                           @{@"searchId":@(1234),@"search":@"david gilmour"}];
+    NSArray<NSDictionary *> *jsonArray = @[@{@"searchId":@(1234),@"search":@"robbie williams", @"timestamp":@(1234.56)},
+                                           @{@"searchId":@(1234),@"search":@"david gilmour", @"timestamp":@(1234.56)}];
     NSArray<SGISearchItem *> *items = [SGISearchItem fromJsonArray:jsonArray];
     XCTAssertNotNil(items);
     XCTAssertEqual(items.count, 2);

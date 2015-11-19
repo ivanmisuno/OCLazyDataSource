@@ -25,17 +25,21 @@
 + (instancetype _Nonnull)createSearchItemWithSearch:(NSString * _Nonnull)search
 {
     long long newSearchId = [self newSearchId];
+    NSTimeInterval timestamp = [NSDate timeIntervalSinceReferenceDate];
     return [[self alloc] initWithSearchId:newSearchId
-                                   search:search];
+                                   search:search
+                                timestamp:timestamp];
 }
 - (instancetype _Nonnull)initWithSearchId:(long long)searchId
                                    search:(NSString * _Nonnull)search
+                                timestamp:(NSTimeInterval)timestamp
 {
     self = [super init];
     if (self)
     {
         _searchId = searchId;
         _search = search;
+        _timestamp = timestamp;
     }
     return self;
 }
@@ -50,7 +54,8 @@
     return @
     {
         @keypath(self, searchId) : @(self.searchId),
-        @keypath(self, search) : self.search
+        @keypath(self, search) : self.search,
+        @keypath(self, timestamp) : @(self.timestamp),
     };
 }
 
@@ -59,13 +64,16 @@
     if (![json isKindOfClass:[NSDictionary class]]) return nil;
     NSNumber *searchId = [json sgi_numberForKey:@keypath([SGISearchItem new], searchId)];
     NSString *search = [json sgi_stringForKey:@keypath([SGISearchItem new], search)];
+    NSNumber *timestamp = [json sgi_numberForKey:@keypath([SGISearchItem new], timestamp)];
     if (!searchId
-        || !search)
+        || !search
+        || !timestamp)
     {
         return nil;
     }
     return [[self alloc] initWithSearchId:[searchId longLongValue]
-                                   search:search];
+                                   search:search
+                                timestamp:[timestamp doubleValue]];
 }
 
 + (NSArray<NSDictionary *> * _Nonnull)toJsonArray:(NSArray<SGISearchItem *> * _Nonnull)itemArray
