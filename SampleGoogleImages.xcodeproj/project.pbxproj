@@ -37,6 +37,7 @@
 		78E338391BFF14AE0015586B /* SGIImageSearchResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E338381BFF14AE0015586B /* SGIImageSearchResults.m */; };
 		78E3383C1BFF156E0015586B /* SGIImageSearchResultItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E3383B1BFF156E0015586B /* SGIImageSearchResultItem.m */; };
 		78E3383F1BFF3B7B0015586B /* SGICollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E3383E1BFF3B7B0015586B /* SGICollectionViewItem.m */; };
+		78E338411BFF59550015586B /* Test_SGIImageSearchResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E338401BFF59550015586B /* Test_SGIImageSearchResults.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		78E3383B1BFF156E0015586B /* SGIImageSearchResultItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGIImageSearchResultItem.m; sourceTree = "<group>"; };
 		78E3383D1BFF3B7B0015586B /* SGICollectionViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGICollectionViewItem.h; sourceTree = "<group>"; };
 		78E3383E1BFF3B7B0015586B /* SGICollectionViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGICollectionViewItem.m; sourceTree = "<group>"; };
+		78E338401BFF59550015586B /* Test_SGIImageSearchResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_SGIImageSearchResults.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +272,7 @@
 				1408813A1BFEF5AF00457B57 /* Test_SGINetworkManager.m */,
 				1408813F1BFEF92F00457B57 /* Test_SGIImageSearchManager.m */,
 				140881441BFF005600457B57 /* Test_SGIImageSearchQueryBuilder.m */,
+				78E338401BFF59550015586B /* Test_SGIImageSearchResults.m */,
 			);
 			path = SampleGoogleImagesTests;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				1408813B1BFEF5AF00457B57 /* Test_SGINetworkManager.m in Sources */,
 				140881401BFEF92F00457B57 /* Test_SGIImageSearchManager.m in Sources */,
 				140881301BFD235900457B57 /* Test_SGIObjectStore.m in Sources */,
+				78E338411BFF59550015586B /* Test_SGIImageSearchResults.m in Sources */,
 				783605B51BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m in Sources */,
 				783605C01BFCF9940014D558 /* Test_SGISearchItem.m in Sources */,
 				78E338351BFE56740015586B /* Test_SGIJsonStorageManager.m in Sources */,
