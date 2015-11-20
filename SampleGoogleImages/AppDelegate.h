@@ -15,6 +15,7 @@
 @property (strong, nonatomic) UIWindow *window;
 
 @property (nonatomic, readonly) SGIImageSearchManager *searchManager;
+@property (nonatomic) BOOL safeSearchesOnly;
 
 + (AppDelegate *)sharedDelegate;
 

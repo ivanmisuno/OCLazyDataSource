@@ -33,6 +33,25 @@
     }
 }
 
+- (BOOL)safeSearchesOnly
+{
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@keypath(self, safeSearchesOnly)])
+    {
+        // initial value
+        self.safeSearchesOnly = YES;
+        return YES;
+    }
+
+    return [[NSUserDefaults standardUserDefaults] boolForKey:@keypath(self, safeSearchesOnly)];
+}
+- (void)setSafeSearchesOnly:(BOOL)safeSearchesOnly
+{
+    [[NSUserDefaults standardUserDefaults] setBool:safeSearchesOnly forKey:@keypath(self, safeSearchesOnly)];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
+    // TODO: reset loaded (in-memory) lists of results
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     return YES;

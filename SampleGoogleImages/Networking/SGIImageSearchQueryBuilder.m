@@ -7,6 +7,7 @@
 //
 
 #import "SGIImageSearchQueryBuilder.h"
+#import "AppDelegate.h" // for safeSearches
 
 @interface SGIImageSearchQueryBuilder()
 @property (nonatomic, readonly) NSURLComponents *urlComponents;
@@ -35,6 +36,8 @@
 
                                       // number of results to return per page (1-8)
                                       [NSURLQueryItem queryItemWithName:@"rsz" value:@"8"],
+
+                                      [NSURLQueryItem queryItemWithName:@"safe" value:[AppDelegate sharedDelegate].safeSearchesOnly ? @"active" : @"moderate"],
 
                                       // this parameter is not strictly required.
                                       // obtaining client IP is not a 1-liner, and reporting it must involve explicit user consent on discloosing his private information.

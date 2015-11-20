@@ -96,6 +96,13 @@ static NSString *const kLoadMoreCellIdentifier = @"LoadMoreCell";
     return _dataSource;
 }
 
+- (void)setAdditionalBottomInset:(CGFloat)additionalBottomInset
+{
+    UIEdgeInsets contentInsets = self.collectionView.contentInset;
+    contentInsets.bottom = self.bottomLayoutGuide.length + additionalBottomInset;
+    self.collectionView.contentInset = contentInsets;
+}
+
 - (void)reloadData
 {
     @weakify(self);
@@ -146,6 +153,11 @@ static NSString *const kLoadMoreCellIdentifier = @"LoadMoreCell";
             int index = (int)self.dataSource.count;
             [self.dataSource insertObject:item atIndex:index];
             [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]]];
+            self.additionalBottomInset = self.view.bounds.size.height/2;
+        }
+        else
+        {
+            self.additionalBottomInset = 0;
         }
     } completion:nil];
 }

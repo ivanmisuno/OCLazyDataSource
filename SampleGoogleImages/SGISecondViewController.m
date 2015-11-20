@@ -7,21 +7,29 @@
 //
 
 #import "SGISecondViewController.h"
+#import "AppDelegate.h"
 
 @interface SGISecondViewController ()
+
+@property (nonatomic) IBOutlet UISwitch * safeContent;
 
 @end
 
 @implementation SGISecondViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    self.title = NSLocalizedString(@"Settings", nil);
+
+    [self.safeContent addTarget:self action:@selector(safeContentChanged:) forControlEvents:UIControlEventValueChanged];
+    self.safeContent.on = [AppDelegate sharedDelegate].safeSearchesOnly;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)safeContentChanged:(id)sender
+{
+    [AppDelegate sharedDelegate].safeSearchesOnly = self.safeContent.on;
 }
 
 @end
