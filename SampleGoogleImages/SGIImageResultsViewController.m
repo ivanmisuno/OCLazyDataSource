@@ -29,7 +29,7 @@ static NSString *const kLoadMoreCellIdentifier = @"LoadMoreCell";
 @interface SGIImageResultsViewController() <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic) SGISearchItem *search;
-@property (nonatomic) NSURLSessionDataTask *request;
+@property (nonatomic) NSURLSessionTask *request;
 @property (nonatomic) BOOL requestFailed;
 
 @property (nonatomic) UICollectionViewFlowLayout *collectionViewLayout;
@@ -66,7 +66,7 @@ static NSString *const kLoadMoreCellIdentifier = @"LoadMoreCell";
     self.collectionViewLayout = [UICollectionViewFlowLayout new];
     self.collectionViewLayout.minimumLineSpacing = 20;
     self.collectionViewLayout.minimumInteritemSpacing = 20;
-    self.collectionViewLayout.itemSize = CGSizeMake(100,100);
+    self.collectionViewLayout.itemSize = CGSizeMake(100,80);
 
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:self.collectionViewLayout];
     self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;

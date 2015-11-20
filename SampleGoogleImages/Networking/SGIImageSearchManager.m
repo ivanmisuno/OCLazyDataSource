@@ -29,9 +29,9 @@
     return defaultConfiguration;
 }
 
-- (NSURLSessionDataTask *)searchWithSearch:(NSString *)search
-                                startIndex:(NSInteger)startIndex
-                                  callback:(void(^)(SGIImageSearchResults *results, NSError *error))callback
+- (NSURLSessionTask *)searchWithSearch:(NSString *)search
+                            startIndex:(NSInteger)startIndex
+                              callback:(void(^)(SGIImageSearchResults *results, NSError *error))callback
 {
     SGIImageSearchQueryBuilder *queryBuilder = [SGIImageSearchQueryBuilder queryBuilderWithSearch:search startIndex:startIndex];
 
@@ -82,6 +82,49 @@
 
         SGIImageSearchResults *results = [SGIImageSearchResults fromJson:json];
         doCallback(results, nil);
+    }];
+
+    [task resume];
+
+    return task;
+}
+
+- (NSURLSessionTask *)getImageWithURL:(NSURL *)imageUrl
+                             callback:(void(^)(UIImage *image, NSError *error))callback
+{
+    NSURLSessionDataTask *task = [self.session dataTaskWithURL:imageUrl completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+
+        void (^doCallback)(UIImage *image, NSError *error) = ^(UIImage *image2, NSError *error2)
+        {
+            if (callback)
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    callback(image2, error2);
+                });
+            }
+        };
+
+        if (!data || error)
+        {
+            NSMutableDictionary *errorInfo = [@{NSLocalizedDescriptionKey:NSLocalizedString(@"Error receiving data", nil)} mutableCopy];
+            if (error) [errorInfo addEntriesFromDictionary:@{NSUnderlyingErrorKey:error}];
+            NSError *reportError = [NSError errorWithDomain:@"SGIImageSearchManager" code:-1/*define error codes*/ userInfo:errorInfo];
+            doCallback(nil, reportError);
+            return;
+        }
+
+        UIImage *image = [UIImage imageWithData:data];
+        if (!image)
+        {
+            NSMutableDictionary *errorInfo = [@{NSLocalizedDescriptionKey:NSLocalizedString(@"Error reading image data", nil)} mutableCopy];
+            NSError *reportError = [NSError errorWithDomain:@"SGIImageSearchManager" code:1/*define error codes*/ userInfo:errorInfo];
+            doCallback(nil, reportError);
+            return;
+        }
+
+        // TODO: rasterize image!!!
+
+        doCallback(image, nil);
     }];
 
     [task resume];
