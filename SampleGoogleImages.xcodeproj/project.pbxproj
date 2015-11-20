@@ -18,6 +18,8 @@
 		140881431BFEFA4300457B57 /* SGIImageSearchQueryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 140881421BFEFA4300457B57 /* SGIImageSearchQueryBuilder.m */; };
 		140881451BFF005600457B57 /* Test_SGIImageSearchQueryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 140881441BFF005600457B57 /* Test_SGIImageSearchQueryBuilder.m */; };
 		140881481BFF029B00457B57 /* SGIImageResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140881471BFF029B00457B57 /* SGIImageResultsViewController.m */; };
+		1408814F1BFF09F500457B57 /* SGIImageResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1408814E1BFF09F500457B57 /* SGIImageResultCell.m */; };
+		140881521BFF0A1A00457B57 /* SGILoadMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 140881511BFF0A1A00457B57 /* SGILoadMoreCell.m */; };
 		783605AC1BFCED230014D558 /* SGISearchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605AB1BFCED230014D558 /* SGISearchItem.m */; };
 		783605B31BFCEEC90014D558 /* NSDictionary+SGITypedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605B21BFCEEC90014D558 /* NSDictionary+SGITypedDictionary.m */; };
 		783605B51BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605B41BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m */; };
@@ -64,6 +66,10 @@
 		140881441BFF005600457B57 /* Test_SGIImageSearchQueryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_SGIImageSearchQueryBuilder.m; sourceTree = "<group>"; };
 		140881461BFF029B00457B57 /* SGIImageResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGIImageResultsViewController.h; sourceTree = "<group>"; };
 		140881471BFF029B00457B57 /* SGIImageResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGIImageResultsViewController.m; sourceTree = "<group>"; };
+		1408814D1BFF09F500457B57 /* SGIImageResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGIImageResultCell.h; sourceTree = "<group>"; };
+		1408814E1BFF09F500457B57 /* SGIImageResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGIImageResultCell.m; sourceTree = "<group>"; };
+		140881501BFF0A1A00457B57 /* SGILoadMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGILoadMoreCell.h; sourceTree = "<group>"; };
+		140881511BFF0A1A00457B57 /* SGILoadMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGILoadMoreCell.m; sourceTree = "<group>"; };
 		783605AA1BFCED230014D558 /* SGISearchItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGISearchItem.h; sourceTree = "<group>"; };
 		783605AB1BFCED230014D558 /* SGISearchItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGISearchItem.m; sourceTree = "<group>"; };
 		783605AD1BFCED530014D558 /* SGIJSONConvertibleProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGIJSONConvertibleProtocol.h; sourceTree = "<group>"; };
@@ -125,6 +131,17 @@
 				140881421BFEFA4300457B57 /* SGIImageSearchQueryBuilder.m */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		1408814C1BFF09DB00457B57 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1408814D1BFF09F500457B57 /* SGIImageResultCell.h */,
+				1408814E1BFF09F500457B57 /* SGIImageResultCell.m */,
+				140881501BFF0A1A00457B57 /* SGILoadMoreCell.h */,
+				140881511BFF0A1A00457B57 /* SGILoadMoreCell.m */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		783605A91BFCEC850014D558 /* Model */ = {
@@ -197,6 +214,7 @@
 				783605B01BFCEEB20014D558 /* FoundationExtensions */,
 				783605A91BFCEC850014D558 /* Model */,
 				140881361BFEF2FF00457B57 /* Networking */,
+				1408814C1BFF09DB00457B57 /* Cells */,
 				789B759F1BFCE8210081A34B /* AppDelegate.h */,
 				789B75A01BFCE8210081A34B /* AppDelegate.m */,
 				789B75A21BFCE8210081A34B /* SGIFirstViewController.h */,
@@ -346,6 +364,8 @@
 				783605B31BFCEEC90014D558 /* NSDictionary+SGITypedDictionary.m in Sources */,
 				140881431BFEFA4300457B57 /* SGIImageSearchQueryBuilder.m in Sources */,
 				783605BD1BFCF14D0014D558 /* RACEXTRuntimeExtensions.m in Sources */,
+				1408814F1BFF09F500457B57 /* SGIImageResultCell.m in Sources */,
+				140881521BFF0A1A00457B57 /* SGILoadMoreCell.m in Sources */,
 				140881261BFD1C0100457B57 /* NSFileManager+SGICommonDirectories.m in Sources */,
 				789B75A71BFCE8210081A34B /* SGISecondViewController.m in Sources */,
 				789B75A11BFCE8210081A34B /* AppDelegate.m in Sources */,
