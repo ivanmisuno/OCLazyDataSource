@@ -11,6 +11,13 @@
 		140881261BFD1C0100457B57 /* NSFileManager+SGICommonDirectories.m in Sources */ = {isa = PBXBuildFile; fileRef = 140881251BFD1C0100457B57 /* NSFileManager+SGICommonDirectories.m */; };
 		1408812E1BFD20BF00457B57 /* SGIJsonStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1408812D1BFD20BF00457B57 /* SGIJsonStorageManager.m */; };
 		140881301BFD235900457B57 /* Test_SGIObjectStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1408812F1BFD235900457B57 /* Test_SGIObjectStore.m */; };
+		140881391BFEF37000457B57 /* SGINetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 140881381BFEF37000457B57 /* SGINetworkManager.m */; };
+		1408813B1BFEF5AF00457B57 /* Test_SGINetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1408813A1BFEF5AF00457B57 /* Test_SGINetworkManager.m */; };
+		1408813E1BFEF71C00457B57 /* SGIImageSearchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1408813D1BFEF71C00457B57 /* SGIImageSearchManager.m */; };
+		140881401BFEF92F00457B57 /* Test_SGIImageSearchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1408813F1BFEF92F00457B57 /* Test_SGIImageSearchManager.m */; };
+		140881431BFEFA4300457B57 /* SGIImageSearchQueryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 140881421BFEFA4300457B57 /* SGIImageSearchQueryBuilder.m */; };
+		140881451BFF005600457B57 /* Test_SGIImageSearchQueryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 140881441BFF005600457B57 /* Test_SGIImageSearchQueryBuilder.m */; };
+		140881481BFF029B00457B57 /* SGIImageResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140881471BFF029B00457B57 /* SGIImageResultsViewController.m */; };
 		783605AC1BFCED230014D558 /* SGISearchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605AB1BFCED230014D558 /* SGISearchItem.m */; };
 		783605B31BFCEEC90014D558 /* NSDictionary+SGITypedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605B21BFCEEC90014D558 /* NSDictionary+SGITypedDictionary.m */; };
 		783605B51BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605B41BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m */; };
@@ -46,6 +53,17 @@
 		1408812D1BFD20BF00457B57 /* SGIJsonStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGIJsonStorageManager.m; sourceTree = "<group>"; };
 		1408812F1BFD235900457B57 /* Test_SGIObjectStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_SGIObjectStore.m; sourceTree = "<group>"; };
 		140881351BFE8CB500457B57 /* SGIResultsTableControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGIResultsTableControllerDelegate.h; sourceTree = "<group>"; };
+		140881371BFEF37000457B57 /* SGINetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGINetworkManager.h; sourceTree = "<group>"; };
+		140881381BFEF37000457B57 /* SGINetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGINetworkManager.m; sourceTree = "<group>"; };
+		1408813A1BFEF5AF00457B57 /* Test_SGINetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_SGINetworkManager.m; sourceTree = "<group>"; };
+		1408813C1BFEF71C00457B57 /* SGIImageSearchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGIImageSearchManager.h; sourceTree = "<group>"; };
+		1408813D1BFEF71C00457B57 /* SGIImageSearchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGIImageSearchManager.m; sourceTree = "<group>"; };
+		1408813F1BFEF92F00457B57 /* Test_SGIImageSearchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_SGIImageSearchManager.m; sourceTree = "<group>"; };
+		140881411BFEFA4300457B57 /* SGIImageSearchQueryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGIImageSearchQueryBuilder.h; sourceTree = "<group>"; };
+		140881421BFEFA4300457B57 /* SGIImageSearchQueryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGIImageSearchQueryBuilder.m; sourceTree = "<group>"; };
+		140881441BFF005600457B57 /* Test_SGIImageSearchQueryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_SGIImageSearchQueryBuilder.m; sourceTree = "<group>"; };
+		140881461BFF029B00457B57 /* SGIImageResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGIImageResultsViewController.h; sourceTree = "<group>"; };
+		140881471BFF029B00457B57 /* SGIImageResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGIImageResultsViewController.m; sourceTree = "<group>"; };
 		783605AA1BFCED230014D558 /* SGISearchItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGISearchItem.h; sourceTree = "<group>"; };
 		783605AB1BFCED230014D558 /* SGISearchItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGISearchItem.m; sourceTree = "<group>"; };
 		783605AD1BFCED530014D558 /* SGIJSONConvertibleProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGIJSONConvertibleProtocol.h; sourceTree = "<group>"; };
@@ -96,6 +114,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		140881361BFEF2FF00457B57 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				140881371BFEF37000457B57 /* SGINetworkManager.h */,
+				140881381BFEF37000457B57 /* SGINetworkManager.m */,
+				1408813C1BFEF71C00457B57 /* SGIImageSearchManager.h */,
+				1408813D1BFEF71C00457B57 /* SGIImageSearchManager.m */,
+				140881411BFEFA4300457B57 /* SGIImageSearchQueryBuilder.h */,
+				140881421BFEFA4300457B57 /* SGIImageSearchQueryBuilder.m */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		783605A91BFCEC850014D558 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +196,7 @@
 			children = (
 				783605B01BFCEEB20014D558 /* FoundationExtensions */,
 				783605A91BFCEC850014D558 /* Model */,
+				140881361BFEF2FF00457B57 /* Networking */,
 				789B759F1BFCE8210081A34B /* AppDelegate.h */,
 				789B75A01BFCE8210081A34B /* AppDelegate.m */,
 				789B75A21BFCE8210081A34B /* SGIFirstViewController.h */,
@@ -172,6 +204,8 @@
 				140881351BFE8CB500457B57 /* SGIResultsTableControllerDelegate.h */,
 				1400A8401BFD0B9600D39D0E /* SGIResultsTableController.h */,
 				1400A8411BFD0B9600D39D0E /* SGIResultsTableController.m */,
+				140881461BFF029B00457B57 /* SGIImageResultsViewController.h */,
+				140881471BFF029B00457B57 /* SGIImageResultsViewController.m */,
 				789B75A51BFCE8210081A34B /* SGISecondViewController.h */,
 				789B75A61BFCE8210081A34B /* SGISecondViewController.m */,
 				789B75A81BFCE8210081A34B /* Main.storyboard */,
@@ -200,6 +234,9 @@
 				783605BF1BFCF9940014D558 /* Test_SGISearchItem.m */,
 				1408812F1BFD235900457B57 /* Test_SGIObjectStore.m */,
 				78E338341BFE56740015586B /* Test_SGIJsonStorageManager.m */,
+				1408813A1BFEF5AF00457B57 /* Test_SGINetworkManager.m */,
+				1408813F1BFEF92F00457B57 /* Test_SGIImageSearchManager.m */,
+				140881441BFF005600457B57 /* Test_SGIImageSearchQueryBuilder.m */,
 			);
 			path = SampleGoogleImagesTests;
 			sourceTree = "<group>";
@@ -307,10 +344,14 @@
 			files = (
 				783605AC1BFCED230014D558 /* SGISearchItem.m in Sources */,
 				783605B31BFCEEC90014D558 /* NSDictionary+SGITypedDictionary.m in Sources */,
+				140881431BFEFA4300457B57 /* SGIImageSearchQueryBuilder.m in Sources */,
 				783605BD1BFCF14D0014D558 /* RACEXTRuntimeExtensions.m in Sources */,
 				140881261BFD1C0100457B57 /* NSFileManager+SGICommonDirectories.m in Sources */,
 				789B75A71BFCE8210081A34B /* SGISecondViewController.m in Sources */,
 				789B75A11BFCE8210081A34B /* AppDelegate.m in Sources */,
+				140881481BFF029B00457B57 /* SGIImageResultsViewController.m in Sources */,
+				140881391BFEF37000457B57 /* SGINetworkManager.m in Sources */,
+				1408813E1BFEF71C00457B57 /* SGIImageSearchManager.m in Sources */,
 				789B75A41BFCE8210081A34B /* SGIFirstViewController.m in Sources */,
 				1408812E1BFD20BF00457B57 /* SGIJsonStorageManager.m in Sources */,
 				78E338331BFE35020015586B /* SGIObjectStore.m in Sources */,
@@ -323,6 +364,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				140881451BFF005600457B57 /* Test_SGIImageSearchQueryBuilder.m in Sources */,
+				1408813B1BFEF5AF00457B57 /* Test_SGINetworkManager.m in Sources */,
+				140881401BFEF92F00457B57 /* Test_SGIImageSearchManager.m in Sources */,
 				140881301BFD235900457B57 /* Test_SGIObjectStore.m in Sources */,
 				783605B51BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m in Sources */,
 				783605C01BFCF9940014D558 /* Test_SGISearchItem.m in Sources */,

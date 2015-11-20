@@ -11,6 +11,7 @@
 #import "SGISearchItem.h"
 #import "SGIObjectStore.h"
 #import "SGIResultsTableControllerDelegate.h"
+#import "SGIImageResultsViewController.h"
 
 @interface SGIFirstViewController() <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating, SGIResultsTableControllerDelegate>
 
@@ -66,9 +67,6 @@
     _searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultsTableController];
     self.searchController.searchResultsUpdater = self;
     self.tableView.tableHeaderView = self.searchController.searchBar;
-
-//    // we want to be the delegate for our filtered table so didSelectRowAtIndexPath is called for both tables
-//    self.resultsTableController.tableView.delegate = self;
 
     self.searchController.delegate = self;
     self.searchController.dimsBackgroundDuringPresentation = YES; // default is YES
@@ -183,9 +181,11 @@
 
 - (void)doSearch:(NSString *)searchString
 {
-    __unused SGISearchItem *search = [self searchItemWithString:searchString];
-    //[self saveSearchItem:search];
-    //TODO: present results for given search
+    SGISearchItem *search = [self searchItemWithString:searchString];
+
+    SGIImageResultsViewController *searchResultsController = [[SGIImageResultsViewController alloc] initWithNibName:nil bundle:nil];
+    [searchResultsController showResultsForQuery:search];
+    [self.navigationController pushViewController:searchResultsController animated:YES];
 }
 
 - (SGISearchItem *)searchItemWithString:(NSString *)searchString
