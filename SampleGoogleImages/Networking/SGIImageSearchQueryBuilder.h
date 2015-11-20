@@ -11,6 +11,7 @@
 @interface SGIImageSearchQueryBuilder : NSObject
 
 + (instancetype)queryBuilderWithSearch:(NSString *)search;
++ (instancetype)queryBuilderWithSearch:(NSString *)search startIndex:(NSInteger)startIndex;
 
 @property (nonatomic, readonly, copy) NSURL *URL;
 

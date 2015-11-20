@@ -10,6 +10,23 @@
 
 @implementation NSDictionary (SGITypedDictionary)
 
+- (NSInteger)sgi_integerForKey:(NSString * _Nonnull)key
+{
+    NSNumber *number = [self sgi_numberForKey:key];
+    if (number) return [number integerValue];
+    NSString *str = [self sgi_stringForKey:key];
+    if (str) return [str integerValue];
+    return 0;
+}
+- (double)sgi_doubleForKey:(NSString * _Nonnull)key
+{
+    NSNumber *number = [self sgi_numberForKey:key];
+    if (number) return [number doubleValue];
+    NSString *str = [self sgi_stringForKey:key];
+    if (str) return [str doubleValue];
+    return 0;
+}
+
 - (NSNumber * _Nullable)sgi_numberForKey:(NSString * _Nonnull)key
 {
     NSNumber *result = self[key];
@@ -24,6 +41,11 @@
 {
     NSArray *result = self[key];
     return [result isKindOfClass:[NSArray class]] ? result : nil;
+}
+- (NSDictionary * _Nullable)sgi_dictionaryForKey:(NSString * _Nonnull)key
+{
+    NSDictionary *result = self[key];
+    return [result isKindOfClass:[NSDictionary class]] ? result : nil;
 }
 
 @end

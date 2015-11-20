@@ -30,6 +30,8 @@
     XCTAssertEqualObjects(self.sut.URL.host, @"ajax.googleapis.com");
     XCTAssertEqualObjects(self.sut.URL.path, @"/ajax/services/search/images");
     XCTAssertTrue([self.sut.URL.query containsString:@"robbie%20williams"]);
+    XCTAssertTrue([self.sut.URL.query containsString:@"start=0"]);
+    XCTAssertTrue([self.sut.URL.query containsString:@"v=1.0"]);
 }
 
 @end

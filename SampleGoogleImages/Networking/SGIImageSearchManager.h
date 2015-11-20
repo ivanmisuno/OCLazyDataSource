@@ -9,9 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "SGINetworkManager.h"
 
+@class SGIImageSearchResults;
+
 @interface SGIImageSearchManager : SGINetworkManager
 
 // overrides SGINetworkManager's property
-@property (nonatomic) NSURLSessionConfiguration *defaultConfiguration;
+@property (nonatomic, readonly) NSURLSessionConfiguration *defaultConfiguration;
+
+- (NSURLSessionDataTask *)searchWithSearch:(NSString *)search
+                                startIndex:(NSInteger)startIndex
+                                  callback:(void(^)(SGIImageSearchResults *results, NSError *error))callback;
 
 @end

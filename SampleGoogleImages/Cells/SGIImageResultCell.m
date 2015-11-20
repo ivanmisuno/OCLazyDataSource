@@ -10,4 +10,9 @@
 
 @implementation SGIImageResultCell
 
+- (void)displayImage:(SGIImageSearchResultItem *)image
+{
+    self.contentView.backgroundColor = [UIColor yellowColor];
+}
+
 @end

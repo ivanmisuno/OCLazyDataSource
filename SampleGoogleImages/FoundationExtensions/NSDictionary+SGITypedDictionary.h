@@ -10,8 +10,12 @@
 
 @interface NSDictionary (SGITypedDictionary)
 
+- (NSInteger)sgi_integerForKey:(NSString * _Nonnull)key;
+- (double)sgi_doubleForKey:(NSString * _Nonnull)key;
+
 - (NSNumber * _Nullable)sgi_numberForKey:(NSString * _Nonnull)key;
 - (NSString * _Nullable)sgi_stringForKey:(NSString * _Nonnull)key;
 - (NSArray * _Nullable)sgi_arrayForKey:(NSString * _Nonnull)key;
+- (NSDictionary * _Nullable)sgi_dictionaryForKey:(NSString * _Nonnull)key;
 
 @end

@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class SGIImageSearchResultItem;
+
 @interface SGIImageResultCell : UICollectionViewCell
+
+- (void)displayImage:(SGIImageSearchResultItem *)image;
 
 @end

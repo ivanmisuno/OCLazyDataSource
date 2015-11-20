@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "SGIJSONConvertibleProtocol.h"
 
+@class SGIImageSearchResults;
+
 @interface SGISearchItem : NSObject <SGIJSONConvertibleProtocol>
 
 @property (nonatomic, readonly) long long searchId;
@@ -22,6 +24,9 @@
 
 + (NSArray<NSDictionary *> * _Nonnull)toJsonArray:(NSArray<SGISearchItem *> * _Nonnull)itemArray;
 + (NSArray<SGISearchItem *> * _Nonnull)fromJsonArray:(NSArray<NSDictionary *> * _Nonnull)jsonArray;
+
+// these are not persisted
+@property (nonatomic) SGIImageSearchResults * _Nullable searchResults;
 
 @end
 

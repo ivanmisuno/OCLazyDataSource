@@ -34,6 +34,9 @@
 		789B75AF1BFCE8210081A34B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789B75AD1BFCE8210081A34B /* LaunchScreen.storyboard */; };
 		78E338331BFE35020015586B /* SGIObjectStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E338321BFE35020015586B /* SGIObjectStore.m */; };
 		78E338351BFE56740015586B /* Test_SGIJsonStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E338341BFE56740015586B /* Test_SGIJsonStorageManager.m */; };
+		78E338391BFF14AE0015586B /* SGIImageSearchResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E338381BFF14AE0015586B /* SGIImageSearchResults.m */; };
+		78E3383C1BFF156E0015586B /* SGIImageSearchResultItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E3383B1BFF156E0015586B /* SGIImageSearchResultItem.m */; };
+		78E3383F1BFF3B7B0015586B /* SGICollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E3383E1BFF3B7B0015586B /* SGICollectionViewItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +103,12 @@
 		78E338311BFE35020015586B /* SGIObjectStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGIObjectStore.h; sourceTree = "<group>"; };
 		78E338321BFE35020015586B /* SGIObjectStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGIObjectStore.m; sourceTree = "<group>"; };
 		78E338341BFE56740015586B /* Test_SGIJsonStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_SGIJsonStorageManager.m; sourceTree = "<group>"; };
+		78E338371BFF14AE0015586B /* SGIImageSearchResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGIImageSearchResults.h; sourceTree = "<group>"; };
+		78E338381BFF14AE0015586B /* SGIImageSearchResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGIImageSearchResults.m; sourceTree = "<group>"; };
+		78E3383A1BFF156E0015586B /* SGIImageSearchResultItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGIImageSearchResultItem.h; sourceTree = "<group>"; };
+		78E3383B1BFF156E0015586B /* SGIImageSearchResultItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGIImageSearchResultItem.m; sourceTree = "<group>"; };
+		78E3383D1BFF3B7B0015586B /* SGICollectionViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGICollectionViewItem.h; sourceTree = "<group>"; };
+		78E3383E1BFF3B7B0015586B /* SGICollectionViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGICollectionViewItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +145,8 @@
 		1408814C1BFF09DB00457B57 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				78E3383D1BFF3B7B0015586B /* SGICollectionViewItem.h */,
+				78E3383E1BFF3B7B0015586B /* SGICollectionViewItem.m */,
 				1408814D1BFF09F500457B57 /* SGIImageResultCell.h */,
 				1408814E1BFF09F500457B57 /* SGIImageResultCell.m */,
 				140881501BFF0A1A00457B57 /* SGILoadMoreCell.h */,
@@ -154,6 +165,10 @@
 				1408812D1BFD20BF00457B57 /* SGIJsonStorageManager.m */,
 				78E338311BFE35020015586B /* SGIObjectStore.h */,
 				78E338321BFE35020015586B /* SGIObjectStore.m */,
+				78E338371BFF14AE0015586B /* SGIImageSearchResults.h */,
+				78E338381BFF14AE0015586B /* SGIImageSearchResults.m */,
+				78E3383A1BFF156E0015586B /* SGIImageSearchResultItem.h */,
+				78E3383B1BFF156E0015586B /* SGIImageSearchResultItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -360,6 +375,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78E338391BFF14AE0015586B /* SGIImageSearchResults.m in Sources */,
+				78E3383F1BFF3B7B0015586B /* SGICollectionViewItem.m in Sources */,
 				783605AC1BFCED230014D558 /* SGISearchItem.m in Sources */,
 				783605B31BFCEEC90014D558 /* NSDictionary+SGITypedDictionary.m in Sources */,
 				140881431BFEFA4300457B57 /* SGIImageSearchQueryBuilder.m in Sources */,
@@ -376,6 +393,7 @@
 				1408812E1BFD20BF00457B57 /* SGIJsonStorageManager.m in Sources */,
 				78E338331BFE35020015586B /* SGIObjectStore.m in Sources */,
 				789B759E1BFCE8210081A34B /* main.m in Sources */,
+				78E3383C1BFF156E0015586B /* SGIImageSearchResultItem.m in Sources */,
 				1400A8421BFD0B9600D39D0E /* SGIResultsTableController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

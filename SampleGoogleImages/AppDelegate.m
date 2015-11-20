@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SGIImageSearchManager.h"
 
 @interface AppDelegate ()
 
@@ -14,6 +15,23 @@
 
 @implementation AppDelegate
 
++ (AppDelegate *)sharedDelegate
+{
+    return (AppDelegate *)[UIApplication sharedApplication].delegate;
+}
+
+@synthesize searchManager = _searchManager;
+- (SGIImageSearchManager *)searchManager
+{
+    @synchronized(self)
+    {
+        if (!_searchManager)
+        {
+            _searchManager = [SGIImageSearchManager new];
+        }
+        return _searchManager;
+    }
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

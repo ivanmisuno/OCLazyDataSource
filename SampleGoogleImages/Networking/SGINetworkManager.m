@@ -25,4 +25,17 @@
     return defaultConfiguration;
 }
 
+@synthesize session = _session;
+- (NSURLSession *)session
+{
+    @synchronized(self)
+    {
+        if (!_session)
+        {
+            _session = [NSURLSession sessionWithConfiguration:self.defaultConfiguration];
+        }
+        return _session;
+    }
+}
+
 @end

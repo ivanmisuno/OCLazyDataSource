@@ -16,16 +16,22 @@
 
 + (instancetype)queryBuilderWithSearch:(NSString *)search
 {
-    return [[self alloc] initWithSearch:search];
+    return [self queryBuilderWithSearch:search startIndex:0];
 }
-- (instancetype)initWithSearch:(NSString *)search
++ (instancetype)queryBuilderWithSearch:(NSString *)search startIndex:(NSInteger)startIndex
+{
+    return [[self alloc] initWithSearch:search startIndex:startIndex];
+}
+- (instancetype)initWithSearch:(NSString *)search startIndex:(NSInteger)startIndex
 {
     self = [super init];
     if (self)
     {
         _urlComponents = [NSURLComponents componentsWithString:@"https://ajax.googleapis.com/ajax/services/search/images"];
         _urlComponents.queryItems = @[
+                                      [NSURLQueryItem queryItemWithName:@"v" value:@"1.0"],
                                       [NSURLQueryItem queryItemWithName:@"q" value:search],
+                                      [NSURLQueryItem queryItemWithName:@"start" value:[@(startIndex) stringValue]],
 
                                       // number of results to return per page (1-8)
                                       [NSURLQueryItem queryItemWithName:@"rsz" value:@"8"],

@@ -10,6 +10,9 @@
 
 @interface SGINetworkManager : NSObject
 
+// override or set prior to calling -session
 @property (nonatomic, readonly) NSURLSessionConfiguration *defaultConfiguration;
+
+@property (nonatomic, readonly) NSURLSession *session;
 
 @end
