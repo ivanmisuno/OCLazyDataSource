@@ -172,9 +172,9 @@
 - (void)resultsTableController:(SGIResultsTableController *)resultsTableController
                didSelectSearch:(SGISearchItem *)searchItem
 {
-    self.searchController.active = NO;
-
     [self doSearch:searchItem.search];
+
+    self.searchController.active = NO;
 }
 
 #pragma mark - UI Operations
