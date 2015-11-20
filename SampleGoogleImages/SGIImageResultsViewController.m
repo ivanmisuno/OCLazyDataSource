@@ -34,7 +34,7 @@ static NSString *const kLoadMoreCellIdentifier = @"LoadMoreCell";
 
 @property (nonatomic) UICollectionViewFlowLayout *collectionViewLayout;
 @property (nonatomic) UICollectionView *collectionView;
-@property (nonatomic) NSArray<SGICollectionViewItem *> *dataSource;
+@property (nonatomic, readonly) NSMutableArray<SGICollectionViewItem *> *dataSource;
 
 @end
 
@@ -86,40 +86,68 @@ static NSString *const kLoadMoreCellIdentifier = @"LoadMoreCell";
     [self reloadData];
 }
 
+@synthesize dataSource = _dataSource;
+- (NSMutableArray<SGICollectionViewItem *> *)dataSource
+{
+    if (!_dataSource)
+    {
+        _dataSource = [NSMutableArray new];
+    }
+    return _dataSource;
+}
+
 - (void)reloadData
 {
     @weakify(self);
 
-    // populate image cells
-    NSMutableArray<SGICollectionViewItem *> *dataSource = [NSMutableArray new];
-    for (int i = 0; i < self.search.searchResults.images.count; i++)
-    {
-        SGIImageSearchResultItem *searchResultImage = self.search.searchResults.images[i];
-        SGICollectionViewItem *item = [SGICollectionViewItem itemWithDequeueBlock:^UICollectionViewCell * _Nonnull(UICollectionView * _Nonnull collectionView, NSIndexPath * _Nonnull indexPath) {
-            SGIImageResultCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kImageResultCellIdentifier forIndexPath:indexPath];
-            [cell displayImage:searchResultImage];
-            return cell;
-        } didSelectBlock:nil willDisplayBlock:nil];
-        [dataSource addObject:item];
-    }
+    [self.collectionView performBatchUpdates:^{
+        // populate image cells
+        for (int i = 0; i < self.search.searchResults.images.count; i++)
+        {
+            SGIImageSearchResultItem *searchResultImage = self.search.searchResults.images[i];
+            SGICollectionViewItem *item = (i < self.dataSource.count) ? self.dataSource[i] : nil;
+            if (item && item.dataObject != searchResultImage)
+            {
+                [self.dataSource removeObjectAtIndex:i];
+                [self.collectionView deleteItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]]];
+                item = nil;
+            }
+            if (!item)
+            {
+                item = [SGICollectionViewItem itemWithDataObject:searchResultImage dequeueBlock:^UICollectionViewCell * _Nonnull(UICollectionView * _Nonnull collectionView, NSIndexPath * _Nonnull indexPath) {
+                    SGIImageResultCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kImageResultCellIdentifier forIndexPath:indexPath];
+                    [cell displayImage:searchResultImage];
+                    return cell;
+                } didSelectBlock:nil willDisplayBlock:nil];
+                [self.dataSource insertObject:item atIndex:i];
+                [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]]];
+            }
+        }
 
-    if ([self shouldDisplayLoadMoreCell])
-    {
-        // add "load more" cell
-        // by pre-populating dataSource array, we avoid doing error-prone mapping of indexPaths to different cell types.
-        // better yet: lazy generative-style datasources, that allow to build configuration, but not materialize it into in-memory array of concrete items
-        SGICollectionViewItem *item = [SGICollectionViewItem itemWithDequeueBlock:^UICollectionViewCell * _Nonnull(UICollectionView * _Nonnull collectionView, NSIndexPath * _Nonnull indexPath) {
-            SGILoadMoreCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kLoadMoreCellIdentifier forIndexPath:indexPath];
-            return cell;
-        } didSelectBlock:nil willDisplayBlock:^(UICollectionView * _Nonnull collectionView, NSIndexPath * _Nonnull indexPath) {
-            @strongify(self);
-            [self requestNextPageIfNeeded];
-        }];
-        [dataSource addObject:item];
-    }
+        for (int i = (int)self.search.searchResults.images.count; i < self.dataSource.count; i++)
+        {
+            [self.dataSource removeObjectAtIndex:i];
+            [self.collectionView deleteItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]]];
+        }
 
-    self.dataSource = [dataSource copy];
-    [self.collectionView reloadData];
+        if ([self shouldDisplayLoadMoreCell])
+        {
+            // add "load more" cell
+            // by pre-populating dataSource array, we avoid doing error-prone mapping of indexPaths to different cell types.
+            // better yet: lazy generative-style datasources, that allow to build configuration, but not materialize it into in-memory array of concrete items
+            SGICollectionViewItem *item = [SGICollectionViewItem itemWithDataObject:@"kLoadMoreCellIdentifier" dequeueBlock:^UICollectionViewCell * _Nonnull(UICollectionView * _Nonnull collectionView, NSIndexPath * _Nonnull indexPath) {
+                SGILoadMoreCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kLoadMoreCellIdentifier forIndexPath:indexPath];
+                return cell;
+            } didSelectBlock:nil willDisplayBlock:^(UICollectionView * _Nonnull collectionView, NSIndexPath * _Nonnull indexPath) {
+                @strongify(self);
+                [self requestNextPageIfNeeded];
+            }];
+
+            int index = (int)self.dataSource.count;
+            [self.dataSource insertObject:item atIndex:index];
+            [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]]];
+        }
+    } completion:nil];
 }
 
 #pragma mark - UICollectionViewDataSource, UICollectionViewDelegate
@@ -194,7 +222,6 @@ static NSString *const kLoadMoreCellIdentifier = @"LoadMoreCell";
 
             self.request = nil;
 
-            // TODO: insert new cells with animation, including showing/hiding "Load more" cell
             [self reloadData];
         }];
     }

@@ -14,10 +14,12 @@ typedef void (^SGICollectionViewItemWillDispayBlock)(UICollectionView * _Nonnull
 
 @interface SGICollectionViewItem : NSObject
 
-+ (instancetype _Nonnull)itemWithDequeueBlock:(SGICollectionViewItemDequeueBlock _Nonnull)dequeueBlock
-                               didSelectBlock:(SGICollectionViewItemDidSelectBlock _Nullable)didSelectBlock
-                             willDisplayBlock:(SGICollectionViewItemWillDispayBlock _Nullable)willDisplayBlock;
++ (instancetype _Nonnull)itemWithDataObject:(NSObject * _Nullable)dataObject
+                               dequeueBlock:(SGICollectionViewItemDequeueBlock _Nonnull)dequeueBlock
+                             didSelectBlock:(SGICollectionViewItemDidSelectBlock _Nullable)didSelectBlock
+                           willDisplayBlock:(SGICollectionViewItemWillDispayBlock _Nullable)willDisplayBlock;
 
+@property (nonatomic, readonly) NSObject * _Nullable dataObject;
 @property (nonatomic, readonly) SGICollectionViewItemDequeueBlock _Nonnull dequeueBlock;
 @property (nonatomic, readonly) SGICollectionViewItemDidSelectBlock _Nullable didSelectBlock;
 @property (nonatomic, readonly) SGICollectionViewItemWillDispayBlock _Nullable willDisplayBlock;

@@ -10,22 +10,26 @@
 
 @implementation SGICollectionViewItem
 
-+ (instancetype _Nonnull)itemWithDequeueBlock:(SGICollectionViewItemDequeueBlock _Nonnull)dequeueBlock
++ (instancetype _Nonnull)itemWithDataObject:(NSObject * _Nullable)dataObject
+                               dequeueBlock:(SGICollectionViewItemDequeueBlock _Nonnull)dequeueBlock
                                didSelectBlock:(SGICollectionViewItemDidSelectBlock _Nullable)didSelectBlock
                              willDisplayBlock:(SGICollectionViewItemWillDispayBlock _Nullable)willDisplayBlock
 {
-    return [[self alloc] initWithDequeueBlock:dequeueBlock
+    return [[self alloc] initWithDataObject:dataObject
+                               dequeueBlock:dequeueBlock
                                didSelectBlock:didSelectBlock
                              willDisplayBlock:willDisplayBlock];
 }
 
-- (instancetype _Nonnull)initWithDequeueBlock:(SGICollectionViewItemDequeueBlock _Nonnull)dequeueBlock
+- (instancetype _Nonnull)initWithDataObject:(NSObject * _Nullable)dataObject
+                               dequeueBlock:(SGICollectionViewItemDequeueBlock _Nonnull)dequeueBlock
                                didSelectBlock:(SGICollectionViewItemDidSelectBlock _Nullable)didSelectBlock
                              willDisplayBlock:(SGICollectionViewItemWillDispayBlock _Nullable)willDisplayBlock
 {
     self = [super init];
     if (self)
     {
+        _dataObject = dataObject;
         _dequeueBlock = dequeueBlock;
         _didSelectBlock = didSelectBlock;
         _willDisplayBlock = willDisplayBlock;
