@@ -10,17 +10,11 @@
 ///////////////////////////////////////////////////////////////////
 // View models
 
-@protocol BCViewModel <NSObject>
-@property (nonatomic, readonly) id _Nonnull model;
-@property (nonatomic, readonly) NSString * _Nonnull reusableIdentifier;
-@property (nonatomic, readonly) NSString * _Nonnull reusableViewClassName;
-@end
-
-id<BCViewModel> _Nonnull viewModel(id _Nonnull model);
-
-@protocol BCLazyItemViewModel
-@property (nonatomic, readonly) id<BCViewModel> _Nonnull viewModel;
-@end
+//@protocol BCViewModel <NSObject>
+//@property (nonatomic, readonly) id _Nonnull model;
+//@end
+//
+//id<BCViewModel> _Nonnull viewModel(id _Nonnull model);
 
 ///////////////////////////////////////////////////////////////////
 // Reusable configurable collection view items
@@ -33,7 +27,12 @@ id<BCViewModel> _Nonnull viewModel(id _Nonnull model);
 
 ///////////////////////////////////////////////////////////////////
 
+@protocol BCLazyDataSourceEnumerable;
+
 @interface BCLazyTableViewDataSource : NSObject
 @property (nonatomic, readonly) id<UITableViewDataSource, UITableViewDelegate> _Nonnull bridgeDataSource;
+
+// flat list of BCLazyDataSourceItem with associated sections
+- (void)setDataItems:(id<BCLazyDataSourceEnumerable/*<BCLazyDataSourceItem>*/> _Nonnull)dataItems;
 @end
 

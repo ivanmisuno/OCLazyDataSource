@@ -12,6 +12,6 @@
 @implementation NSArray (BCLazyDataSourceEnumerable)
 - (id<BCLazyDataSourceEnumerator> _Nonnull)enumerator
 {
-    return lazyDataSourceEnumeratorWithEnumerator(self.objectEnumerator);
+    return lazyDataSourceEnumeratorWithNSEnumerator(self.objectEnumerator);
 }
 @end

@@ -10,25 +10,29 @@
 #import "BCLazyDataSourceItem.h"
 
 @interface BCLazyDataSourceSectionImpl : NSObject<BCLazyDataSourceSection>
-@property (nonatomic, readonly) id<BCLazyDataSourceEnumerable> _Nonnull sourceCollection;
+@property (nonatomic, readonly) id<BCLazyDataSourceEnumerable> _Nonnull sourceItemsCollection;
 @end
 @implementation BCLazyDataSourceSectionImpl
-@synthesize headerViewModel = _headerViewModel;
-@synthesize footerViewModel = _footerViewModel;
-- (instancetype _Nullable)initWithSourceCollection:(id<BCLazyDataSourceEnumerable> _Nonnull)sourceCollection
+@synthesize headerViewItem = _headerViewItem;
+@synthesize footerViewItem = _footerViewItem;
+- (instancetype _Nullable)initWithSourceItemsCollection:(id<BCLazyDataSourceEnumerable> _Nonnull)sourceItemsCollection
+                                         headerViewItem:(id _Nullable)headerViewItem
+                                         footerViewItem:(id _Nullable)footerViewItem
 {
     self = [super init];
     if (self)
     {
-        _sourceCollection = sourceCollection;
+        _sourceItemsCollection = sourceItemsCollection;
+        _headerViewItem = headerViewItem;
+        _footerViewItem = footerViewItem;
     }
     return self;
 }
 - (id<BCLazyDataSourceEnumerator/*<BCLazyDataSourceItem>*/> _Nonnull)enumerator
 {
-    id<BCLazyDataSourceEnumerator> sourceCollectionEnumerator = [self.sourceCollection enumerator];
+    id<BCLazyDataSourceEnumerator> sourceItemsCollectionEnumerator = [self.sourceItemsCollection enumerator];
     return lazyDataSourceEnumeratorWithBlock(^id _Nullable{
-        id sourceItem = [sourceCollectionEnumerator nextObject];
+        id sourceItem = [sourceItemsCollectionEnumerator nextObject];
         if (!sourceItem) return nil; // EOS
         return lazyDataSourceItem(sourceItem,
                                   self/*collection*/);
@@ -36,7 +40,11 @@
 }
 @end
 
-id<BCLazyDataSourceSection> _Nonnull lazyDataSourceSection(id<BCLazyDataSourceEnumerable> _Nonnull sourceCollection)
+id<BCLazyDataSourceSection> _Nonnull lazyDataSourceSectionWithEnumerable(id<BCLazyDataSourceEnumerable> _Nonnull sourceItems,
+                                                                         id _Nullable headerViewItem,
+                                                                         id _Nullable footerViewItem)
 {
-    return [[BCLazyDataSourceSectionImpl alloc] initWithSourceCollection:sourceCollection];
+    return [[BCLazyDataSourceSectionImpl alloc] initWithSourceItemsCollection:sourceItems
+                                                               headerViewItem:headerViewItem
+                                                               footerViewItem:footerViewItem];
 }

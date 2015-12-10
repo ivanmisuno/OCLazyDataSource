@@ -7,35 +7,6 @@
 
 #import "BCLazyDataSourceEnumerator.h"
 
-@interface BCLazyDataSourceEnumeratorWrapper : NSEnumerator <BCLazyDataSourceEnumerator>
-@property (nonatomic, readonly) NSEnumerator * _Nonnull sourceEnumerator;
-@end
-@implementation BCLazyDataSourceEnumeratorWrapper
-- (instancetype _Nullable)initWithSourceEnumerator:(NSEnumerator * _Nonnull)sourceEnumerator
-{
-    self = [super init];
-    if (self)
-    {
-        _sourceEnumerator = sourceEnumerator;
-    }
-    return self;
-}
-
-- (NSEnumerator * _Nonnull)asNSEnumerator
-{
-    return self;
-}
-- (id _Nullable)nextObject
-{
-    return [self.sourceEnumerator nextObject];
-}
-@end
-
-id<BCLazyDataSourceEnumerator> _Nonnull lazyDataSourceEnumeratorWithEnumerator(NSEnumerator * _Nonnull sourceEnumerator)
-{
-    return [[BCLazyDataSourceEnumeratorWrapper alloc] initWithSourceEnumerator:sourceEnumerator];
-}
-
 //////////////////////////////////////////////////////////////////////
 
 typedef id _Nullable (^ BCLazyDataSourceNextObjectBlock)();
@@ -67,4 +38,11 @@ typedef id _Nullable (^ BCLazyDataSourceNextObjectBlock)();
 id<BCLazyDataSourceEnumerator> _Nonnull lazyDataSourceEnumeratorWithBlock(BCLazyDataSourceNextObjectBlock _Nonnull nextObjectBlock)
 {
     return [[BCLazyDataSourceEnumeratorBlock alloc] initWithNextObjectBlock:nextObjectBlock];
+}
+
+id<BCLazyDataSourceEnumerator> _Nonnull lazyDataSourceEnumeratorWithNSEnumerator(NSEnumerator * _Nonnull sourceEnumerator)
+{
+    return lazyDataSourceEnumeratorWithBlock(^id _Nullable(){
+        return [sourceEnumerator nextObject];
+    });
 }

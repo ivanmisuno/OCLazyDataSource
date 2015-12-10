@@ -15,29 +15,54 @@
 @import Nimble;
 
 @interface Test_BCLazyDataSourceSection : XCTestCase
-@property (nonatomic, readonly) NSArray *testCollection;
+@property (nonatomic, readonly) NSArray *sourceData;
+@property (nonatomic, readonly) id<BCLazyDataSourceSection> section;
 @end
 
 @implementation Test_BCLazyDataSourceSection
 
 - (void)setUp {
     [super setUp];
-    _testCollection = @[@1, @2, @3, @4, @5];
+    _sourceData = @[@1, @2, @3, @4, @5];
+    _section = lazyDataSourceSectionWithEnumerable(self.sourceData, @"section1 header", @"section1 footer");
 }
 
 - (void)testSectionEnumeration
 {
-    id<BCLazyDataSourceSection> section = lazyDataSourceSection(self.testCollection);
+    expect(@([[self.section.enumerator asNSEnumerator] count])).to(equal(@(self.sourceData.count)));
 
-    expect(@([[section.enumerator asNSEnumerator] count])).to(equal(@(self.testCollection.count)));
-
-    NSEnumerator *sourceEnumerator = self.testCollection.objectEnumerator;
-    [[section.enumerator asNSEnumerator] all:^BOOL (NSObject<BCLazyDataSourceItem> *lazyDataSourceItem) {
+    NSEnumerator *sourceEnumerator = self.sourceData.objectEnumerator;
+    [[self.section.enumerator asNSEnumerator] all:^BOOL (NSObject<BCLazyDataSourceItem> *lazyDataSourceItem) {
         expect(@([lazyDataSourceItem conformsToProtocol:@protocol(BCLazyDataSourceItem)])).to(beTrue());
         expect(lazyDataSourceItem.sourceItem).to(equal([sourceEnumerator nextObject]));
-        expect(lazyDataSourceItem.section).to(equal(section));
+        expect(lazyDataSourceItem.section).to(equal(self.section));
         return YES;
     }];
 }
+
+//- (void)testSectionSimpleComposing
+//{
+//    NSArray *sourceData2 = @[@11, @12, @13];
+//    id<BCLazyDataSourceSection> section2 = lazyDataSourceSectionWithEnumerable(sourceData2, @"section2 header", @"section2 footer");
+//
+//    NSArray *sections = @[ self.section, section2 ];
+//    
+//}
+
+- (void)testSectionInserting
+{
+    NSArray *insertData = @[@11, @12, @13];
+    id<BCLazyDataSourceSection> insertSection = lazyDataSourceSectionWithEnumerable(insertData, @"section2 header", @"section2 footer");
+    NSEnumerator *(^insertSectionEnumerator)() = ^{ return [insertSection.enumerator asNSEnumerator]; };
+
+    NSEnumerator *(^sourceSectionEnumerator)() = ^{ return [self.section.enumerator asNSEnumerator]; };
+    NSEnumerator *(^newSectionSequence)() = ^{ return [[[sourceSectionEnumerator() take:2]
+                                                        concat:insertSectionEnumerator()]
+                                                       concat:[sourceSectionEnumerator() skip:2]]; };
+    expect(@([newSectionSequence() count])).to(equal(@([sourceSectionEnumerator() count]+[insertSectionEnumerator() count])));
+    
+}
+
+
 
 @end

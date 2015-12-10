@@ -25,7 +25,7 @@
 
 - (void)testLazyEnumeratorWithEnumerator
 {
-    id<BCLazyDataSourceEnumerator> (^enumerator)() = ^id<BCLazyDataSourceEnumerator> { return lazyDataSourceEnumeratorWithEnumerator(self.testCollection.objectEnumerator); };
+    id<BCLazyDataSourceEnumerator> (^enumerator)() = ^id<BCLazyDataSourceEnumerator> { return lazyDataSourceEnumeratorWithNSEnumerator(self.testCollection.objectEnumerator); };
 
     expect(@([[enumerator() asNSEnumerator] count])).to(equal(@(self.testCollection.count)));
     expect([enumerator() asNSEnumerator].allObjects).to(equal(self.testCollection));

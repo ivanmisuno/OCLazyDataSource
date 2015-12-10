@@ -11,12 +11,13 @@
 ///////////////////////////////////////////////////////////////////
 // Collection view section with header, footer and sequence of items (view models)
 
-@protocol BCViewModel;
 @protocol BCLazyDataSourceItemsCollection;
 
 @protocol BCLazyDataSourceSection <BCLazyDataSourceEnumerable/*<BCLazyDataSourceItem>*/>
-@property (nonatomic, readonly) id<BCViewModel> _Nullable headerViewModel;
-@property (nonatomic, readonly) id<BCViewModel> _Nullable footerViewModel;
+@property (nonatomic, readonly) id _Nullable headerViewItem;
+@property (nonatomic, readonly) id _Nullable footerViewItem;
 @end
 
-id<BCLazyDataSourceSection> _Nonnull lazyDataSourceSection(id<BCLazyDataSourceEnumerable> _Nonnull sourceCollection);
+id<BCLazyDataSourceSection> _Nonnull lazyDataSourceSectionWithEnumerable(id<BCLazyDataSourceEnumerable> _Nonnull sourceItems,
+                                                                         id _Nullable headerViewItem,
+                                                                         id _Nullable footerViewItem);

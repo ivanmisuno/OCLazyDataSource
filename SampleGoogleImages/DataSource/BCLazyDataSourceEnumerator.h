@@ -12,5 +12,5 @@
 - (id _Nullable)nextObject;
 @end
 
-id<BCLazyDataSourceEnumerator> _Nonnull lazyDataSourceEnumeratorWithEnumerator(NSEnumerator * _Nonnull sourceEnumerator);
 id<BCLazyDataSourceEnumerator> _Nonnull lazyDataSourceEnumeratorWithBlock(id _Nullable (^ _Nonnull nextObject)());
+id<BCLazyDataSourceEnumerator> _Nonnull lazyDataSourceEnumeratorWithNSEnumerator(NSEnumerator * _Nonnull sourceEnumerator);
