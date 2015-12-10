@@ -26,8 +26,21 @@
 		783605B51BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605B41BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m */; };
 		783605BD1BFCF14D0014D558 /* RACEXTRuntimeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605BA1BFCF14D0014D558 /* RACEXTRuntimeExtensions.m */; };
 		783605C01BFCF9940014D558 /* Test_SGISearchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605BF1BFCF9940014D558 /* Test_SGISearchItem.m */; };
-		78887A191C16F72A00A8B2CF /* SGILazyDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 78887A181C16F72A00A8B2CF /* SGILazyDataSource.m */; };
-		78887A1B1C17240900A8B2CF /* Test_SGILazyDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 78887A1A1C17240900A8B2CF /* Test_SGILazyDataSource.m */; };
+		78525FB91C19A40C005D95F9 /* Test_BCLazyDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FB71C19A40C005D95F9 /* Test_BCLazyDataSource.m */; };
+		78525FBA1C19A40C005D95F9 /* Test_BCLazyDataSourceEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FB81C19A40C005D95F9 /* Test_BCLazyDataSourceEnumerator.m */; };
+		78525FBC1C19A41F005D95F9 /* Test_BCLazyTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FBB1C19A41F005D95F9 /* Test_BCLazyTableViewCellFactory.m */; };
+		78525FBF1C19A60E005D95F9 /* BCLazySampleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FBE1C19A60E005D95F9 /* BCLazySampleTableCell.m */; };
+		78525FC11C19A700005D95F9 /* BCLazySampleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78525FC01C19A700005D95F9 /* BCLazySampleTableCell.xib */; };
+		78525FC51C19A8A4005D95F9 /* Test_BCLazyDataSourceSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FC41C19A8A4005D95F9 /* Test_BCLazyDataSourceSection.m */; };
+		78525FC81C19A9C0005D95F9 /* NSArray+BCLazyDataSourceEnumerable.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FC71C19A9C0005D95F9 /* NSArray+BCLazyDataSourceEnumerable.m */; };
+		78732D031C18473300056D86 /* BCLazyTableViewDataSourceBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D021C18473300056D86 /* BCLazyTableViewDataSourceBridge.m */; };
+		78732D061C185B4900056D86 /* BCLazyTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D051C185B4900056D86 /* BCLazyTableViewCellFactory.m */; };
+		78732D091C185DEB00056D86 /* BCLazyTableViewHeaderFooterViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D081C185DEB00056D86 /* BCLazyTableViewHeaderFooterViewFactory.m */; };
+		78732D0F1C1860A900056D86 /* BCLazyDataSourceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D0E1C1860A900056D86 /* BCLazyDataSourceItem.m */; };
+		78732D131C1867A300056D86 /* BCLazyDataSourceSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D121C1867A300056D86 /* BCLazyDataSourceSection.m */; };
+		78732D161C18683800056D86 /* BCLazyDataSourceEnumerable.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D151C18683800056D86 /* BCLazyDataSourceEnumerable.m */; };
+		78732D191C186A7600056D86 /* BCLazyDataSourceEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D181C186A7600056D86 /* BCLazyDataSourceEnumerator.m */; };
+		78887A191C16F72A00A8B2CF /* BCLazyTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 78887A181C16F72A00A8B2CF /* BCLazyTableViewDataSource.m */; };
 		789B759E1BFCE8210081A34B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 789B759D1BFCE8210081A34B /* main.m */; };
 		789B75A11BFCE8210081A34B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 789B75A01BFCE8210081A34B /* AppDelegate.m */; };
 		789B75A41BFCE8210081A34B /* SGIFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789B75A31BFCE8210081A34B /* SGIFirstViewController.m */; };
@@ -95,9 +108,31 @@
 		783605BC1BFCF14D0014D558 /* RACmetamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACmetamacros.h; sourceTree = "<group>"; };
 		783605BE1BFCF1710014D558 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		783605BF1BFCF9940014D558 /* Test_SGISearchItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_SGISearchItem.m; sourceTree = "<group>"; };
-		78887A171C16F72A00A8B2CF /* SGILazyDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGILazyDataSource.h; sourceTree = "<group>"; };
-		78887A181C16F72A00A8B2CF /* SGILazyDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGILazyDataSource.m; sourceTree = "<group>"; };
-		78887A1A1C17240900A8B2CF /* Test_SGILazyDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_SGILazyDataSource.m; sourceTree = "<group>"; };
+		78525FB71C19A40C005D95F9 /* Test_BCLazyDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_BCLazyDataSource.m; sourceTree = "<group>"; };
+		78525FB81C19A40C005D95F9 /* Test_BCLazyDataSourceEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_BCLazyDataSourceEnumerator.m; sourceTree = "<group>"; };
+		78525FBB1C19A41F005D95F9 /* Test_BCLazyTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_BCLazyTableViewCellFactory.m; sourceTree = "<group>"; };
+		78525FBD1C19A60E005D95F9 /* BCLazySampleTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCLazySampleTableCell.h; sourceTree = "<group>"; };
+		78525FBE1C19A60E005D95F9 /* BCLazySampleTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCLazySampleTableCell.m; sourceTree = "<group>"; };
+		78525FC01C19A700005D95F9 /* BCLazySampleTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCLazySampleTableCell.xib; sourceTree = "<group>"; };
+		78525FC41C19A8A4005D95F9 /* Test_BCLazyDataSourceSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_BCLazyDataSourceSection.m; sourceTree = "<group>"; };
+		78525FC61C19A9C0005D95F9 /* NSArray+BCLazyDataSourceEnumerable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+BCLazyDataSourceEnumerable.h"; sourceTree = "<group>"; };
+		78525FC71C19A9C0005D95F9 /* NSArray+BCLazyDataSourceEnumerable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BCLazyDataSourceEnumerable.m"; sourceTree = "<group>"; };
+		78732D011C18473300056D86 /* BCLazyTableViewDataSourceBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCLazyTableViewDataSourceBridge.h; sourceTree = "<group>"; };
+		78732D021C18473300056D86 /* BCLazyTableViewDataSourceBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCLazyTableViewDataSourceBridge.m; sourceTree = "<group>"; };
+		78732D041C185B4900056D86 /* BCLazyTableViewCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCLazyTableViewCellFactory.h; sourceTree = "<group>"; };
+		78732D051C185B4900056D86 /* BCLazyTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCLazyTableViewCellFactory.m; sourceTree = "<group>"; };
+		78732D071C185DEB00056D86 /* BCLazyTableViewHeaderFooterViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCLazyTableViewHeaderFooterViewFactory.h; sourceTree = "<group>"; };
+		78732D081C185DEB00056D86 /* BCLazyTableViewHeaderFooterViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCLazyTableViewHeaderFooterViewFactory.m; sourceTree = "<group>"; };
+		78732D0D1C1860A900056D86 /* BCLazyDataSourceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCLazyDataSourceItem.h; sourceTree = "<group>"; };
+		78732D0E1C1860A900056D86 /* BCLazyDataSourceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCLazyDataSourceItem.m; sourceTree = "<group>"; };
+		78732D111C1867A300056D86 /* BCLazyDataSourceSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCLazyDataSourceSection.h; sourceTree = "<group>"; };
+		78732D121C1867A300056D86 /* BCLazyDataSourceSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCLazyDataSourceSection.m; sourceTree = "<group>"; };
+		78732D141C18683800056D86 /* BCLazyDataSourceEnumerable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCLazyDataSourceEnumerable.h; sourceTree = "<group>"; };
+		78732D151C18683800056D86 /* BCLazyDataSourceEnumerable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCLazyDataSourceEnumerable.m; sourceTree = "<group>"; };
+		78732D171C186A7600056D86 /* BCLazyDataSourceEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCLazyDataSourceEnumerator.h; sourceTree = "<group>"; };
+		78732D181C186A7600056D86 /* BCLazyDataSourceEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCLazyDataSourceEnumerator.m; sourceTree = "<group>"; };
+		78887A171C16F72A00A8B2CF /* BCLazyTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCLazyTableViewDataSource.h; sourceTree = "<group>"; };
+		78887A181C16F72A00A8B2CF /* BCLazyTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCLazyTableViewDataSource.m; sourceTree = "<group>"; };
 		789B75991BFCE8210081A34B /* SampleGoogleImages.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleGoogleImages.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		789B759D1BFCE8210081A34B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		789B759F1BFCE8210081A34B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -232,11 +267,41 @@
 			path = extobjc;
 			sourceTree = "<group>";
 		};
+		78525FB61C19A3E3005D95F9 /* BCLazyDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				78525FBD1C19A60E005D95F9 /* BCLazySampleTableCell.h */,
+				78525FBE1C19A60E005D95F9 /* BCLazySampleTableCell.m */,
+				78525FC01C19A700005D95F9 /* BCLazySampleTableCell.xib */,
+				78525FB71C19A40C005D95F9 /* Test_BCLazyDataSource.m */,
+				78525FBB1C19A41F005D95F9 /* Test_BCLazyTableViewCellFactory.m */,
+				78525FC41C19A8A4005D95F9 /* Test_BCLazyDataSourceSection.m */,
+				78525FB81C19A40C005D95F9 /* Test_BCLazyDataSourceEnumerator.m */,
+			);
+			path = BCLazyDataSource;
+			sourceTree = "<group>";
+		};
 		78887A161C16F71500A8B2CF /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				78887A171C16F72A00A8B2CF /* SGILazyDataSource.h */,
-				78887A181C16F72A00A8B2CF /* SGILazyDataSource.m */,
+				78887A171C16F72A00A8B2CF /* BCLazyTableViewDataSource.h */,
+				78887A181C16F72A00A8B2CF /* BCLazyTableViewDataSource.m */,
+				78732D011C18473300056D86 /* BCLazyTableViewDataSourceBridge.h */,
+				78732D021C18473300056D86 /* BCLazyTableViewDataSourceBridge.m */,
+				78732D041C185B4900056D86 /* BCLazyTableViewCellFactory.h */,
+				78732D051C185B4900056D86 /* BCLazyTableViewCellFactory.m */,
+				78732D071C185DEB00056D86 /* BCLazyTableViewHeaderFooterViewFactory.h */,
+				78732D081C185DEB00056D86 /* BCLazyTableViewHeaderFooterViewFactory.m */,
+				78732D0D1C1860A900056D86 /* BCLazyDataSourceItem.h */,
+				78732D0E1C1860A900056D86 /* BCLazyDataSourceItem.m */,
+				78732D111C1867A300056D86 /* BCLazyDataSourceSection.h */,
+				78732D121C1867A300056D86 /* BCLazyDataSourceSection.m */,
+				78732D141C18683800056D86 /* BCLazyDataSourceEnumerable.h */,
+				78732D151C18683800056D86 /* BCLazyDataSourceEnumerable.m */,
+				78732D171C186A7600056D86 /* BCLazyDataSourceEnumerator.h */,
+				78732D181C186A7600056D86 /* BCLazyDataSourceEnumerator.m */,
+				78525FC61C19A9C0005D95F9 /* NSArray+BCLazyDataSourceEnumerable.h */,
+				78525FC71C19A9C0005D95F9 /* NSArray+BCLazyDataSourceEnumerable.m */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -302,6 +367,7 @@
 		789B75B81BFCE8210081A34B /* SampleGoogleImagesTests */ = {
 			isa = PBXGroup;
 			children = (
+				78525FB61C19A3E3005D95F9 /* BCLazyDataSource */,
 				789B75BB1BFCE8210081A34B /* Info.plist */,
 				783605B41BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m */,
 				783605BF1BFCF9940014D558 /* Test_SGISearchItem.m */,
@@ -311,7 +377,6 @@
 				1408813F1BFEF92F00457B57 /* Test_SGIImageSearchManager.m */,
 				140881441BFF005600457B57 /* Test_SGIImageSearchQueryBuilder.m */,
 				78E338401BFF59550015586B /* Test_SGIImageSearchResults.m */,
-				78887A1A1C17240900A8B2CF /* Test_SGILazyDataSource.m */,
 			);
 			path = SampleGoogleImagesTests;
 			sourceTree = "<group>";
@@ -422,6 +487,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78525FC11C19A700005D95F9 /* BCLazySampleTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,10 +592,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				78E338391BFF14AE0015586B /* SGIImageSearchResults.m in Sources */,
+				78732D031C18473300056D86 /* BCLazyTableViewDataSourceBridge.m in Sources */,
 				78E3383F1BFF3B7B0015586B /* SGICollectionViewItem.m in Sources */,
 				783605AC1BFCED230014D558 /* SGISearchItem.m in Sources */,
+				78732D191C186A7600056D86 /* BCLazyDataSourceEnumerator.m in Sources */,
 				783605B31BFCEEC90014D558 /* NSDictionary+SGITypedDictionary.m in Sources */,
 				140881431BFEFA4300457B57 /* SGIImageSearchQueryBuilder.m in Sources */,
+				78732D0F1C1860A900056D86 /* BCLazyDataSourceItem.m in Sources */,
 				783605BD1BFCF14D0014D558 /* RACEXTRuntimeExtensions.m in Sources */,
 				1408814F1BFF09F500457B57 /* SGIImageResultCell.m in Sources */,
 				140881521BFF0A1A00457B57 /* SGILoadMoreCell.m in Sources */,
@@ -537,15 +606,20 @@
 				789B75A71BFCE8210081A34B /* SGISecondViewController.m in Sources */,
 				789B75A11BFCE8210081A34B /* AppDelegate.m in Sources */,
 				140881481BFF029B00457B57 /* SGIImageResultsViewController.m in Sources */,
+				78732D091C185DEB00056D86 /* BCLazyTableViewHeaderFooterViewFactory.m in Sources */,
 				140881391BFEF37000457B57 /* SGINetworkManager.m in Sources */,
+				78732D061C185B4900056D86 /* BCLazyTableViewCellFactory.m in Sources */,
 				1408813E1BFEF71C00457B57 /* SGIImageSearchManager.m in Sources */,
+				78732D161C18683800056D86 /* BCLazyDataSourceEnumerable.m in Sources */,
+				78525FC81C19A9C0005D95F9 /* NSArray+BCLazyDataSourceEnumerable.m in Sources */,
+				78732D131C1867A300056D86 /* BCLazyDataSourceSection.m in Sources */,
 				789B75A41BFCE8210081A34B /* SGIFirstViewController.m in Sources */,
 				1408812E1BFD20BF00457B57 /* SGIJsonStorageManager.m in Sources */,
 				78E338331BFE35020015586B /* SGIObjectStore.m in Sources */,
 				789B759E1BFCE8210081A34B /* main.m in Sources */,
 				78E3383C1BFF156E0015586B /* SGIImageSearchResultItem.m in Sources */,
 				1400A8421BFD0B9600D39D0E /* SGIResultsTableController.m in Sources */,
-				78887A191C16F72A00A8B2CF /* SGILazyDataSource.m in Sources */,
+				78887A191C16F72A00A8B2CF /* BCLazyTableViewDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,13 +628,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				140881451BFF005600457B57 /* Test_SGIImageSearchQueryBuilder.m in Sources */,
+				78525FBA1C19A40C005D95F9 /* Test_BCLazyDataSourceEnumerator.m in Sources */,
 				1408813B1BFEF5AF00457B57 /* Test_SGINetworkManager.m in Sources */,
 				140881401BFEF92F00457B57 /* Test_SGIImageSearchManager.m in Sources */,
 				140881301BFD235900457B57 /* Test_SGIObjectStore.m in Sources */,
 				78E338411BFF59550015586B /* Test_SGIImageSearchResults.m in Sources */,
+				78525FBC1C19A41F005D95F9 /* Test_BCLazyTableViewCellFactory.m in Sources */,
 				783605B51BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m in Sources */,
-				78887A1B1C17240900A8B2CF /* Test_SGILazyDataSource.m in Sources */,
 				783605C01BFCF9940014D558 /* Test_SGISearchItem.m in Sources */,
+				78525FBF1C19A60E005D95F9 /* BCLazySampleTableCell.m in Sources */,
+				78525FB91C19A40C005D95F9 /* Test_BCLazyDataSource.m in Sources */,
+				78525FC51C19A8A4005D95F9 /* Test_BCLazyDataSourceSection.m in Sources */,
 				78E338351BFE56740015586B /* Test_SGIJsonStorageManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -20,7 +20,7 @@
 - (void)updateTimestamp;
 
 /// Creates new searchId (uses current timestamp)
-+ (instancetype _Nonnull)createSearchItemWithSearch:(NSString * _Nonnull)search;
++ (instancetype _Nullable)createSearchItemWithSearch:(NSString * _Nonnull)search;
 
 + (NSArray<NSDictionary *> * _Nonnull)toJsonArray:(NSArray<SGISearchItem *> * _Nonnull)itemArray;
 + (NSArray<SGISearchItem *> * _Nonnull)fromJsonArray:(NSArray<NSDictionary *> * _Nonnull)jsonArray;

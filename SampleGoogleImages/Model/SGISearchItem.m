@@ -27,20 +27,20 @@
     return [NSDate timeIntervalSinceReferenceDate];
 }
 
-+ (instancetype _Nonnull)createSearchItemWithSearch:(NSString * _Nonnull)search
++ (instancetype _Nullable)createSearchItemWithSearch:(NSString * _Nonnull)search
 {
     long long newSearchId = [self newSearchId];
     return [[self alloc] initWithSearchId:newSearchId
                                    search:search];
 }
-- (instancetype _Nonnull)initWithSearchId:(long long)searchId
+- (instancetype _Nullable)initWithSearchId:(long long)searchId
                                    search:(NSString * _Nonnull)search
 {
     return [self initWithSearchId:searchId
                            search:search
                         timestamp:[[self class] currentTimestamp]];
 }
-- (instancetype _Nonnull)initWithSearchId:(long long)searchId
+- (instancetype _Nullable)initWithSearchId:(long long)searchId
                                    search:(NSString * _Nonnull)search
                                 timestamp:(NSTimeInterval)timestamp
 {

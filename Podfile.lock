@@ -1,15 +1,21 @@
 PODS:
   - Nimble (3.0.0)
+  - NSEnumeratorLinq (0.2.7)
+  - OCMock (3.2)
   - OCTotallyLazy (1.1.0)
   - Quick (0.8.0)
 
 DEPENDENCIES:
-  - Nimble (= 3.0.0)
+  - Nimble
+  - NSEnumeratorLinq
+  - OCMock
   - OCTotallyLazy
-  - Quick (~> 0.8.0)
+  - Quick
 
 SPEC CHECKSUMS:
   Nimble: 4c353d43735b38b545cbb4cb91504588eb5de926
+  NSEnumeratorLinq: f11ae115e2bb869e5e3a55267fe852ad943aac63
+  OCMock: 28def049ef47f996b515a8eeea958be7ccab2dbb
   OCTotallyLazy: c8838ee6491e4b3ca3fe83ac6211249ab2108101
   Quick: 563d0f6ec5f72e394645adb377708639b7dd38ab
 
