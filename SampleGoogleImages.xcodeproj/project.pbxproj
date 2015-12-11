@@ -36,6 +36,8 @@
 		78525FCB1C19DBB4005D95F9 /* BCLazyDataSourceFlatteningEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FCA1C19DBB4005D95F9 /* BCLazyDataSourceFlatteningEnumerator.m */; };
 		78525FCD1C19E5EF005D95F9 /* Test_BCLazyDataSourceFlatteningEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FCC1C19E5EF005D95F9 /* Test_BCLazyDataSourceFlatteningEnumerator.m */; };
 		78525FD01C1AF93F005D95F9 /* BCLazySectionBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FCF1C1AF93F005D95F9 /* BCLazySectionBridge.m */; };
+		78525FD31C1B4509005D95F9 /* BCSampleNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FD21C1B4509005D95F9 /* BCSampleNewsCell.m */; };
+		78525FD51C1B451A005D95F9 /* BCSampleNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78525FD41C1B451A005D95F9 /* BCSampleNewsCell.xib */; };
 		78732D031C18473300056D86 /* BCLazyTableViewDataSourceBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D021C18473300056D86 /* BCLazyTableViewDataSourceBridge.m */; };
 		78732D061C185B4900056D86 /* BCLazyTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D051C185B4900056D86 /* BCLazyTableViewCellFactory.m */; };
 		78732D091C185DEB00056D86 /* BCLazyTableViewHeaderFooterViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D081C185DEB00056D86 /* BCLazyTableViewHeaderFooterViewFactory.m */; };
@@ -125,6 +127,9 @@
 		78525FCC1C19E5EF005D95F9 /* Test_BCLazyDataSourceFlatteningEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_BCLazyDataSourceFlatteningEnumerator.m; sourceTree = "<group>"; };
 		78525FCE1C1AF93F005D95F9 /* BCLazySectionBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCLazySectionBridge.h; sourceTree = "<group>"; };
 		78525FCF1C1AF93F005D95F9 /* BCLazySectionBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCLazySectionBridge.m; sourceTree = "<group>"; };
+		78525FD11C1B4509005D95F9 /* BCSampleNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCSampleNewsCell.h; sourceTree = "<group>"; };
+		78525FD21C1B4509005D95F9 /* BCSampleNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCSampleNewsCell.m; sourceTree = "<group>"; };
+		78525FD41C1B451A005D95F9 /* BCSampleNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCSampleNewsCell.xib; sourceTree = "<group>"; };
 		78732D011C18473300056D86 /* BCLazyTableViewDataSourceBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCLazyTableViewDataSourceBridge.h; sourceTree = "<group>"; };
 		78732D021C18473300056D86 /* BCLazyTableViewDataSourceBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCLazyTableViewDataSourceBridge.m; sourceTree = "<group>"; };
 		78732D041C185B4900056D86 /* BCLazyTableViewCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCLazyTableViewCellFactory.h; sourceTree = "<group>"; };
@@ -211,6 +216,9 @@
 				1408814E1BFF09F500457B57 /* SGIImageResultCell.m */,
 				140881501BFF0A1A00457B57 /* SGILoadMoreCell.h */,
 				140881511BFF0A1A00457B57 /* SGILoadMoreCell.m */,
+				78525FD11C1B4509005D95F9 /* BCSampleNewsCell.h */,
+				78525FD21C1B4509005D95F9 /* BCSampleNewsCell.m */,
+				78525FD41C1B451A005D95F9 /* BCSampleNewsCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -491,6 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				789B75AF1BFCE8210081A34B /* LaunchScreen.storyboard in Resources */,
+				78525FD51C1B451A005D95F9 /* BCSampleNewsCell.xib in Resources */,
 				789B75AC1BFCE8210081A34B /* Assets.xcassets in Resources */,
 				789B75AA1BFCE8210081A34B /* Main.storyboard in Resources */,
 			);
@@ -621,6 +630,7 @@
 				789B75A11BFCE8210081A34B /* AppDelegate.m in Sources */,
 				140881481BFF029B00457B57 /* SGIImageResultsViewController.m in Sources */,
 				78732D091C185DEB00056D86 /* BCLazyTableViewHeaderFooterViewFactory.m in Sources */,
+				78525FD31C1B4509005D95F9 /* BCSampleNewsCell.m in Sources */,
 				140881391BFEF37000457B57 /* SGINetworkManager.m in Sources */,
 				78732D061C185B4900056D86 /* BCLazyTableViewCellFactory.m in Sources */,
 				1408813E1BFEF71C00457B57 /* SGIImageSearchManager.m in Sources */,

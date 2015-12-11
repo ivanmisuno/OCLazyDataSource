@@ -35,6 +35,7 @@
 @property (nonatomic, readonly) id<UITableViewDataSource, UITableViewDelegate> _Nonnull bridgeDataSource;
 
 // flat list of BCLazyDataSourceItem with associated sections
-- (void)setSource:(id<BCLazyDataSourceEnumerable/*<BCLazyDataSourceItem>*/> _Nonnull)sourceDataItems;
+- (void)setSource:(id<BCLazyDataSourceEnumerable/*<BCLazyDataSourceItem>*/> _Nonnull)sourceDataItems
+     forTableView:(UITableView * _Nonnull)tableView;
 @end
 

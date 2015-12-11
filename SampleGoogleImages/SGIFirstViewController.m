@@ -13,6 +13,18 @@
 #import "SGIResultsTableControllerDelegate.h"
 #import "SGIImageResultsViewController.h"
 
+#import "BCLazyTableViewDataSource.h"
+#import "BCLazyDataSourceSection.h"
+#import "BCLazyTableViewCellFactory.h"
+#import "BCLazyDataSourceEnumerator.h"
+#import "NSArray+BCLazyDataSourceEnumerable.h"
+
+#import "BCSampleNewsCell.h"
+
+@import AFNetworking;
+@import NSEnumeratorLinq;
+
+
 @interface SGIFirstViewController() <UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating, SGIResultsTableControllerDelegate>
 
 @property (nonatomic, readonly) NSMutableArray<SGISearchItem *> *savedSearches;
@@ -23,6 +35,9 @@
 
 // our secondary search results table view
 @property (nonatomic) SGIResultsTableController *resultsTableController;
+
+
+@property (nonatomic, readonly) BCLazyTableViewDataSource *dataSource;
 
 @end
 
@@ -59,27 +74,115 @@
 {
     [super viewDidLoad];
 
-    self.title = NSLocalizedString(@"Search Google Images", nil);
+    self.title = NSLocalizedString(@"BCLazyTableViewDataSource", nil);
 
-    _resultsTableController = [[SGIResultsTableController alloc] init];
-    self.resultsTableController.searchDelegate = self;
+    _dataSource = [[BCLazyTableViewDataSource alloc] init];
+    self.tableView.dataSource = self.dataSource.bridgeDataSource;
+    self.tableView.delegate = self.dataSource.bridgeDataSource;
 
-    _searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultsTableController];
-    self.searchController.searchResultsUpdater = self;
-    self.tableView.tableHeaderView = self.searchController.searchBar;
+    NSArray *section1data = @[@{@"title":@"FBI searches lake in San Bernardino terrorism probe; questions over what neighbors saw",
+                                @"subtitle":@"An FBI dive team on Thursday searches for electronic devices or other evidence possibly left in Seccombe Lake, about two miles north of the Inland Regional Center in San Bernardino.",
+                                @"source":@"Los Angeles Times - ‎1 hour ago‎",
+                                @"thumbnail":@"http://www.trbimg.com/img-566af767/turbine/la-2446945-me-1211-sb-folo-2-002-ls-jpg-20151210/750/750x422"},
+                              @{@"title":@"Former Oklahoma police officer found guilty of multiple rapes",
+                                @"subtitle":@"A former Oklahoma City police officer has been convicted of sexually assaulting women he preyed upon in a low-income neighborhood he patrolled.",
+                                @"source":@"USA TODAY - ‎4 hours ago‎",
+                                @"thumbnail":@"http://ww1.hdnux.com/photos/42/54/66/9096588/3/920x920.jpg"},
+                              @{@"title":@"Ben Carson joins Donald Trump in threatening to leave GOP",
+                                @"subtitle":@"Washington (CNN) Ben Carson on Friday took a page from Donald Trump's playbook by threatening to depart the Republican Party. Ahead of Tuesday's GOP presidential debate, the retired neurosurgeon slammed the party after reports emerged.",
+                                @"source":@"‎CNN - ‎1 hour ago",
+                                @"thumbnail":@"http://specials-images.forbesimg.com/imageserve/451257034/x.jpg"},
+                              @{@"title":@"Dow, DuPont set $130 billion megamerger, could spark more deals",
+                                @"subtitle":@"Chemical titans DuPont and Dow Chemical Co agreed to combine in an all-stock merger valued at $130 billion, a move that could trigger more consolidation, please activist investors and generate tax savings while drawing scrutiny from regulators.",
+                                @"source":@"‎Reuters - ‎47 minutes ago‎",
+                                @"thumbnail":@"http://www.gannett-cdn.com/-mm-/b9109ef5edecdaeff44e26a7bea6ab951eb60ddc/c=0-384-2445-2222&r=x404&c=534x401/local/-/media/2015/12/08/USATODAY/USATODAY/635851878471081028-Capitol-photo.jpg"},
+                              @{@"title":@"Scientists See Catastrophe in Latest Draft of Climate Deal",
+                                @"subtitle":@"LE BOURGET, France - Scientists who are closely monitoring the climate negotiations said on Friday that the emerging agreement, and the national pledges incorporated into it, are still far too weak to ensure that humanity will avoid dangerous levels.",
+                                @"source":@"‎New York Times - ‎2 hours ago",
+                                @"thumbnail":@"http://photos2.appleinsidercdn.com/gallery/15243-11396-jobs_02-l.jpg"},
+                              ];
+    NSArray *section2data = @[@"Show more articles...",
+                              @"Subscribe to not miss important updates!"];
+    NSArray *bannerData = @[@"Banner 1"];
 
-    self.searchController.delegate = self;
-    self.searchController.dimsBackgroundDuringPresentation = YES; // default is YES
-    self.searchController.searchBar.delegate = self; // so we can monitor text changes + others
 
-    // Search is now just presenting a view controller. As such, normal view controller
-    // presentation semantics apply. Namely that presentation will walk up the view controller
-    // hierarchy until it finds the root view controller or one that defines a presentation context.
-    //
-    self.definesPresentationContext = YES;  // know where you want UISearchController to be displayed
+    UINib *cell1nib = [UINib nibWithNibName:@"BCSampleNewsCell" bundle:nil];
+    id<BCLazyTableViewCellFactory> cellFactory1 = lazyTableViewCellFactoryWithNib(cell1nib, @"BCSampleNewsCell");
+    cellFactory1.configureBlock = ^(UITableViewCell * _Nonnull cell, NSDictionary * _Nonnull model, UITableView * _Nonnull tableView) {
+        BCSampleNewsCell *sampleNewsCell = (BCSampleNewsCell *)cell;
+        sampleNewsCell.titleLabel.text = model[@"title"];
+        sampleNewsCell.sourceLabel.text = model[@"source"];
+        sampleNewsCell.contentLabel.text = model[@"subtitle"];
+        [sampleNewsCell.thumbnail setImageWithURL:[NSURL URLWithString:model[@"thumbnail"]]];
+    };
+    id<BCLazyDataSourceSection> section1 = lazyDataSourceSectionWithEnumerable(section1data, cellFactory1);
 
-    // TODO: make it lazy
-    [self projectSavedSearches];
+    id<BCLazyTableViewCellFactory> cellFactory2 = lazyTableViewCellFactoryWithStyle(UITableViewCellStyleDefault, @"SimpleCell2");
+    cellFactory2.configureBlock = ^(UITableViewCell * _Nonnull cell, NSString * _Nonnull model, UITableView * _Nonnull tableView) {
+        cell.textLabel.text = model;
+        cell.textLabel.textColor = [UIColor blueColor];
+        cell.textLabel.font = [UIFont systemFontOfSize:12];
+    };
+    id<BCLazyDataSourceSection> section2 = lazyDataSourceSectionWithEnumerable(section2data, cellFactory2);
+
+    id<BCLazyTableViewCellFactory> bannerCellFactory = lazyTableViewCellFactoryWithStyle(UITableViewCellStyleDefault, @"BannerCell");
+    bannerCellFactory.configureBlock = ^(UITableViewCell * _Nonnull cell, NSString * _Nonnull model, UITableView * _Nonnull tableView) {
+        cell.backgroundColor = [UIColor blueColor];
+        cell.textLabel.text = model;
+        cell.textLabel.textColor = [UIColor whiteColor];
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:18];
+    };
+    id<BCLazyDataSourceSection> bannerSection = lazyDataSourceSectionWithEnumerable(bannerData, bannerCellFactory);
+
+    NSEnumerator * (^firstSectionEnumerator)() = ^ { return [section1.enumerator asNSEnumerator]; };
+    NSEnumerator * (^secondSectionEnumerator)() = ^ { return [section2.enumerator asNSEnumerator]; };
+    NSEnumerator * (^bannerSectionEnumerator)() = ^ { return [bannerSection.enumerator asNSEnumerator]; };
+
+//    id<BCLazyDataSourceEnumerator> (^finalSectionEnumerator)() = ^ {
+//        NSEnumerator *enumerator =
+//        [[[[firstSectionEnumerator() take:2]
+//          concat:bannerSectionEnumerator()]
+//         concat:[firstSectionEnumerator() skip:2]]
+//         concat:secondSectionEnumerator()];
+//         return lazyDataSourceEnumeratorWithNSEnumerator(enumerator);
+//    };
+
+    id<BCLazyDataSourceEnumerator> (^finalSectionEnumerator)() = ^ {
+        NSEnumerator *enumerator =
+        [[[[[[firstSectionEnumerator() take:2] // take 2 first elements from our initial data source
+           concat:bannerSectionEnumerator()] // append a banner
+          concat:[[firstSectionEnumerator() skip:2] take:2]] // take another 2
+          concat:[[secondSectionEnumerator() skip:1] take:1]] // append second item from the second data source
+          concat:[firstSectionEnumerator() skip:4]] // append the rest of our initial stream
+         concat:[secondSectionEnumerator() take:1]]; // and, finally, append first item of the second stream
+        return lazyDataSourceEnumeratorWithNSEnumerator(enumerator);
+    };
+
+    [self.dataSource setSource:lazyDataSourceEnumerableWithGeneratorBlock(finalSectionEnumerator) forTableView:self.tableView];
+
+
+
+
+
+//    _resultsTableController = [[SGIResultsTableController alloc] init];
+//    self.resultsTableController.searchDelegate = self;
+//
+//    _searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultsTableController];
+//    self.searchController.searchResultsUpdater = self;
+//    self.tableView.tableHeaderView = self.searchController.searchBar;
+//
+//    self.searchController.delegate = self;
+//    self.searchController.dimsBackgroundDuringPresentation = YES; // default is YES
+//    self.searchController.searchBar.delegate = self; // so we can monitor text changes + others
+//
+//    // Search is now just presenting a view controller. As such, normal view controller
+//    // presentation semantics apply. Namely that presentation will walk up the view controller
+//    // hierarchy until it finds the root view controller or one that defines a presentation context.
+//    //
+//    self.definesPresentationContext = YES;  // know where you want UISearchController to be displayed
+//
+//    // TODO: make it lazy
+//    [self projectSavedSearches];
 }
 
 #pragma mark - UISearchBarDelegate

@@ -12,3 +12,6 @@
 @protocol BCLazyDataSourceEnumerable
 - (id<BCLazyDataSourceEnumerator> _Nonnull)enumerator;
 @end
+
+typedef id<BCLazyDataSourceEnumerator> _Nonnull (^BCLazyDataSourceEnumeratorGeneratorBlock)();
+id<BCLazyDataSourceEnumerable> _Nonnull lazyDataSourceEnumerableWithGeneratorBlock(BCLazyDataSourceEnumeratorGeneratorBlock _Nonnull enumeratorGeneratorBlock);

@@ -14,6 +14,7 @@
 #import "BCLazyDataSourceEnumerable.h"
 #import "BCLazyDataSourceEnumerator.h"
 #import "BCLazyDataSourceFlatteningEnumerator.h"
+#import "BCLazyTableViewCellFactory.h"
 
 //@interface BCViewModelImpl : NSObject <BCViewModel>
 //@end
@@ -84,6 +85,7 @@
 }
 
 - (void)setSource:(id<BCLazyDataSourceEnumerable/*<BCLazyDataSourceItem>*/> _Nonnull)sourceDataItems
+     forTableView:(UITableView * _Nonnull)tableView
 {
     id<BCLazyDataSourceEnumerator> enumerator = lazyDataSourceFlatteningEnumeratorWithEnumerator(sourceDataItems.enumerator);
 
@@ -93,7 +95,21 @@
         [self pushDataItem:currentItem toCollectionOfSections:combinedDataSource];
     }
 
+    [self registerCellFactoriesFromCombineddata:combinedDataSource withTableView:tableView];
+
     self.bridgeDataSourceObject.combinedDataSource = [combinedDataSource copy];
+}
+
+- (void)registerCellFactoriesFromCombineddata:(NSArray<id<BCLazySectionBridge>> * _Nonnull)combinedDataSource
+                                withTableView:(UITableView * _Nonnull)tableView
+{
+    for (id<BCLazySectionBridge> sectionBridge in combinedDataSource)
+    {
+        if (sectionBridge.section.cellFactory)
+        {
+            [sectionBridge.section.cellFactory registerWithTableView:tableView];
+        }
+    }
 }
 
 @end

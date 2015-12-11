@@ -139,7 +139,7 @@
     {
         id<BCLazyTableViewCellFactory> cellFactory = item.section.cellFactory;
         if (cellFactory.heightBlock)
-            cellFactory.heightBlock(item.sourceItem, tableView);
+            return cellFactory.heightBlock(item.sourceItem, tableView);
     }
 
     return UITableViewAutomaticDimension;
@@ -164,10 +164,10 @@
     {
         id<BCLazyTableViewCellFactory> cellFactory = item.section.cellFactory;
         if (cellFactory.heightBlock)
-            cellFactory.estimatedHeightBlock(item.sourceItem, tableView);
+            return cellFactory.estimatedHeightBlock(item.sourceItem, tableView);
     }
 
-    return UITableViewAutomaticDimension;
+    return 80;
 }
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section
 {
