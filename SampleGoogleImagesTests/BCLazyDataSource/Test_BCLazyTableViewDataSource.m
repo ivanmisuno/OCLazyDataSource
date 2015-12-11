@@ -38,6 +38,7 @@
     _ds = [BCLazyTableViewDataSource new];
     self.tableView.dataSource = self.ds.bridgeDataSource;
     self.tableView.delegate = self.ds.bridgeDataSource;
+    
     [self validateContentsOfTableView:self.tableView withDataSource:self.ds];
 }
 
@@ -45,22 +46,22 @@
 {
     expect(self.dataItems).to(haveCount(@5));
 
-    expect([self.dataItems.objectEnumerator take:2]).to(equal(@[@1, @2]));
-    expect([self.dataItems.objectEnumerator skip:2]).to(equal(@[@3, @4, @5]));
+    expect([self.dataItems.objectEnumerator take:2].toArray).to(equal(@[@1, @2]));
+    expect([self.dataItems.objectEnumerator skip:2].toArray).to(equal(@[@3, @4, @5]));
 
     NSArray *insert = @[@10, @11, @12];
 
-    NSEnumerator *newSequence = [[[self.dataItems.objectEnumerator take:2]
-                            concat:insert.objectEnumerator]
-                            concat:[self.dataItems.objectEnumerator skip:2]];
-    expect(newSequence).to(haveCount(@(self.dataItems.count + insert.count)));
-    expect(@([newSequence count])).to(equal(@(self.dataItems.count + insert.count)));
+    NSEnumerator *(^newSequence)() = ^{ return [[[self.dataItems.objectEnumerator take:2]
+                                                 concat:insert.objectEnumerator]
+                                                concat:[self.dataItems.objectEnumerator skip:2]]; };
+    expect(newSequence().toArray).to(haveCount(@(self.dataItems.count + insert.count)));
+    expect(@([newSequence() count])).to(equal(@(self.dataItems.count + insert.count)));
     [self.dataItems.objectEnumerator all:^BOOL (id v) {
-        expect(newSequence).to(contain(v));
+        expect(newSequence().toArray).to(contain(v));
         return YES;
     }];
     [insert.objectEnumerator all:^BOOL (id v) {
-        expect(newSequence).to(contain(v));
+        expect(newSequence().toArray).to(contain(v));
         return YES;
     }];
 }

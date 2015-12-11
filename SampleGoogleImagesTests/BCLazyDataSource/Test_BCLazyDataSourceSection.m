@@ -10,6 +10,7 @@
 #import "BCLazyDataSourceSection.h"
 #import "BCLazyDataSourceEnumerator.h"
 #import "BCLazyDataSourceItem.h"
+#import "BCLazyTableViewCellFactory.h"
 #import "NSArray+BCLazyDataSourceEnumerable.h"
 @import NSEnumeratorLinq;
 @import Nimble;
@@ -24,7 +25,8 @@
 - (void)setUp {
     [super setUp];
     _sourceData = @[@1, @2, @3, @4, @5];
-    _section = lazyDataSourceSectionWithEnumerable(self.sourceData, @"section1 header", @"section1 footer");
+    //, @"section1 header", @"section1 footer"
+    _section = lazyDataSourceSectionWithEnumerable(self.sourceData, lazyTableViewCellFactoryWithStyle(UITableViewCellStyleDefault, @"ReuseIdentifier"));
 }
 
 - (void)testSectionEnumeration
@@ -52,7 +54,8 @@
 - (void)testSectionInserting
 {
     NSArray *insertData = @[@11, @12, @13];
-    id<BCLazyDataSourceSection> insertSection = lazyDataSourceSectionWithEnumerable(insertData, @"section2 header", @"section2 footer");
+    //@"section2 header", @"section2 footer"
+    id<BCLazyDataSourceSection> insertSection = lazyDataSourceSectionWithEnumerable(insertData, lazyTableViewCellFactoryWithStyle(UITableViewCellStyleDefault, @"ReuseIdentifier"));
     NSEnumerator *(^insertSectionEnumerator)() = ^{ return [insertSection.enumerator asNSEnumerator]; };
 
     NSEnumerator *(^sourceSectionEnumerator)() = ^{ return [self.section.enumerator asNSEnumerator]; };

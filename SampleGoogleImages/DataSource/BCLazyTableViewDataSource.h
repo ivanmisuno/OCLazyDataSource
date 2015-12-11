@@ -30,9 +30,11 @@
 @protocol BCLazyDataSourceEnumerable;
 
 @interface BCLazyTableViewDataSource : NSObject
+
+// use this as a delegate and dataSource for UITableView
 @property (nonatomic, readonly) id<UITableViewDataSource, UITableViewDelegate> _Nonnull bridgeDataSource;
 
 // flat list of BCLazyDataSourceItem with associated sections
-- (void)setDataItems:(id<BCLazyDataSourceEnumerable/*<BCLazyDataSourceItem>*/> _Nonnull)dataItems;
+- (void)setSource:(id<BCLazyDataSourceEnumerable/*<BCLazyDataSourceItem>*/> _Nonnull)sourceDataItems;
 @end
 

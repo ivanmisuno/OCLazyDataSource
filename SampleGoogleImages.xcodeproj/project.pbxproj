@@ -26,7 +26,7 @@
 		783605B51BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605B41BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m */; };
 		783605BD1BFCF14D0014D558 /* RACEXTRuntimeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605BA1BFCF14D0014D558 /* RACEXTRuntimeExtensions.m */; };
 		783605C01BFCF9940014D558 /* Test_SGISearchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605BF1BFCF9940014D558 /* Test_SGISearchItem.m */; };
-		78525FB91C19A40C005D95F9 /* Test_BCLazyDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FB71C19A40C005D95F9 /* Test_BCLazyDataSource.m */; };
+		78525FB91C19A40C005D95F9 /* Test_BCLazyTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FB71C19A40C005D95F9 /* Test_BCLazyTableViewDataSource.m */; };
 		78525FBA1C19A40C005D95F9 /* Test_BCLazyDataSourceEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FB81C19A40C005D95F9 /* Test_BCLazyDataSourceEnumerator.m */; };
 		78525FBC1C19A41F005D95F9 /* Test_BCLazyTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FBB1C19A41F005D95F9 /* Test_BCLazyTableViewCellFactory.m */; };
 		78525FBF1C19A60E005D95F9 /* BCLazySampleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FBE1C19A60E005D95F9 /* BCLazySampleTableCell.m */; };
@@ -35,6 +35,7 @@
 		78525FC81C19A9C0005D95F9 /* NSArray+BCLazyDataSourceEnumerable.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FC71C19A9C0005D95F9 /* NSArray+BCLazyDataSourceEnumerable.m */; };
 		78525FCB1C19DBB4005D95F9 /* BCLazyDataSourceFlatteningEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FCA1C19DBB4005D95F9 /* BCLazyDataSourceFlatteningEnumerator.m */; };
 		78525FCD1C19E5EF005D95F9 /* Test_BCLazyDataSourceFlatteningEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FCC1C19E5EF005D95F9 /* Test_BCLazyDataSourceFlatteningEnumerator.m */; };
+		78525FD01C1AF93F005D95F9 /* BCLazySectionBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FCF1C1AF93F005D95F9 /* BCLazySectionBridge.m */; };
 		78732D031C18473300056D86 /* BCLazyTableViewDataSourceBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D021C18473300056D86 /* BCLazyTableViewDataSourceBridge.m */; };
 		78732D061C185B4900056D86 /* BCLazyTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D051C185B4900056D86 /* BCLazyTableViewCellFactory.m */; };
 		78732D091C185DEB00056D86 /* BCLazyTableViewHeaderFooterViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D081C185DEB00056D86 /* BCLazyTableViewHeaderFooterViewFactory.m */; };
@@ -110,7 +111,7 @@
 		783605BC1BFCF14D0014D558 /* RACmetamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACmetamacros.h; sourceTree = "<group>"; };
 		783605BE1BFCF1710014D558 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		783605BF1BFCF9940014D558 /* Test_SGISearchItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_SGISearchItem.m; sourceTree = "<group>"; };
-		78525FB71C19A40C005D95F9 /* Test_BCLazyDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_BCLazyDataSource.m; sourceTree = "<group>"; };
+		78525FB71C19A40C005D95F9 /* Test_BCLazyTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_BCLazyTableViewDataSource.m; sourceTree = "<group>"; };
 		78525FB81C19A40C005D95F9 /* Test_BCLazyDataSourceEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_BCLazyDataSourceEnumerator.m; sourceTree = "<group>"; };
 		78525FBB1C19A41F005D95F9 /* Test_BCLazyTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_BCLazyTableViewCellFactory.m; sourceTree = "<group>"; };
 		78525FBD1C19A60E005D95F9 /* BCLazySampleTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCLazySampleTableCell.h; sourceTree = "<group>"; };
@@ -122,6 +123,8 @@
 		78525FC91C19DBB4005D95F9 /* BCLazyDataSourceFlatteningEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCLazyDataSourceFlatteningEnumerator.h; sourceTree = "<group>"; };
 		78525FCA1C19DBB4005D95F9 /* BCLazyDataSourceFlatteningEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCLazyDataSourceFlatteningEnumerator.m; sourceTree = "<group>"; };
 		78525FCC1C19E5EF005D95F9 /* Test_BCLazyDataSourceFlatteningEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_BCLazyDataSourceFlatteningEnumerator.m; sourceTree = "<group>"; };
+		78525FCE1C1AF93F005D95F9 /* BCLazySectionBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCLazySectionBridge.h; sourceTree = "<group>"; };
+		78525FCF1C1AF93F005D95F9 /* BCLazySectionBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCLazySectionBridge.m; sourceTree = "<group>"; };
 		78732D011C18473300056D86 /* BCLazyTableViewDataSourceBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCLazyTableViewDataSourceBridge.h; sourceTree = "<group>"; };
 		78732D021C18473300056D86 /* BCLazyTableViewDataSourceBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCLazyTableViewDataSourceBridge.m; sourceTree = "<group>"; };
 		78732D041C185B4900056D86 /* BCLazyTableViewCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCLazyTableViewCellFactory.h; sourceTree = "<group>"; };
@@ -278,11 +281,11 @@
 				78525FBD1C19A60E005D95F9 /* BCLazySampleTableCell.h */,
 				78525FBE1C19A60E005D95F9 /* BCLazySampleTableCell.m */,
 				78525FC01C19A700005D95F9 /* BCLazySampleTableCell.xib */,
-				78525FB71C19A40C005D95F9 /* Test_BCLazyDataSource.m */,
-				78525FBB1C19A41F005D95F9 /* Test_BCLazyTableViewCellFactory.m */,
 				78525FC41C19A8A4005D95F9 /* Test_BCLazyDataSourceSection.m */,
 				78525FB81C19A40C005D95F9 /* Test_BCLazyDataSourceEnumerator.m */,
 				78525FCC1C19E5EF005D95F9 /* Test_BCLazyDataSourceFlatteningEnumerator.m */,
+				78525FBB1C19A41F005D95F9 /* Test_BCLazyTableViewCellFactory.m */,
+				78525FB71C19A40C005D95F9 /* Test_BCLazyTableViewDataSource.m */,
 			);
 			path = BCLazyDataSource;
 			sourceTree = "<group>";
@@ -294,6 +297,8 @@
 				78887A181C16F72A00A8B2CF /* BCLazyTableViewDataSource.m */,
 				78732D011C18473300056D86 /* BCLazyTableViewDataSourceBridge.h */,
 				78732D021C18473300056D86 /* BCLazyTableViewDataSourceBridge.m */,
+				78525FCE1C1AF93F005D95F9 /* BCLazySectionBridge.h */,
+				78525FCF1C1AF93F005D95F9 /* BCLazySectionBridge.m */,
 				78732D041C185B4900056D86 /* BCLazyTableViewCellFactory.h */,
 				78732D051C185B4900056D86 /* BCLazyTableViewCellFactory.m */,
 				78732D071C185DEB00056D86 /* BCLazyTableViewHeaderFooterViewFactory.h */,
@@ -622,6 +627,7 @@
 				78732D161C18683800056D86 /* BCLazyDataSourceEnumerable.m in Sources */,
 				78525FC81C19A9C0005D95F9 /* NSArray+BCLazyDataSourceEnumerable.m in Sources */,
 				78732D131C1867A300056D86 /* BCLazyDataSourceSection.m in Sources */,
+				78525FD01C1AF93F005D95F9 /* BCLazySectionBridge.m in Sources */,
 				789B75A41BFCE8210081A34B /* SGIFirstViewController.m in Sources */,
 				1408812E1BFD20BF00457B57 /* SGIJsonStorageManager.m in Sources */,
 				78E338331BFE35020015586B /* SGIObjectStore.m in Sources */,
@@ -647,7 +653,7 @@
 				783605B51BFCEF470014D558 /* Test_NSDictionary+SGITypedDictionary.m in Sources */,
 				783605C01BFCF9940014D558 /* Test_SGISearchItem.m in Sources */,
 				78525FBF1C19A60E005D95F9 /* BCLazySampleTableCell.m in Sources */,
-				78525FB91C19A40C005D95F9 /* Test_BCLazyDataSource.m in Sources */,
+				78525FB91C19A40C005D95F9 /* Test_BCLazyTableViewDataSource.m in Sources */,
 				78525FC51C19A8A4005D95F9 /* Test_BCLazyDataSourceSection.m in Sources */,
 				78E338351BFE56740015586B /* Test_SGIJsonStorageManager.m in Sources */,
 			);

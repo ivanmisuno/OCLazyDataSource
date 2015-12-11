@@ -10,21 +10,26 @@
 #import "BCLazyDataSourceItem.h"
 
 @interface BCLazyDataSourceSectionImpl : NSObject<BCLazyDataSourceSection>
+
 @property (nonatomic, readonly) id<BCLazyDataSourceEnumerable> _Nonnull sourceItemsCollection;
+
 @end
+
 @implementation BCLazyDataSourceSectionImpl
+
 @synthesize headerViewItem = _headerViewItem;
 @synthesize footerViewItem = _footerViewItem;
+@synthesize cellFactory = _cellFactory;
+@synthesize headerFooterFactory = _headerFooterFactory;
+
 - (instancetype _Nullable)initWithSourceItemsCollection:(id<BCLazyDataSourceEnumerable> _Nonnull)sourceItemsCollection
-                                         headerViewItem:(id _Nullable)headerViewItem
-                                         footerViewItem:(id _Nullable)footerViewItem
+                                            cellFactory:(id<BCLazyTableViewCellFactory> _Nonnull)cellFactory
 {
     self = [super init];
     if (self)
     {
         _sourceItemsCollection = sourceItemsCollection;
-        _headerViewItem = headerViewItem;
-        _footerViewItem = footerViewItem;
+        _cellFactory = cellFactory;
     }
     return self;
 }
@@ -41,10 +46,8 @@
 @end
 
 id<BCLazyDataSourceSection> _Nonnull lazyDataSourceSectionWithEnumerable(id<BCLazyDataSourceEnumerable> _Nonnull sourceItems,
-                                                                         id _Nullable headerViewItem,
-                                                                         id _Nullable footerViewItem)
+                                                                         id<BCLazyTableViewCellFactory> _Nonnull cellFactory)
 {
     return [[BCLazyDataSourceSectionImpl alloc] initWithSourceItemsCollection:sourceItems
-                                                               headerViewItem:headerViewItem
-                                                               footerViewItem:footerViewItem];
+                                                                  cellFactory:cellFactory];
 }

@@ -7,60 +7,50 @@
 
 #import "BCLazyTableViewHeaderFooterViewFactory.h"
 
+typedef void(^RegisterBlockType)(UITableView * _Nonnull tableView);
+typedef UITableViewHeaderFooterView * _Nonnull (^DequeueBlockType)(UITableView * _Nonnull tableView);
+
 @interface BCLazyTableViewHeaderFooterViewFactoryImpl : NSObject <BCLazyTableViewHeaderFooterViewFactory>
-@property (nonatomic, readonly) UINib * _Nullable nibForTableViewHeaderFooterView;
-@property (nonatomic, readonly) Class _Nullable classForTableViewHeaderFooterView;
-@property (nonatomic, readonly) NSString * _Nonnull reuseIdentifier;
+@property (nonatomic, readonly) RegisterBlockType _Nonnull registerBlock;
+@property (nonatomic, readonly) DequeueBlockType _Nonnull dequeueBlock;
 @end
 
 @implementation BCLazyTableViewHeaderFooterViewFactoryImpl
-- (instancetype _Nullable)initWithNib:(UINib * _Nonnull)nibForTableViewHeaderFooterView reuseIdentifier:(NSString * _Nonnull)reuseIdentifier
+- (instancetype _Nullable)initWithRegisterBlock:(RegisterBlockType _Nonnull)registerBlock
+                                   dequeueBlock:(DequeueBlockType _Nonnull)dequeueBlock
 {
     self = [super init];
     if (self)
     {
-        _nibForTableViewHeaderFooterView = nibForTableViewHeaderFooterView;
-        _reuseIdentifier = reuseIdentifier;
-    }
-    return self;
-}
-- (instancetype _Nullable)initWithClass:(Class _Nonnull)classForTableViewHeaderFooterView reuseIdentifier:(NSString * _Nonnull)reuseIdentifier
-{
-    self = [super init];
-    if (self)
-    {
-        _classForTableViewHeaderFooterView = classForTableViewHeaderFooterView;
-        _reuseIdentifier = reuseIdentifier;
+        _registerBlock = registerBlock;
+        _dequeueBlock = dequeueBlock;
     }
     return self;
 }
 
 - (void)registerWithTableView:(UITableView * _Nonnull)tableView
 {
-    if (self.nibForTableViewHeaderFooterView)
-    {
-        [tableView registerNib:self.nibForTableViewHeaderFooterView forHeaderFooterViewReuseIdentifier:self.reuseIdentifier];
-    }
-    else if (self.classForTableViewHeaderFooterView)
-    {
-        [tableView registerClass:self.classForTableViewHeaderFooterView forHeaderFooterViewReuseIdentifier:self.reuseIdentifier];
-    }
-    else
-    {
-        NSAssert(NO, @"Must have nib or cell class!");
-    }
+    self.registerBlock(tableView);
 }
 - (UITableViewHeaderFooterView * _Nonnull)dequeueTableViewHeaderFooterView:(UITableView *)tableView
 {
-    return [tableView dequeueReusableHeaderFooterViewWithIdentifier:self.reuseIdentifier];
+    return self.dequeueBlock(tableView);
 }
 @end
 
 id<BCLazyTableViewHeaderFooterViewFactory> _Nonnull lazyTableViewHeaderFooterViewFactoryWithNib(UINib * _Nonnull nibForTableViewHeaderFooterView, NSString * _Nonnull reuseIdentifier)
 {
-    return [[BCLazyTableViewHeaderFooterViewFactoryImpl alloc] initWithNib:nibForTableViewHeaderFooterView reuseIdentifier:reuseIdentifier];
+    return [[BCLazyTableViewHeaderFooterViewFactoryImpl alloc] initWithRegisterBlock:^(UITableView * _Nonnull tableView) {
+        [tableView registerNib:nibForTableViewHeaderFooterView forHeaderFooterViewReuseIdentifier:reuseIdentifier];
+    } dequeueBlock:^UITableViewHeaderFooterView * _Nonnull(UITableView * _Nonnull tableView) {
+        return [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
+    }];
 }
 id<BCLazyTableViewHeaderFooterViewFactory> _Nonnull lazyTableViewHeaderFooterViewFactoryWithClass(Class _Nonnull classForTableViewHeaderFooterView, NSString * _Nonnull reuseIdentifier)
 {
-    return [[BCLazyTableViewHeaderFooterViewFactoryImpl alloc] initWithClass:classForTableViewHeaderFooterView reuseIdentifier:reuseIdentifier];
+    return [[BCLazyTableViewHeaderFooterViewFactoryImpl alloc] initWithRegisterBlock:^(UITableView * _Nonnull tableView) {
+        [tableView registerClass:classForTableViewHeaderFooterView forHeaderFooterViewReuseIdentifier:reuseIdentifier];
+    } dequeueBlock:^UITableViewHeaderFooterView * _Nonnull(UITableView * _Nonnull tableView) {
+        return [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
+    }];
 }

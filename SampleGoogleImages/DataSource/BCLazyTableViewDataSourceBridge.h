@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BCLazyTableViewDataSourceBridge : NSObject <UITableViewDelegate, UITableViewDataSource>
+@protocol BCLazySectionBridge;
 
+@interface BCLazyTableViewDataSourceBridge : NSObject <UITableViewDelegate, UITableViewDataSource>
+@property (nonatomic) NSArray<id<BCLazySectionBridge>> * _Nonnull combinedDataSource;
 @end
