@@ -87,7 +87,7 @@
                               @{@"title":@"Former Oklahoma police officer found guilty of multiple rapes",
                                 @"subtitle":@"A former Oklahoma City police officer has been convicted of sexually assaulting women he preyed upon in a low-income neighborhood he patrolled.",
                                 @"source":@"USA TODAY - ‎4 hours ago‎",
-                                @"thumbnail":@"http://ww1.hdnux.com/photos/42/54/66/9096588/3/920x920.jpg"},
+                                @"thumbnail":@"http://images.csmonitor.com/csm/2015/12/953039_1_1211-tesla_standard.jpg?alias=standard_600x400"},
                               @{@"title":@"Ben Carson joins Donald Trump in threatening to leave GOP",
                                 @"subtitle":@"Washington (CNN) Ben Carson on Friday took a page from Donald Trump's playbook by threatening to depart the Republican Party. Ahead of Tuesday's GOP presidential debate, the retired neurosurgeon slammed the party after reports emerged.",
                                 @"source":@"‎CNN - ‎1 hour ago",
