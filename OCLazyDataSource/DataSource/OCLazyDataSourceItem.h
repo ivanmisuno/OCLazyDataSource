@@ -7,7 +7,6 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol BCViewModel;
 @protocol OCLazyDataSourceSection;
 
 @protocol OCLazyDataSourceItem

@@ -7,26 +7,6 @@
 
 #import <Foundation/Foundation.h>
 
-///////////////////////////////////////////////////////////////////
-// View models
-
-//@protocol BCViewModel <NSObject>
-//@property (nonatomic, readonly) id _Nonnull model;
-//@end
-//
-//id<BCViewModel> _Nonnull viewModel(id _Nonnull model);
-
-///////////////////////////////////////////////////////////////////
-// Reusable configurable collection view items
-
-//@interface BCConfigurableView
-//- (void)configureWithViewModel:(id<BCViewModel> _Nonnull)viewModel;
-//@end
-
-
-
-///////////////////////////////////////////////////////////////////
-
 @protocol OCLazyDataSourceEnumerable;
 
 @interface OCLazyTableViewDataSource : NSObject

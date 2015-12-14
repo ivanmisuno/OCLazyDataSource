@@ -16,30 +16,6 @@
 #import "OCLazyDataSourceFlatteningEnumerator.h"
 #import "OCLazyTableViewCellFactory.h"
 
-//@interface BCViewModelImpl : NSObject <BCViewModel>
-//@end
-//@implementation BCViewModelImpl
-//@synthesize model = _model;
-//@synthesize reusableIdentifier = _reusableIdentifier;
-//@synthesize reusableViewClassName = _reusableViewClassName;
-//- (instancetype _Nullable)initWithModel:(id _Nonnull)model
-//{
-//    self = [super init];
-//    if (self)
-//    {
-//        _model = model;
-//    }
-//    return self;
-//}
-//@end
-//
-//id<BCViewModel> _Nonnull viewModel(id _Nonnull model)
-//{
-//    return [[BCViewModelImpl alloc] initWithModel:model];
-//}
-
-///////////////////////////////////////////////////////////////////
-
 @interface OCLazyTableViewDataSource()
 @property (nonatomic, readonly) OCLazyTableViewDataSourceBridge * _Nonnull bridgeDataSourceObject;
 @end
