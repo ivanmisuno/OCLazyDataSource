@@ -3,7 +3,6 @@ source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 pod 'AFNetworking'
-pod 'OCTotallyLazy'
 pod 'NSEnumeratorLinq'
 
 def testing_pods
