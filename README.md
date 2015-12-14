@@ -26,6 +26,16 @@ NSArray *section2data = @[@"Show more articles...",
 
 ### Basic setup, default fixed-height cells:
 ```
+// define data source property on a view controller class
+@property (nonatomic, readonly) OCLazyTableViewDataSource *dataSource;
+
+// ...
+// - (void)viewDidLoad
+_dataSource = [[OCLazyTableViewDataSource alloc] init];
+self.tableView.dataSource = self.dataSource.bridgeDataSource;
+self.tableView.delegate = self.dataSource.bridgeDataSource;
+// ...
+
 id<OCLazyTableViewCellFactory> cellFactory1 = lazyTableViewCellFactoryWithStyle(UITableViewCellStyleSubtitle, @"SimpleCell1");
 cellFactory1.configureBlock = ^(UITableViewCell * _Nonnull cell, NSDictionary * _Nonnull model, UITableView * _Nonnull tableView) {
 	cell.textLabel.text = model[@"title"];
@@ -42,7 +52,9 @@ cellFactory2.configureBlock = ^(UITableViewCell * _Nonnull cell, NSString * _Non
 	cell.textLabel.font = [UIFont systemFontOfSize:12];
 };
 id<OCLazyDataSourceSection> section2 = lazyDataSourceSectionWithEnumerable(section2data, cellFactory2);
-NSArray *sections = @[section1, section2]; // array (or any enumerable collection) of sections
+
+// an array (or any enumerable collection) of sections
+NSArray *sections = @[section1, section2];
 [self.dataSource setSource:sections];
 ```
 [Preview](https://drive.google.com/file/d/0B7S7eiBvB1zXd2I1ZV9taDF0SDg/preview)
