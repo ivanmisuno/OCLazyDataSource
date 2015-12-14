@@ -10,8 +10,4 @@
 @import Foundation;
 @import UIKit;
 
-// RAC mematacros
-#import "RACEXTKeyPathCoding.h"
-#import "RACEXTScope.h"
-
 #endif

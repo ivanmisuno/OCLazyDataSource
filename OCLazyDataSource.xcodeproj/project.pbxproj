@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2E8C9B6591F34BF2F9FAEE76 /* Pods_OCLazyDataSourceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E8346D87AA3B5C34C0766D6 /* Pods_OCLazyDataSourceTests.framework */; };
-		783605BD1BFCF14D0014D558 /* RACEXTRuntimeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605BA1BFCF14D0014D558 /* RACEXTRuntimeExtensions.m */; };
 		78525FB91C19A40C005D95F9 /* Test_OCLazyTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FB71C19A40C005D95F9 /* Test_OCLazyTableViewDataSource.m */; };
 		78525FBA1C19A40C005D95F9 /* Test_OCLazyDataSourceEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FB81C19A40C005D95F9 /* Test_OCLazyDataSourceEnumerator.m */; };
 		78525FBC1C19A41F005D95F9 /* Test_OCLazyTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FBB1C19A41F005D95F9 /* Test_OCLazyTableViewCellFactory.m */; };
@@ -54,11 +53,6 @@
 		43615817DDE37CD9D3491590 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4874DF969F0DDCAC84430B8D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F89E0C75498CEC743C09E7 /* Pods-OCLazyDataSourceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCLazyDataSourceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OCLazyDataSourceTests/Pods-OCLazyDataSourceTests.release.xcconfig"; sourceTree = "<group>"; };
-		783605B81BFCF14D0014D558 /* RACEXTKeyPathCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACEXTKeyPathCoding.h; sourceTree = "<group>"; };
-		783605B91BFCF14D0014D558 /* RACEXTRuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACEXTRuntimeExtensions.h; sourceTree = "<group>"; };
-		783605BA1BFCF14D0014D558 /* RACEXTRuntimeExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACEXTRuntimeExtensions.m; sourceTree = "<group>"; };
-		783605BB1BFCF14D0014D558 /* RACEXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACEXTScope.h; sourceTree = "<group>"; };
-		783605BC1BFCF14D0014D558 /* RACmetamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACmetamacros.h; sourceTree = "<group>"; };
 		783605BE1BFCF1710014D558 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		78525FB71C19A40C005D95F9 /* Test_OCLazyTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_OCLazyTableViewDataSource.m; sourceTree = "<group>"; };
 		78525FB81C19A40C005D95F9 /* Test_OCLazyDataSourceEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_OCLazyDataSourceEnumerator.m; sourceTree = "<group>"; };
@@ -152,26 +146,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		783605B61BFCF14D0014D558 /* ExternalDependencies */ = {
-			isa = PBXGroup;
-			children = (
-				783605B71BFCF14D0014D558 /* extobjc */,
-			);
-			path = ExternalDependencies;
-			sourceTree = SOURCE_ROOT;
-		};
-		783605B71BFCF14D0014D558 /* extobjc */ = {
-			isa = PBXGroup;
-			children = (
-				783605B81BFCF14D0014D558 /* RACEXTKeyPathCoding.h */,
-				783605B91BFCF14D0014D558 /* RACEXTRuntimeExtensions.h */,
-				783605BA1BFCF14D0014D558 /* RACEXTRuntimeExtensions.m */,
-				783605BB1BFCF14D0014D558 /* RACEXTScope.h */,
-				783605BC1BFCF14D0014D558 /* RACmetamacros.h */,
-			);
-			path = extobjc;
-			sourceTree = "<group>";
-		};
 		78525FB61C19A3E3005D95F9 /* OCLazyDataSource */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,7 +193,6 @@
 		789B75901BFCE8210081A34B = {
 			isa = PBXGroup;
 			children = (
-				783605B61BFCF14D0014D558 /* ExternalDependencies */,
 				789B759B1BFCE8210081A34B /* OCLazyDataSource */,
 				789B75B81BFCE8210081A34B /* OCLazyDataSourceTests */,
 				789B759A1BFCE8210081A34B /* Products */,
@@ -490,7 +463,6 @@
 				78525FCB1C19DBB4005D95F9 /* OCLazyDataSourceFlatteningEnumerator.m in Sources */,
 				78732D191C186A7600056D86 /* OCLazyDataSourceEnumerator.m in Sources */,
 				78732D0F1C1860A900056D86 /* OCLazyDataSourceItem.m in Sources */,
-				783605BD1BFCF14D0014D558 /* RACEXTRuntimeExtensions.m in Sources */,
 				789B75A71BFCE8210081A34B /* SGISecondViewController.m in Sources */,
 				789B75A11BFCE8210081A34B /* AppDelegate.m in Sources */,
 				78732D091C185DEB00056D86 /* OCLazyTableViewHeaderFooterViewFactory.m in Sources */,
