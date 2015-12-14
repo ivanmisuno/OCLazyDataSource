@@ -11,6 +11,6 @@ def testing_pods
     pod 'OCMock'
 end
 
-target 'SampleGoogleImagesTests' do
+target 'OCLazyDataSourceTests' do
     testing_pods
 end

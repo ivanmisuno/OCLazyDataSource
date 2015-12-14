@@ -1,0 +1,727 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2E8C9B6591F34BF2F9FAEE76 /* Pods_OCLazyDataSourceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E8346D87AA3B5C34C0766D6 /* Pods_OCLazyDataSourceTests.framework */; };
+		783605BD1BFCF14D0014D558 /* RACEXTRuntimeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 783605BA1BFCF14D0014D558 /* RACEXTRuntimeExtensions.m */; };
+		78525FB91C19A40C005D95F9 /* Test_OCLazyTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FB71C19A40C005D95F9 /* Test_OCLazyTableViewDataSource.m */; };
+		78525FBA1C19A40C005D95F9 /* Test_OCLazyDataSourceEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FB81C19A40C005D95F9 /* Test_OCLazyDataSourceEnumerator.m */; };
+		78525FBC1C19A41F005D95F9 /* Test_OCLazyTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FBB1C19A41F005D95F9 /* Test_OCLazyTableViewCellFactory.m */; };
+		78525FBF1C19A60E005D95F9 /* OCLazySampleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FBE1C19A60E005D95F9 /* OCLazySampleTableCell.m */; };
+		78525FC11C19A700005D95F9 /* OCLazySampleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78525FC01C19A700005D95F9 /* OCLazySampleTableCell.xib */; };
+		78525FC51C19A8A4005D95F9 /* Test_OCLazyDataSourceSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FC41C19A8A4005D95F9 /* Test_OCLazyDataSourceSection.m */; };
+		78525FC81C19A9C0005D95F9 /* NSArray+OCLazyDataSourceEnumerable.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FC71C19A9C0005D95F9 /* NSArray+OCLazyDataSourceEnumerable.m */; };
+		78525FCB1C19DBB4005D95F9 /* OCLazyDataSourceFlatteningEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FCA1C19DBB4005D95F9 /* OCLazyDataSourceFlatteningEnumerator.m */; };
+		78525FCD1C19E5EF005D95F9 /* Test_OCLazyDataSourceFlatteningEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FCC1C19E5EF005D95F9 /* Test_OCLazyDataSourceFlatteningEnumerator.m */; };
+		78525FD01C1AF93F005D95F9 /* OCLazySectionBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FCF1C1AF93F005D95F9 /* OCLazySectionBridge.m */; };
+		78525FD31C1B4509005D95F9 /* OCSampleNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FD21C1B4509005D95F9 /* OCSampleNewsCell.m */; };
+		78525FD51C1B451A005D95F9 /* OCSampleNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78525FD41C1B451A005D95F9 /* OCSampleNewsCell.xib */; };
+		78732D031C18473300056D86 /* OCLazyTableViewDataSourceBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D021C18473300056D86 /* OCLazyTableViewDataSourceBridge.m */; };
+		78732D061C185B4900056D86 /* OCLazyTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D051C185B4900056D86 /* OCLazyTableViewCellFactory.m */; };
+		78732D091C185DEB00056D86 /* OCLazyTableViewHeaderFooterViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D081C185DEB00056D86 /* OCLazyTableViewHeaderFooterViewFactory.m */; };
+		78732D0F1C1860A900056D86 /* OCLazyDataSourceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D0E1C1860A900056D86 /* OCLazyDataSourceItem.m */; };
+		78732D131C1867A300056D86 /* OCLazyDataSourceSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D121C1867A300056D86 /* OCLazyDataSourceSection.m */; };
+		78732D161C18683800056D86 /* OCLazyDataSourceEnumerable.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D151C18683800056D86 /* OCLazyDataSourceEnumerable.m */; };
+		78732D191C186A7600056D86 /* OCLazyDataSourceEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D181C186A7600056D86 /* OCLazyDataSourceEnumerator.m */; };
+		78887A191C16F72A00A8B2CF /* OCLazyTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 78887A181C16F72A00A8B2CF /* OCLazyTableViewDataSource.m */; };
+		789B759E1BFCE8210081A34B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 789B759D1BFCE8210081A34B /* main.m */; };
+		789B75A11BFCE8210081A34B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 789B75A01BFCE8210081A34B /* AppDelegate.m */; };
+		789B75A41BFCE8210081A34B /* SGIFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789B75A31BFCE8210081A34B /* SGIFirstViewController.m */; };
+		789B75A71BFCE8210081A34B /* SGISecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789B75A61BFCE8210081A34B /* SGISecondViewController.m */; };
+		789B75AA1BFCE8210081A34B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789B75A81BFCE8210081A34B /* Main.storyboard */; };
+		789B75AC1BFCE8210081A34B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 789B75AB1BFCE8210081A34B /* Assets.xcassets */; };
+		789B75AF1BFCE8210081A34B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789B75AD1BFCE8210081A34B /* LaunchScreen.storyboard */; };
+		C03665893BC8EE732CA27FE2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4874DF969F0DDCAC84430B8D /* Pods.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		789B75B61BFCE8210081A34B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 789B75911BFCE8210081A34B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 789B75981BFCE8210081A34B;
+			remoteInfo = OCLazyDataSource;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		07D3F8E9C6522C9F9EC8D3F9 /* Pods-OCLazyDataSourceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCLazyDataSourceTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OCLazyDataSourceTests/Pods-OCLazyDataSourceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		43615817DDE37CD9D3491590 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		4874DF969F0DDCAC84430B8D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49F89E0C75498CEC743C09E7 /* Pods-OCLazyDataSourceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCLazyDataSourceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OCLazyDataSourceTests/Pods-OCLazyDataSourceTests.release.xcconfig"; sourceTree = "<group>"; };
+		783605B81BFCF14D0014D558 /* RACEXTKeyPathCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACEXTKeyPathCoding.h; sourceTree = "<group>"; };
+		783605B91BFCF14D0014D558 /* RACEXTRuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACEXTRuntimeExtensions.h; sourceTree = "<group>"; };
+		783605BA1BFCF14D0014D558 /* RACEXTRuntimeExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACEXTRuntimeExtensions.m; sourceTree = "<group>"; };
+		783605BB1BFCF14D0014D558 /* RACEXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACEXTScope.h; sourceTree = "<group>"; };
+		783605BC1BFCF14D0014D558 /* RACmetamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACmetamacros.h; sourceTree = "<group>"; };
+		783605BE1BFCF1710014D558 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		78525FB71C19A40C005D95F9 /* Test_OCLazyTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_OCLazyTableViewDataSource.m; sourceTree = "<group>"; };
+		78525FB81C19A40C005D95F9 /* Test_OCLazyDataSourceEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_OCLazyDataSourceEnumerator.m; sourceTree = "<group>"; };
+		78525FBB1C19A41F005D95F9 /* Test_OCLazyTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_OCLazyTableViewCellFactory.m; sourceTree = "<group>"; };
+		78525FBD1C19A60E005D95F9 /* OCLazySampleTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLazySampleTableCell.h; sourceTree = "<group>"; };
+		78525FBE1C19A60E005D95F9 /* OCLazySampleTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLazySampleTableCell.m; sourceTree = "<group>"; };
+		78525FC01C19A700005D95F9 /* OCLazySampleTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OCLazySampleTableCell.xib; sourceTree = "<group>"; };
+		78525FC41C19A8A4005D95F9 /* Test_OCLazyDataSourceSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_OCLazyDataSourceSection.m; sourceTree = "<group>"; };
+		78525FC61C19A9C0005D95F9 /* NSArray+OCLazyDataSourceEnumerable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+OCLazyDataSourceEnumerable.h"; sourceTree = "<group>"; };
+		78525FC71C19A9C0005D95F9 /* NSArray+OCLazyDataSourceEnumerable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+OCLazyDataSourceEnumerable.m"; sourceTree = "<group>"; };
+		78525FC91C19DBB4005D95F9 /* OCLazyDataSourceFlatteningEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLazyDataSourceFlatteningEnumerator.h; sourceTree = "<group>"; };
+		78525FCA1C19DBB4005D95F9 /* OCLazyDataSourceFlatteningEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLazyDataSourceFlatteningEnumerator.m; sourceTree = "<group>"; };
+		78525FCC1C19E5EF005D95F9 /* Test_OCLazyDataSourceFlatteningEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_OCLazyDataSourceFlatteningEnumerator.m; sourceTree = "<group>"; };
+		78525FCE1C1AF93F005D95F9 /* OCLazySectionBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLazySectionBridge.h; sourceTree = "<group>"; };
+		78525FCF1C1AF93F005D95F9 /* OCLazySectionBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLazySectionBridge.m; sourceTree = "<group>"; };
+		78525FD11C1B4509005D95F9 /* OCSampleNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSampleNewsCell.h; sourceTree = "<group>"; };
+		78525FD21C1B4509005D95F9 /* OCSampleNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSampleNewsCell.m; sourceTree = "<group>"; };
+		78525FD41C1B451A005D95F9 /* OCSampleNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OCSampleNewsCell.xib; sourceTree = "<group>"; };
+		78732D011C18473300056D86 /* OCLazyTableViewDataSourceBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLazyTableViewDataSourceBridge.h; sourceTree = "<group>"; };
+		78732D021C18473300056D86 /* OCLazyTableViewDataSourceBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLazyTableViewDataSourceBridge.m; sourceTree = "<group>"; };
+		78732D041C185B4900056D86 /* OCLazyTableViewCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLazyTableViewCellFactory.h; sourceTree = "<group>"; };
+		78732D051C185B4900056D86 /* OCLazyTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLazyTableViewCellFactory.m; sourceTree = "<group>"; };
+		78732D071C185DEB00056D86 /* OCLazyTableViewHeaderFooterViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLazyTableViewHeaderFooterViewFactory.h; sourceTree = "<group>"; };
+		78732D081C185DEB00056D86 /* OCLazyTableViewHeaderFooterViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLazyTableViewHeaderFooterViewFactory.m; sourceTree = "<group>"; };
+		78732D0D1C1860A900056D86 /* OCLazyDataSourceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLazyDataSourceItem.h; sourceTree = "<group>"; };
+		78732D0E1C1860A900056D86 /* OCLazyDataSourceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLazyDataSourceItem.m; sourceTree = "<group>"; };
+		78732D111C1867A300056D86 /* OCLazyDataSourceSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLazyDataSourceSection.h; sourceTree = "<group>"; };
+		78732D121C1867A300056D86 /* OCLazyDataSourceSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLazyDataSourceSection.m; sourceTree = "<group>"; };
+		78732D141C18683800056D86 /* OCLazyDataSourceEnumerable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLazyDataSourceEnumerable.h; sourceTree = "<group>"; };
+		78732D151C18683800056D86 /* OCLazyDataSourceEnumerable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLazyDataSourceEnumerable.m; sourceTree = "<group>"; };
+		78732D171C186A7600056D86 /* OCLazyDataSourceEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLazyDataSourceEnumerator.h; sourceTree = "<group>"; };
+		78732D181C186A7600056D86 /* OCLazyDataSourceEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLazyDataSourceEnumerator.m; sourceTree = "<group>"; };
+		78887A171C16F72A00A8B2CF /* OCLazyTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLazyTableViewDataSource.h; sourceTree = "<group>"; };
+		78887A181C16F72A00A8B2CF /* OCLazyTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLazyTableViewDataSource.m; sourceTree = "<group>"; };
+		789B75991BFCE8210081A34B /* OCLazyDataSource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCLazyDataSource.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		789B759D1BFCE8210081A34B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		789B759F1BFCE8210081A34B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		789B75A01BFCE8210081A34B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		789B75A21BFCE8210081A34B /* SGIFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGIFirstViewController.h; sourceTree = "<group>"; };
+		789B75A31BFCE8210081A34B /* SGIFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGIFirstViewController.m; sourceTree = "<group>"; };
+		789B75A51BFCE8210081A34B /* SGISecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGISecondViewController.h; sourceTree = "<group>"; };
+		789B75A61BFCE8210081A34B /* SGISecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGISecondViewController.m; sourceTree = "<group>"; };
+		789B75A91BFCE8210081A34B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		789B75AB1BFCE8210081A34B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		789B75AE1BFCE8210081A34B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		789B75B01BFCE8210081A34B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		789B75B51BFCE8210081A34B /* OCLazyDataSourceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCLazyDataSourceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		789B75BB1BFCE8210081A34B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E8346D87AA3B5C34C0766D6 /* Pods_OCLazyDataSourceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OCLazyDataSourceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		907C62E72F707D0C1A138946 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		789B75961BFCE8210081A34B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C03665893BC8EE732CA27FE2 /* Pods.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		789B75B21BFCE8210081A34B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E8C9B6591F34BF2F9FAEE76 /* Pods_OCLazyDataSourceTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1408814C1BFF09DB00457B57 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				78525FD11C1B4509005D95F9 /* OCSampleNewsCell.h */,
+				78525FD21C1B4509005D95F9 /* OCSampleNewsCell.m */,
+				78525FD41C1B451A005D95F9 /* OCSampleNewsCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		1A05084034A9389CFBD838ED /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				43615817DDE37CD9D3491590 /* Pods.debug.xcconfig */,
+				907C62E72F707D0C1A138946 /* Pods.release.xcconfig */,
+				07D3F8E9C6522C9F9EC8D3F9 /* Pods-OCLazyDataSourceTests.debug.xcconfig */,
+				49F89E0C75498CEC743C09E7 /* Pods-OCLazyDataSourceTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		783605B61BFCF14D0014D558 /* ExternalDependencies */ = {
+			isa = PBXGroup;
+			children = (
+				783605B71BFCF14D0014D558 /* extobjc */,
+			);
+			path = ExternalDependencies;
+			sourceTree = SOURCE_ROOT;
+		};
+		783605B71BFCF14D0014D558 /* extobjc */ = {
+			isa = PBXGroup;
+			children = (
+				783605B81BFCF14D0014D558 /* RACEXTKeyPathCoding.h */,
+				783605B91BFCF14D0014D558 /* RACEXTRuntimeExtensions.h */,
+				783605BA1BFCF14D0014D558 /* RACEXTRuntimeExtensions.m */,
+				783605BB1BFCF14D0014D558 /* RACEXTScope.h */,
+				783605BC1BFCF14D0014D558 /* RACmetamacros.h */,
+			);
+			path = extobjc;
+			sourceTree = "<group>";
+		};
+		78525FB61C19A3E3005D95F9 /* OCLazyDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				78525FBD1C19A60E005D95F9 /* OCLazySampleTableCell.h */,
+				78525FBE1C19A60E005D95F9 /* OCLazySampleTableCell.m */,
+				78525FC01C19A700005D95F9 /* OCLazySampleTableCell.xib */,
+				78525FC41C19A8A4005D95F9 /* Test_OCLazyDataSourceSection.m */,
+				78525FB81C19A40C005D95F9 /* Test_OCLazyDataSourceEnumerator.m */,
+				78525FCC1C19E5EF005D95F9 /* Test_OCLazyDataSourceFlatteningEnumerator.m */,
+				78525FBB1C19A41F005D95F9 /* Test_OCLazyTableViewCellFactory.m */,
+				78525FB71C19A40C005D95F9 /* Test_OCLazyTableViewDataSource.m */,
+			);
+			path = OCLazyDataSource;
+			sourceTree = "<group>";
+		};
+		78887A161C16F71500A8B2CF /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				78887A171C16F72A00A8B2CF /* OCLazyTableViewDataSource.h */,
+				78887A181C16F72A00A8B2CF /* OCLazyTableViewDataSource.m */,
+				78732D011C18473300056D86 /* OCLazyTableViewDataSourceBridge.h */,
+				78732D021C18473300056D86 /* OCLazyTableViewDataSourceBridge.m */,
+				78525FCE1C1AF93F005D95F9 /* OCLazySectionBridge.h */,
+				78525FCF1C1AF93F005D95F9 /* OCLazySectionBridge.m */,
+				78732D041C185B4900056D86 /* OCLazyTableViewCellFactory.h */,
+				78732D051C185B4900056D86 /* OCLazyTableViewCellFactory.m */,
+				78732D071C185DEB00056D86 /* OCLazyTableViewHeaderFooterViewFactory.h */,
+				78732D081C185DEB00056D86 /* OCLazyTableViewHeaderFooterViewFactory.m */,
+				78732D0D1C1860A900056D86 /* OCLazyDataSourceItem.h */,
+				78732D0E1C1860A900056D86 /* OCLazyDataSourceItem.m */,
+				78732D111C1867A300056D86 /* OCLazyDataSourceSection.h */,
+				78732D121C1867A300056D86 /* OCLazyDataSourceSection.m */,
+				78732D141C18683800056D86 /* OCLazyDataSourceEnumerable.h */,
+				78732D151C18683800056D86 /* OCLazyDataSourceEnumerable.m */,
+				78732D171C186A7600056D86 /* OCLazyDataSourceEnumerator.h */,
+				78732D181C186A7600056D86 /* OCLazyDataSourceEnumerator.m */,
+				78525FC91C19DBB4005D95F9 /* OCLazyDataSourceFlatteningEnumerator.h */,
+				78525FCA1C19DBB4005D95F9 /* OCLazyDataSourceFlatteningEnumerator.m */,
+				78525FC61C19A9C0005D95F9 /* NSArray+OCLazyDataSourceEnumerable.h */,
+				78525FC71C19A9C0005D95F9 /* NSArray+OCLazyDataSourceEnumerable.m */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		789B75901BFCE8210081A34B = {
+			isa = PBXGroup;
+			children = (
+				783605B61BFCF14D0014D558 /* ExternalDependencies */,
+				789B759B1BFCE8210081A34B /* OCLazyDataSource */,
+				789B75B81BFCE8210081A34B /* OCLazyDataSourceTests */,
+				789B759A1BFCE8210081A34B /* Products */,
+				1A05084034A9389CFBD838ED /* Pods */,
+				CB16AC70C371372FF4854268 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		789B759A1BFCE8210081A34B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				789B75991BFCE8210081A34B /* OCLazyDataSource.app */,
+				789B75B51BFCE8210081A34B /* OCLazyDataSourceTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		789B759B1BFCE8210081A34B /* OCLazyDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				78887A161C16F71500A8B2CF /* DataSource */,
+				1408814C1BFF09DB00457B57 /* Cells */,
+				789B759F1BFCE8210081A34B /* AppDelegate.h */,
+				789B75A01BFCE8210081A34B /* AppDelegate.m */,
+				789B75A21BFCE8210081A34B /* SGIFirstViewController.h */,
+				789B75A31BFCE8210081A34B /* SGIFirstViewController.m */,
+				789B75A51BFCE8210081A34B /* SGISecondViewController.h */,
+				789B75A61BFCE8210081A34B /* SGISecondViewController.m */,
+				789B75A81BFCE8210081A34B /* Main.storyboard */,
+				789B75AB1BFCE8210081A34B /* Assets.xcassets */,
+				789B75AD1BFCE8210081A34B /* LaunchScreen.storyboard */,
+				789B75B01BFCE8210081A34B /* Info.plist */,
+				789B759C1BFCE8210081A34B /* Supporting Files */,
+			);
+			path = OCLazyDataSource;
+			sourceTree = "<group>";
+		};
+		789B759C1BFCE8210081A34B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				789B759D1BFCE8210081A34B /* main.m */,
+				783605BE1BFCF1710014D558 /* Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		789B75B81BFCE8210081A34B /* OCLazyDataSourceTests */ = {
+			isa = PBXGroup;
+			children = (
+				78525FB61C19A3E3005D95F9 /* OCLazyDataSource */,
+				789B75BB1BFCE8210081A34B /* Info.plist */,
+			);
+			path = OCLazyDataSourceTests;
+			sourceTree = "<group>";
+		};
+		CB16AC70C371372FF4854268 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4874DF969F0DDCAC84430B8D /* Pods.framework */,
+				8E8346D87AA3B5C34C0766D6 /* Pods_OCLazyDataSourceTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		789B75981BFCE8210081A34B /* OCLazyDataSource */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 789B75BE1BFCE8210081A34B /* Build configuration list for PBXNativeTarget "OCLazyDataSource" */;
+			buildPhases = (
+				C0F16C52F6C9D33A2E03404C /* Check Pods Manifest.lock */,
+				789B75951BFCE8210081A34B /* Sources */,
+				789B75961BFCE8210081A34B /* Frameworks */,
+				789B75971BFCE8210081A34B /* Resources */,
+				B3D5528247219285E4DCA27E /* Embed Pods Frameworks */,
+				E7EAECE67100907CFEE5DED9 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OCLazyDataSource;
+			productName = OCLazyDataSource;
+			productReference = 789B75991BFCE8210081A34B /* OCLazyDataSource.app */;
+			productType = "com.apple.product-type.application";
+		};
+		789B75B41BFCE8210081A34B /* OCLazyDataSourceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 789B75C11BFCE8210081A34B /* Build configuration list for PBXNativeTarget "OCLazyDataSourceTests" */;
+			buildPhases = (
+				31D470EF4CF20BDEA6953016 /* Check Pods Manifest.lock */,
+				789B75B11BFCE8210081A34B /* Sources */,
+				789B75B21BFCE8210081A34B /* Frameworks */,
+				789B75B31BFCE8210081A34B /* Resources */,
+				145A8F529437B8E6237235A1 /* Embed Pods Frameworks */,
+				491AB253A1E5C0334B511CB1 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				789B75B71BFCE8210081A34B /* PBXTargetDependency */,
+			);
+			name = OCLazyDataSourceTests;
+			productName = OCLazyDataSourceTests;
+			productReference = 789B75B51BFCE8210081A34B /* OCLazyDataSourceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		789B75911BFCE8210081A34B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SGI;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Ivan Misuno";
+				TargetAttributes = {
+					789B75981BFCE8210081A34B = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					789B75B41BFCE8210081A34B = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 789B75981BFCE8210081A34B;
+					};
+				};
+			};
+			buildConfigurationList = 789B75941BFCE8210081A34B /* Build configuration list for PBXProject "OCLazyDataSource" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 789B75901BFCE8210081A34B;
+			productRefGroup = 789B759A1BFCE8210081A34B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				789B75981BFCE8210081A34B /* OCLazyDataSource */,
+				789B75B41BFCE8210081A34B /* OCLazyDataSourceTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		789B75971BFCE8210081A34B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				789B75AF1BFCE8210081A34B /* LaunchScreen.storyboard in Resources */,
+				78525FD51C1B451A005D95F9 /* OCSampleNewsCell.xib in Resources */,
+				789B75AC1BFCE8210081A34B /* Assets.xcassets in Resources */,
+				789B75AA1BFCE8210081A34B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		789B75B31BFCE8210081A34B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78525FC11C19A700005D95F9 /* OCLazySampleTableCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		145A8F529437B8E6237235A1 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OCLazyDataSourceTests/Pods-OCLazyDataSourceTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		31D470EF4CF20BDEA6953016 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		491AB253A1E5C0334B511CB1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OCLazyDataSourceTests/Pods-OCLazyDataSourceTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3D5528247219285E4DCA27E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0F16C52F6C9D33A2E03404C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E7EAECE67100907CFEE5DED9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		789B75951BFCE8210081A34B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78732D031C18473300056D86 /* OCLazyTableViewDataSourceBridge.m in Sources */,
+				78525FCB1C19DBB4005D95F9 /* OCLazyDataSourceFlatteningEnumerator.m in Sources */,
+				78732D191C186A7600056D86 /* OCLazyDataSourceEnumerator.m in Sources */,
+				78732D0F1C1860A900056D86 /* OCLazyDataSourceItem.m in Sources */,
+				783605BD1BFCF14D0014D558 /* RACEXTRuntimeExtensions.m in Sources */,
+				789B75A71BFCE8210081A34B /* SGISecondViewController.m in Sources */,
+				789B75A11BFCE8210081A34B /* AppDelegate.m in Sources */,
+				78732D091C185DEB00056D86 /* OCLazyTableViewHeaderFooterViewFactory.m in Sources */,
+				78525FD31C1B4509005D95F9 /* OCSampleNewsCell.m in Sources */,
+				78732D061C185B4900056D86 /* OCLazyTableViewCellFactory.m in Sources */,
+				78732D161C18683800056D86 /* OCLazyDataSourceEnumerable.m in Sources */,
+				78525FC81C19A9C0005D95F9 /* NSArray+OCLazyDataSourceEnumerable.m in Sources */,
+				78732D131C1867A300056D86 /* OCLazyDataSourceSection.m in Sources */,
+				78525FD01C1AF93F005D95F9 /* OCLazySectionBridge.m in Sources */,
+				789B75A41BFCE8210081A34B /* SGIFirstViewController.m in Sources */,
+				789B759E1BFCE8210081A34B /* main.m in Sources */,
+				78887A191C16F72A00A8B2CF /* OCLazyTableViewDataSource.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		789B75B11BFCE8210081A34B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78525FBA1C19A40C005D95F9 /* Test_OCLazyDataSourceEnumerator.m in Sources */,
+				78525FCD1C19E5EF005D95F9 /* Test_OCLazyDataSourceFlatteningEnumerator.m in Sources */,
+				78525FBC1C19A41F005D95F9 /* Test_OCLazyTableViewCellFactory.m in Sources */,
+				78525FBF1C19A60E005D95F9 /* OCLazySampleTableCell.m in Sources */,
+				78525FB91C19A40C005D95F9 /* Test_OCLazyTableViewDataSource.m in Sources */,
+				78525FC51C19A8A4005D95F9 /* Test_OCLazyDataSourceSection.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		789B75B71BFCE8210081A34B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 789B75981BFCE8210081A34B /* OCLazyDataSource */;
+			targetProxy = 789B75B61BFCE8210081A34B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		789B75A81BFCE8210081A34B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				789B75A91BFCE8210081A34B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		789B75AD1BFCE8210081A34B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				789B75AE1BFCE8210081A34B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		789B75BC1BFCE8210081A34B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		789B75BD1BFCE8210081A34B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		789B75BF1BFCE8210081A34B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43615817DDE37CD9D3491590 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = OCLazyDataSource/Prefix.pch;
+				INFOPLIST_FILE = OCLazyDataSource/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.popappfactory.OCLazyDataSource;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		789B75C01BFCE8210081A34B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 907C62E72F707D0C1A138946 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = OCLazyDataSource/Prefix.pch;
+				INFOPLIST_FILE = OCLazyDataSource/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.popappfactory.OCLazyDataSource;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		789B75C21BFCE8210081A34B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07D3F8E9C6522C9F9EC8D3F9 /* Pods-OCLazyDataSourceTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = OCLazyDataSourceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.popappfactory.OCLazyDataSourceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OCLazyDataSource.app/OCLazyDataSource";
+			};
+			name = Debug;
+		};
+		789B75C31BFCE8210081A34B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49F89E0C75498CEC743C09E7 /* Pods-OCLazyDataSourceTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = OCLazyDataSourceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.popappfactory.OCLazyDataSourceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OCLazyDataSource.app/OCLazyDataSource";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		789B75941BFCE8210081A34B /* Build configuration list for PBXProject "OCLazyDataSource" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				789B75BC1BFCE8210081A34B /* Debug */,
+				789B75BD1BFCE8210081A34B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		789B75BE1BFCE8210081A34B /* Build configuration list for PBXNativeTarget "OCLazyDataSource" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				789B75BF1BFCE8210081A34B /* Debug */,
+				789B75C01BFCE8210081A34B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		789B75C11BFCE8210081A34B /* Build configuration list for PBXNativeTarget "OCLazyDataSourceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				789B75C21BFCE8210081A34B /* Debug */,
+				789B75C31BFCE8210081A34B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 789B75911BFCE8210081A34B /* Project object */;
+}
