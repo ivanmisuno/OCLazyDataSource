@@ -8,12 +8,13 @@ To create an easy-to-use replacement for writing boilerplate code implementing U
 
 Represent table data source as a sequence of pairs (model, cellFactory).
 
-Sequences are lazy by nature (cells are not evaluated each time sequence is iterated over), and easily composable. Currently the project adds dependency on [NSEnumeratorLinq](https://github.com/k06a/NSEnumeratorLinq), but that could easily be removed by implementing necessary sequence operations.
+Sequences are lazy by nature (cells are not evaluated each time sequence is iterated over), and are easily composable. Currently the project adds dependency on [NSEnumeratorLinq](https://github.com/k06a/NSEnumeratorLinq), but that could easily be removed by implementing necessary sequence operations.
 
 ## Example
 
 Create sample data:
-```
+```objc
+// Objective-C
 NSArray *section1data = @[@{@"title":@"FBI searches lake in San Bernardino terrorism probe",
                             @"subtitle":@"An FBI dive team on Thursday searches...",
                             @"source":@"Los Angeles Times - ‎1 hour ago‎",
@@ -25,7 +26,8 @@ NSArray *section2data = @[@"Show more articles...",
 ```
 
 ### Basic setup, default fixed-height cells:
-```
+```objc
+// Objective-C
 // define data source property on a view controller class
 @property (nonatomic, readonly) OCLazyTableViewDataSource *dataSource;
 
@@ -45,6 +47,7 @@ cellFactory1.configureBlock = ^(UITableViewCell * _Nonnull cell, NSDictionary * 
 	cell.detailTextLabel.font = [UIFont systemFontOfSize:9];
 };
 id<OCLazyDataSourceSection> section1 = lazyDataSourceSectionWithEnumerable(section1data, cellFactory1);
+
 id<OCLazyTableViewCellFactory> cellFactory2 = lazyTableViewCellFactoryWithStyle(UITableViewCellStyleDefault, @"SimpleCell2");
 cellFactory2.configureBlock = ^(UITableViewCell * _Nonnull cell, NSString * _Nonnull model, UITableView * _Nonnull tableView) {
 	cell.textLabel.text = model;
@@ -62,7 +65,8 @@ NSArray *sections = @[section1, section2];
 ### Self-sizing cells
 
 It’s easy to start using autolayout-based self-sizing cells from NIBs:
-```
+```objc
+// Objective-C
 UINib *cell1nib = [UINib nibWithNibName:@"OCSampleNewsCell" bundle:nil];
 id<OCLazyTableViewCellFactory> cellFactory1 = lazyTableViewCellFactoryWithNib(cell1nib, @"OCSampleNewsCell");
 cellFactory1.configureBlock = ^(UITableViewCell * _Nonnull cell, NSDictionary * _Nonnull model, UITableView * _Nonnull tableView) {
@@ -80,7 +84,8 @@ cellFactory1.configureBlock = ^(UITableViewCell * _Nonnull cell, NSDictionary * 
 
 Let’s say we want to add a banner just in the middle of our main section.
 Create model, cell factory and table section source as usual:
-```
+```objc
+// Objective-C
 NSArray *bannerData = @[@"Banner 1"];
 id<OCLazyTableViewCellFactory> bannerCellFactory = lazyTableViewCellFactoryWithStyle(UITableViewCellStyleDefault, @"BannerCell");
 bannerCellFactory.configureBlock = ^(UITableViewCell * _Nonnull cell, NSString * _Nonnull model, UITableView * _Nonnull tableView) {
@@ -94,7 +99,8 @@ id<OCLazyDataSourceSection> bannerSection = lazyDataSourceSectionWithEnumerable(
 
 ...then, compose the dataset:
 
-```
+```objc
+// Objective-C
 NSEnumerator * (^firstSectionEnumerator)() = ^ { return [section1.enumerator asNSEnumerator]; };
 NSEnumerator * (^secondSectionEnumerator)() = ^ { return [section2.enumerator asNSEnumerator]; };
 NSEnumerator * (^bannerSectionEnumerator)() = ^ { return [bannerSection.enumerator asNSEnumerator]; };
@@ -113,14 +119,15 @@ id<OCLazyDataSourceEnumerator> (^finalSectionEnumerator)() = ^ {
 ```
 [Preview](https://drive.google.com/file/d/0B7S7eiBvB1zXaW9xc0Zjc3B3aTg/preview)
 
-NO INDEX PATH TRANSFORMATIONS, NO SUBCLASSING, NO BOILERPLATE UITableViewDelegate code.
+NO INDEX PATH TRANSFORMATIONS, NO SUBCLASSING, NO BOILERPLATE UITableViewDelegate code.  
 JUST COMPOSITION.
 
 ### More composition
 
 Finally, let’s show the last cell from the second section (“Subscribe to…” cell) between 4th and 5th elements of our initial data stream:
 
-```
+```objc
+// Objective-C
 id<OCLazyDataSourceEnumerator> (^finalSectionEnumerator)() = ^ {
 	NSEnumerator *enumerator =
 	[[[[[[firstSectionEnumerator() take:2] // take 2 first elements from our initial data source
@@ -139,7 +146,7 @@ id<OCLazyDataSourceEnumerator> (^finalSectionEnumerator)() = ^ {
 
 ## Disclaimer
 
-This is first draft release and is subject to breaking changes.
+This is the first draft release and is subject to breaking changes.
 
 ## TODO
 
