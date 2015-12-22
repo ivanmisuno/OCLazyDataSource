@@ -21,6 +21,10 @@ typedef UITableViewCell * _Nonnull (^DequeueBlockType)(UITableView * _Nonnull ta
 @synthesize estimatedHeightBlock;
 @synthesize heightBlock;
 
+@synthesize didSelectCellBlock;
+@synthesize didDeselectCellBlock;
+@synthesize accessoryButtonTappedBlock;
+
 - (instancetype _Nullable)initWithRegisterBlock:(RegisterBlockType _Nonnull)registerBlock
                                    dequeueBlock:(DequeueBlockType _Nonnull)dequeueBlock
 {

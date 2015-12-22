@@ -11,6 +11,7 @@
 #import "OCLazyDataSourceSection.h"
 #import "OCLazyDataSourceItem.h"
 #import "OCLazyTableViewCellFactory.h"
+#import "OCLazyTableViewHeaderFooterViewFactory.h"
 
 @interface OCLazyDataSourceBridgeTableView : NSObject <OCLazyDataSourceBridge, UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, readonly) UITableView *tableView;
@@ -38,6 +39,10 @@
         {
             [sectionBridge.section.cellFactory registerWithTableView:self.tableView];
         }
+        if (sectionBridge.section.headerFooterFactory)
+        {
+            [sectionBridge.section.headerFooterFactory registerWithTableView:self.tableView];
+        }
     }
 }
 
@@ -56,11 +61,22 @@
     return nil;
 }
 
+- (id<OCLazyDataSourceSection> _Nullable)sectionForIndex:(NSInteger)sectionIndex
+{
+    if (sectionIndex < self.combinedDataSource.count)
+    {
+        id<OCLazySectionBridge> section = self.combinedDataSource[sectionIndex];
+        return section.section;
+    }
+
+    return nil;
+}
+
 #pragma mark - OCLazyDataSourceBridge protocol
 @synthesize combinedDataSource = _combinedDataSource;
 - (void)setCombinedDataSource:(NSArray<id<OCLazySectionBridge>> *)combinedDataSource
 {
-    _combinedDataSource = combinedDataSource;
+    _combinedDataSource = [combinedDataSource copy];
     [self registerCellFactoriesFromCombinedDataSource];
     [self.tableView reloadData];
 }
@@ -95,12 +111,12 @@
     return nil;
 }
 
-- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)sectionIndex
 {
     // TODO: To be implemented
     return nil;
 }
-- (nullable NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+- (nullable NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)sectionIndex
 {
     // TODO: To be implemented
     return nil;
@@ -204,7 +220,7 @@
             return cellFactory.estimatedHeightBlock(item.sourceItem, tableView);
     }
 
-    return 80;
+    return 44;
 }
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section
 {
@@ -218,9 +234,8 @@
 }
 
 // Section header & footer information. Views are preferred over title should you decide to provide both
-- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sectionIndex
 {
-    // TODO: To be implemented
     return nil;
 }
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
@@ -232,23 +247,31 @@
 // Accessories (disclosures).
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    // TODO: To be implemented
+    id<OCLazyDataSourceItem> item = [self itemForIndexPath:indexPath];
+    if (item)
+    {
+        id<OCLazyTableViewCellFactory> cellFactory = item.section.cellFactory;
+        if (cellFactory.accessoryButtonTappedBlock)
+        {
+            cellFactory.accessoryButtonTappedBlock(item.sourceItem, tableView);
+        }
+    }
 }
 
-// Selection
-- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // TODO: To be implemented
-    return NO;
-}
-- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // TODO: To be implemented
-}
-- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // TODO: To be implemented
-}
+//// Selection
+//- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    // TODO: To be implemented
+//    return NO;
+//}
+//- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    // TODO: To be implemented
+//}
+//- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    // TODO: To be implemented
+//}
 
 //// Called before the user changes the selection. Return a new indexPath, or nil, to change the proposed selection.
 //- (nullable NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -260,11 +283,27 @@
 // Called after the user changes the selection.
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // TODO: To be implemented
+    id<OCLazyDataSourceItem> item = [self itemForIndexPath:indexPath];
+    if (item)
+    {
+        id<OCLazyTableViewCellFactory> cellFactory = item.section.cellFactory;
+        if (cellFactory.didSelectCellBlock)
+        {
+            cellFactory.didSelectCellBlock(item.sourceItem, tableView);
+        }
+    }
 }
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // TODO: To be implemented
+    id<OCLazyDataSourceItem> item = [self itemForIndexPath:indexPath];
+    if (item)
+    {
+        id<OCLazyTableViewCellFactory> cellFactory = item.section.cellFactory;
+        if (cellFactory.didDeselectCellBlock)
+        {
+            cellFactory.didDeselectCellBlock(item.sourceItem, tableView);
+        }
+    }
 }
 
 // Editing

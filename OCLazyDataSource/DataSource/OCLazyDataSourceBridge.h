@@ -11,5 +11,5 @@
 @protocol OCLazySectionBridge;
 
 @protocol OCLazyDataSourceBridge <NSObject>
-@property (nonatomic) NSArray<id<OCLazySectionBridge>> * _Nonnull combinedDataSource;
+@property (nonatomic, copy) NSArray<id<OCLazySectionBridge>> * _Nonnull combinedDataSource;
 @end
