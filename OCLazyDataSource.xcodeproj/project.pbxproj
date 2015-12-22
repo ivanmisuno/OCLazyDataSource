@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2E8C9B6591F34BF2F9FAEE76 /* Pods_OCLazyDataSourceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E8346D87AA3B5C34C0766D6 /* Pods_OCLazyDataSourceTests.framework */; };
-		78525FB91C19A40C005D95F9 /* Test_OCLazyTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FB71C19A40C005D95F9 /* Test_OCLazyTableViewDataSource.m */; };
+		780A4E6B1C29671F00011925 /* OCLazyDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 780A4E6A1C29671F00011925 /* OCLazyDataSource.m */; };
+		78525FB91C19A40C005D95F9 /* Test_OCLazyDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FB71C19A40C005D95F9 /* Test_OCLazyDataSource.m */; };
 		78525FBA1C19A40C005D95F9 /* Test_OCLazyDataSourceEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FB81C19A40C005D95F9 /* Test_OCLazyDataSourceEnumerator.m */; };
 		78525FBC1C19A41F005D95F9 /* Test_OCLazyTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FBB1C19A41F005D95F9 /* Test_OCLazyTableViewCellFactory.m */; };
 		78525FBF1C19A60E005D95F9 /* OCLazySampleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FBE1C19A60E005D95F9 /* OCLazySampleTableCell.m */; };
@@ -20,14 +21,13 @@
 		78525FD01C1AF93F005D95F9 /* OCLazySectionBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FCF1C1AF93F005D95F9 /* OCLazySectionBridge.m */; };
 		78525FD31C1B4509005D95F9 /* OCSampleNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78525FD21C1B4509005D95F9 /* OCSampleNewsCell.m */; };
 		78525FD51C1B451A005D95F9 /* OCSampleNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78525FD41C1B451A005D95F9 /* OCSampleNewsCell.xib */; };
-		78732D031C18473300056D86 /* OCLazyTableViewDataSourceBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D021C18473300056D86 /* OCLazyTableViewDataSourceBridge.m */; };
+		78732D031C18473300056D86 /* OCLazyDataSourceBridgeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D021C18473300056D86 /* OCLazyDataSourceBridgeTableView.m */; };
 		78732D061C185B4900056D86 /* OCLazyTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D051C185B4900056D86 /* OCLazyTableViewCellFactory.m */; };
 		78732D091C185DEB00056D86 /* OCLazyTableViewHeaderFooterViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D081C185DEB00056D86 /* OCLazyTableViewHeaderFooterViewFactory.m */; };
 		78732D0F1C1860A900056D86 /* OCLazyDataSourceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D0E1C1860A900056D86 /* OCLazyDataSourceItem.m */; };
 		78732D131C1867A300056D86 /* OCLazyDataSourceSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D121C1867A300056D86 /* OCLazyDataSourceSection.m */; };
 		78732D161C18683800056D86 /* OCLazyDataSourceEnumerable.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D151C18683800056D86 /* OCLazyDataSourceEnumerable.m */; };
 		78732D191C186A7600056D86 /* OCLazyDataSourceEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 78732D181C186A7600056D86 /* OCLazyDataSourceEnumerator.m */; };
-		78887A191C16F72A00A8B2CF /* OCLazyTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 78887A181C16F72A00A8B2CF /* OCLazyTableViewDataSource.m */; };
 		789B759E1BFCE8210081A34B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 789B759D1BFCE8210081A34B /* main.m */; };
 		789B75A11BFCE8210081A34B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 789B75A01BFCE8210081A34B /* AppDelegate.m */; };
 		789B75A41BFCE8210081A34B /* SGIFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789B75A31BFCE8210081A34B /* SGIFirstViewController.m */; };
@@ -53,8 +53,11 @@
 		43615817DDE37CD9D3491590 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4874DF969F0DDCAC84430B8D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F89E0C75498CEC743C09E7 /* Pods-OCLazyDataSourceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCLazyDataSourceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OCLazyDataSourceTests/Pods-OCLazyDataSourceTests.release.xcconfig"; sourceTree = "<group>"; };
+		780A4E691C29671F00011925 /* OCLazyDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLazyDataSource.h; sourceTree = "<group>"; };
+		780A4E6A1C29671F00011925 /* OCLazyDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLazyDataSource.m; sourceTree = "<group>"; };
+		780A4E6C1C296CCF00011925 /* OCLazyDataSourceBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLazyDataSourceBridge.h; sourceTree = "<group>"; };
 		783605BE1BFCF1710014D558 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
-		78525FB71C19A40C005D95F9 /* Test_OCLazyTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_OCLazyTableViewDataSource.m; sourceTree = "<group>"; };
+		78525FB71C19A40C005D95F9 /* Test_OCLazyDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_OCLazyDataSource.m; sourceTree = "<group>"; };
 		78525FB81C19A40C005D95F9 /* Test_OCLazyDataSourceEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_OCLazyDataSourceEnumerator.m; sourceTree = "<group>"; };
 		78525FBB1C19A41F005D95F9 /* Test_OCLazyTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_OCLazyTableViewCellFactory.m; sourceTree = "<group>"; };
 		78525FBD1C19A60E005D95F9 /* OCLazySampleTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLazySampleTableCell.h; sourceTree = "<group>"; };
@@ -71,8 +74,8 @@
 		78525FD11C1B4509005D95F9 /* OCSampleNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCSampleNewsCell.h; sourceTree = "<group>"; };
 		78525FD21C1B4509005D95F9 /* OCSampleNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCSampleNewsCell.m; sourceTree = "<group>"; };
 		78525FD41C1B451A005D95F9 /* OCSampleNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OCSampleNewsCell.xib; sourceTree = "<group>"; };
-		78732D011C18473300056D86 /* OCLazyTableViewDataSourceBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLazyTableViewDataSourceBridge.h; sourceTree = "<group>"; };
-		78732D021C18473300056D86 /* OCLazyTableViewDataSourceBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLazyTableViewDataSourceBridge.m; sourceTree = "<group>"; };
+		78732D011C18473300056D86 /* OCLazyDataSourceBridgeTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLazyDataSourceBridgeTableView.h; sourceTree = "<group>"; };
+		78732D021C18473300056D86 /* OCLazyDataSourceBridgeTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLazyDataSourceBridgeTableView.m; sourceTree = "<group>"; };
 		78732D041C185B4900056D86 /* OCLazyTableViewCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLazyTableViewCellFactory.h; sourceTree = "<group>"; };
 		78732D051C185B4900056D86 /* OCLazyTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLazyTableViewCellFactory.m; sourceTree = "<group>"; };
 		78732D071C185DEB00056D86 /* OCLazyTableViewHeaderFooterViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLazyTableViewHeaderFooterViewFactory.h; sourceTree = "<group>"; };
@@ -85,8 +88,6 @@
 		78732D151C18683800056D86 /* OCLazyDataSourceEnumerable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLazyDataSourceEnumerable.m; sourceTree = "<group>"; };
 		78732D171C186A7600056D86 /* OCLazyDataSourceEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLazyDataSourceEnumerator.h; sourceTree = "<group>"; };
 		78732D181C186A7600056D86 /* OCLazyDataSourceEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLazyDataSourceEnumerator.m; sourceTree = "<group>"; };
-		78887A171C16F72A00A8B2CF /* OCLazyTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLazyTableViewDataSource.h; sourceTree = "<group>"; };
-		78887A181C16F72A00A8B2CF /* OCLazyTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLazyTableViewDataSource.m; sourceTree = "<group>"; };
 		789B75991BFCE8210081A34B /* OCLazyDataSource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCLazyDataSource.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		789B759D1BFCE8210081A34B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		789B759F1BFCE8210081A34B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -156,7 +157,7 @@
 				78525FB81C19A40C005D95F9 /* Test_OCLazyDataSourceEnumerator.m */,
 				78525FCC1C19E5EF005D95F9 /* Test_OCLazyDataSourceFlatteningEnumerator.m */,
 				78525FBB1C19A41F005D95F9 /* Test_OCLazyTableViewCellFactory.m */,
-				78525FB71C19A40C005D95F9 /* Test_OCLazyTableViewDataSource.m */,
+				78525FB71C19A40C005D95F9 /* Test_OCLazyDataSource.m */,
 			);
 			path = OCLazyDataSource;
 			sourceTree = "<group>";
@@ -164,10 +165,11 @@
 		78887A161C16F71500A8B2CF /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				78887A171C16F72A00A8B2CF /* OCLazyTableViewDataSource.h */,
-				78887A181C16F72A00A8B2CF /* OCLazyTableViewDataSource.m */,
-				78732D011C18473300056D86 /* OCLazyTableViewDataSourceBridge.h */,
-				78732D021C18473300056D86 /* OCLazyTableViewDataSourceBridge.m */,
+				780A4E691C29671F00011925 /* OCLazyDataSource.h */,
+				780A4E6A1C29671F00011925 /* OCLazyDataSource.m */,
+				780A4E6C1C296CCF00011925 /* OCLazyDataSourceBridge.h */,
+				78732D011C18473300056D86 /* OCLazyDataSourceBridgeTableView.h */,
+				78732D021C18473300056D86 /* OCLazyDataSourceBridgeTableView.m */,
 				78525FCE1C1AF93F005D95F9 /* OCLazySectionBridge.h */,
 				78525FCF1C1AF93F005D95F9 /* OCLazySectionBridge.m */,
 				78732D041C185B4900056D86 /* OCLazyTableViewCellFactory.h */,
@@ -459,7 +461,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78732D031C18473300056D86 /* OCLazyTableViewDataSourceBridge.m in Sources */,
+				78732D031C18473300056D86 /* OCLazyDataSourceBridgeTableView.m in Sources */,
 				78525FCB1C19DBB4005D95F9 /* OCLazyDataSourceFlatteningEnumerator.m in Sources */,
 				78732D191C186A7600056D86 /* OCLazyDataSourceEnumerator.m in Sources */,
 				78732D0F1C1860A900056D86 /* OCLazyDataSourceItem.m in Sources */,
@@ -468,13 +470,13 @@
 				78732D091C185DEB00056D86 /* OCLazyTableViewHeaderFooterViewFactory.m in Sources */,
 				78525FD31C1B4509005D95F9 /* OCSampleNewsCell.m in Sources */,
 				78732D061C185B4900056D86 /* OCLazyTableViewCellFactory.m in Sources */,
+				780A4E6B1C29671F00011925 /* OCLazyDataSource.m in Sources */,
 				78732D161C18683800056D86 /* OCLazyDataSourceEnumerable.m in Sources */,
 				78525FC81C19A9C0005D95F9 /* NSArray+OCLazyDataSourceEnumerable.m in Sources */,
 				78732D131C1867A300056D86 /* OCLazyDataSourceSection.m in Sources */,
 				78525FD01C1AF93F005D95F9 /* OCLazySectionBridge.m in Sources */,
 				789B75A41BFCE8210081A34B /* SGIFirstViewController.m in Sources */,
 				789B759E1BFCE8210081A34B /* main.m in Sources */,
-				78887A191C16F72A00A8B2CF /* OCLazyTableViewDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,7 +488,7 @@
 				78525FCD1C19E5EF005D95F9 /* Test_OCLazyDataSourceFlatteningEnumerator.m in Sources */,
 				78525FBC1C19A41F005D95F9 /* Test_OCLazyTableViewCellFactory.m in Sources */,
 				78525FBF1C19A60E005D95F9 /* OCLazySampleTableCell.m in Sources */,
-				78525FB91C19A40C005D95F9 /* Test_OCLazyTableViewDataSource.m in Sources */,
+				78525FB91C19A40C005D95F9 /* Test_OCLazyDataSource.m in Sources */,
 				78525FC51C19A8A4005D95F9 /* Test_OCLazyDataSourceSection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

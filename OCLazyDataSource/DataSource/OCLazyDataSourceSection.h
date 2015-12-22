@@ -15,7 +15,7 @@
 @protocol OCLazyTableViewCellFactory;
 @protocol OCLazyTableViewHeaderFooterViewFactory;
 
-@protocol OCLazyDataSourceSection <OCLazyDataSourceEnumerable/*<OCLazyDataSourceItem>*/>
+@protocol OCLazyDataSourceSection <NSObject, OCLazyDataSourceEnumerable/*<OCLazyDataSourceItem>*/>
 
 @property (nonatomic, readonly) id<OCLazyTableViewCellFactory> _Nonnull cellFactory;
 
@@ -28,5 +28,5 @@
 
 @end
 
-id<OCLazyDataSourceSection> _Nonnull lazyDataSourceSectionWithEnumerable(id<OCLazyDataSourceEnumerable> _Nonnull sourceItems,
+id<OCLazyDataSourceSection> _Nonnull lazyDataSourceSectionWithEnumerable(id<OCLazyDataSourceEnumerable/*<id cellDataModelObject>*/> _Nonnull sourceItems,
                                                                          id<OCLazyTableViewCellFactory> _Nonnull cellFactory);

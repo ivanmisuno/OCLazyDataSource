@@ -1,17 +1,45 @@
 //
-//  OCLazyTableViewDataSourceBridge.m
+//  OCLazyDataSourceBridgeTableView.m
 //
 //  Created by Ivan Misuno on 09/12/15.
 //  Copyright © 2015 Ivan Misuno. All rights reserved.
 //
 
-#import "OCLazyTableViewDataSourceBridge.h"
+#import "OCLazyDataSourceBridgeTableView.h"
+#import "OCLazyDataSourceBridge.h"
 #import "OCLazySectionBridge.h"
 #import "OCLazyDataSourceSection.h"
 #import "OCLazyDataSourceItem.h"
 #import "OCLazyTableViewCellFactory.h"
 
-@implementation OCLazyTableViewDataSourceBridge
+@interface OCLazyDataSourceBridgeTableView : NSObject <OCLazyDataSourceBridge, UITableViewDelegate, UITableViewDataSource>
+@property (nonatomic, readonly) UITableView *tableView;
+@end
+
+@implementation OCLazyDataSourceBridgeTableView
+
+- (instancetype _Nullable)initWithTableView:(UITableView *)tableView
+{
+    self = [super init];
+    if (self)
+    {
+        _tableView = tableView;
+        self.tableView.dataSource = self;
+        self.tableView.delegate = self;
+    }
+    return self;
+}
+
+- (void)registerCellFactoriesFromCombinedDataSource
+{
+    for (id<OCLazySectionBridge> sectionBridge in self.combinedDataSource)
+    {
+        if (sectionBridge.section.cellFactory)
+        {
+            [sectionBridge.section.cellFactory registerWithTableView:self.tableView];
+        }
+    }
+}
 
 - (id<OCLazyDataSourceItem> _Nullable)itemForIndexPath:(NSIndexPath * _Nonnull)indexPath
 {
@@ -26,6 +54,15 @@
     }
 
     return nil;
+}
+
+#pragma mark - OCLazyDataSourceBridge protocol
+@synthesize combinedDataSource = _combinedDataSource;
+- (void)setCombinedDataSource:(NSArray<id<OCLazySectionBridge>> *)combinedDataSource
+{
+    _combinedDataSource = combinedDataSource;
+    [self registerCellFactoriesFromCombinedDataSource];
+    [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource
@@ -290,3 +327,8 @@
 //}
 
 @end
+
+id<OCLazyDataSourceBridge, UITableViewDataSource, UITableViewDelegate> _Nonnull lazyDataSourceBridgeForTableView(UITableView * _Nonnull tableView)
+{
+    return [[OCLazyDataSourceBridgeTableView alloc] initWithTableView:tableView];
+}

@@ -9,7 +9,7 @@
 
 @protocol OCLazyDataSourceSection;
 
-@protocol OCLazyDataSourceItem
+@protocol OCLazyDataSourceItem <NSObject>
 @property (nonatomic, readonly) id _Nonnull sourceItem;
 @property (nonatomic, readonly, weak) id<OCLazyDataSourceSection> _Nullable section;
 @end

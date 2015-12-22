@@ -9,7 +9,7 @@
 
 @protocol OCLazyDataSourceEnumerator;
 
-@protocol OCLazyDataSourceEnumerable
+@protocol OCLazyDataSourceEnumerable <NSObject>
 - (id<OCLazyDataSourceEnumerator> _Nonnull)enumerator;
 @end
 

@@ -1,7 +1,8 @@
 //
-//  OCLazyTableViewDataSourceBridge.h
+//  OCLazyDataSourceBridge.h
+//  OCLazyDataSource
 //
-//  Created by Ivan Misuno on 09/12/15.
+//  Created by Ivan Misuno on 22/12/15.
 //  Copyright © 2015 Ivan Misuno. All rights reserved.
 //
 
@@ -9,6 +10,6 @@
 
 @protocol OCLazySectionBridge;
 
-@interface OCLazyTableViewDataSourceBridge : NSObject <UITableViewDelegate, UITableViewDataSource>
+@protocol OCLazyDataSourceBridge <NSObject>
 @property (nonatomic) NSArray<id<OCLazySectionBridge>> * _Nonnull combinedDataSource;
 @end

@@ -11,7 +11,7 @@ typedef void    (^OCLazyTableViewCellConfigureBlock)      (UITableViewCell * _No
 typedef CGFloat (^OCLazyTableViewCellEstimatedHeightBlock)(id _Nonnull model, UITableView * _Nonnull tableView);
 typedef CGFloat (^OCLazyTableViewCellHeightBlock)         (id _Nonnull model, UITableView * _Nonnull tableView);
 
-@protocol OCLazyTableViewCellFactory
+@protocol OCLazyTableViewCellFactory <NSObject>
 - (void)registerWithTableView:(UITableView * _Nonnull)tableView;
 - (UITableViewCell * _Nonnull)dequeueTableViewCell:(UITableView * _Nonnull)tableView forIndexPath:(NSIndexPath * _Nonnull)indexPath;
 

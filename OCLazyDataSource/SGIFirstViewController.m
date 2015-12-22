@@ -6,13 +6,7 @@
 //
 
 #import "SGIFirstViewController.h"
-
-#import "OCLazyTableViewDataSource.h"
-#import "OCLazyDataSourceSection.h"
-#import "OCLazyTableViewCellFactory.h"
-#import "OCLazyDataSourceEnumerator.h"
-#import "NSArray+OCLazyDataSourceEnumerable.h"
-
+#import "OCLazyDataSource.h"
 #import "OCSampleNewsCell.h"
 
 @import AFNetworking;
@@ -20,7 +14,7 @@
 
 
 @interface SGIFirstViewController()
-@property (nonatomic, readonly) OCLazyTableViewDataSource *dataSource;
+@property (nonatomic, readonly) id<OCLazyDataSource> dataSource;
 @end
 
 @implementation SGIFirstViewController
@@ -31,9 +25,8 @@
 
     self.title = NSLocalizedString(@"OCLazyDataSource", nil);
 
-    _dataSource = [[OCLazyTableViewDataSource alloc] init];
-    self.tableView.dataSource = self.dataSource.bridgeDataSource;
-    self.tableView.delegate = self.dataSource.bridgeDataSource;
+    id<OCLazyDataSourceBridge> tableBridge = lazyDataSourceBridgeForTableView(self.tableView);
+    _dataSource = lazyDataSourceWithBridge(tableBridge);
 
     NSArray *section1data = @[@{@"title":@"FBI searches lake in San Bernardino terrorism probe; questions over what neighbors saw",
                                 @"subtitle":@"An FBI dive team on Thursday searches for electronic devices or other evidence possibly left in Seccombe Lake, about two miles north of the Inland Regional Center in San Bernardino.",
@@ -113,7 +106,7 @@
         return lazyDataSourceEnumeratorWithNSEnumerator(enumerator);
     };
 
-    [self.dataSource setSource:lazyDataSourceEnumerableWithGeneratorBlock(finalSectionEnumerator) forTableView:self.tableView];
+    [self.dataSource setSource:lazyDataSourceEnumerableWithGeneratorBlock(finalSectionEnumerator)];
 }
 
 @end

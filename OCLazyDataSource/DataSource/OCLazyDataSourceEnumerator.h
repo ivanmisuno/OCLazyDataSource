@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol OCLazyDataSourceEnumerator
+@protocol OCLazyDataSourceEnumerator <NSObject>
 - (NSEnumerator * _Nonnull)asNSEnumerator;
 - (id _Nullable)nextObject;
 @end

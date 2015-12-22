@@ -1,12 +1,14 @@
 //
-//  OCLazyTableViewDataSource.m
+//  OCLazyDataSource.m
+//  OCLazyDataSource
 //
-//  Created by Ivan Misuno on 08/12/15.
+//  Created by Ivan Misuno on 22/12/15.
 //  Copyright © 2015 Ivan Misuno. All rights reserved.
 //
 
-#import "OCLazyTableViewDataSource.h"
-#import "OCLazyTableViewDataSourceBridge.h"
+#import "OCLazyDataSource.h"
+
+#import "OCLazyDataSourceBridge.h"
 #import "OCLazySectionBridge.h"
 
 #import "OCLazyDataSourceItem.h"
@@ -16,27 +18,22 @@
 #import "OCLazyDataSourceFlatteningEnumerator.h"
 #import "OCLazyTableViewCellFactory.h"
 
-@interface OCLazyTableViewDataSource()
-@property (nonatomic, readonly) OCLazyTableViewDataSourceBridge * _Nonnull bridgeDataSourceObject;
+@interface OCLazyDataSourceImpl : NSObject<OCLazyDataSource>
+@property (nonatomic, readonly) id<OCLazyDataSourceBridge> _Nonnull bridgeObject;
 @end
-@implementation OCLazyTableViewDataSource
+@implementation OCLazyDataSourceImpl
 
-- (id<UITableViewDataSource, UITableViewDelegate> _Nonnull)bridgeDataSource
-{
-    return self.bridgeDataSourceObject;
-}
-
-- (instancetype _Nullable)init
+- (instancetype _Nullable)initWithBridgeObject:(id<OCLazyDataSourceBridge> _Nonnull)bridgeObject
 {
     self = [super init];
     if (self)
     {
-        _bridgeDataSourceObject = [OCLazyTableViewDataSourceBridge new];
+        _bridgeObject = bridgeObject;
     }
     return self;
 }
 
-- (BOOL)needNewSectionForItem:(id<OCLazyDataSourceItem> _Nonnull)currentItem inCollection:(NSMutableArray<id<OCLazySectionBridge>> * _Nonnull)combinedDataSource
+- (BOOL)needsNewSectionForItem:(id<OCLazyDataSourceItem> _Nonnull)currentItem inCollection:(NSMutableArray<id<OCLazySectionBridge>> * _Nonnull)combinedDataSource
 {
     id<OCLazySectionBridge> lastSection = [combinedDataSource lastObject];
     return !lastSection || lastSection.section != currentItem.section;
@@ -44,7 +41,7 @@
 
 - (id<OCLazySectionBridge> _Nonnull)currentOrNewSectionForItem:(id<OCLazyDataSourceItem> _Nonnull)currentItem inCollection:(NSMutableArray<id<OCLazySectionBridge>> * _Nonnull)combinedDataSource
 {
-    if ([self needNewSectionForItem:currentItem inCollection:combinedDataSource])
+    if ([self needsNewSectionForItem:currentItem inCollection:combinedDataSource])
     {
         id<OCLazySectionBridge>newSection = lazySectionBridgeWithSection(currentItem.section);
         [combinedDataSource addObject:newSection];
@@ -61,32 +58,28 @@
 }
 
 - (void)setSource:(id<OCLazyDataSourceEnumerable/*<OCLazyDataSourceItem>*/> _Nonnull)sourceDataItems
-     forTableView:(UITableView * _Nonnull)tableView
 {
     id<OCLazyDataSourceEnumerator> enumerator = lazyDataSourceFlatteningEnumeratorWithEnumerator(sourceDataItems.enumerator);
 
     NSMutableArray<id<OCLazySectionBridge>> *combinedDataSource = [NSMutableArray new];
     for (id<OCLazyDataSourceItem> currentItem in [enumerator asNSEnumerator])
     {
-        [self pushDataItem:currentItem toCollectionOfSections:combinedDataSource];
-    }
-
-    [self registerCellFactoriesFromCombineddata:combinedDataSource withTableView:tableView];
-
-    self.bridgeDataSourceObject.combinedDataSource = [combinedDataSource copy];
-}
-
-- (void)registerCellFactoriesFromCombineddata:(NSArray<id<OCLazySectionBridge>> * _Nonnull)combinedDataSource
-                                withTableView:(UITableView * _Nonnull)tableView
-{
-    for (id<OCLazySectionBridge> sectionBridge in combinedDataSource)
-    {
-        if (sectionBridge.section.cellFactory)
+        if ([currentItem conformsToProtocol:@protocol(OCLazyDataSourceItem)])
         {
-            [sectionBridge.section.cellFactory registerWithTableView:tableView];
+            [self pushDataItem:currentItem toCollectionOfSections:combinedDataSource];
+        }
+        else
+        {
+            NSAssert(NO, @"Elements of sourceDataItems must conform to OCLazyDataSourceItem protocol.");
         }
     }
+
+    self.bridgeObject.combinedDataSource = [combinedDataSource copy];
 }
 
 @end
 
+id<OCLazyDataSource> _Nonnull lazyDataSourceWithBridge(id<OCLazyDataSourceBridge> _Nonnull bridge)
+{
+    return [[OCLazyDataSourceImpl alloc] initWithBridgeObject:bridge];
+}

@@ -6,7 +6,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol OCLazyTableViewHeaderFooterViewFactory
+@protocol OCLazyTableViewHeaderFooterViewFactory <NSObject>
 - (void)registerWithTableView:(UITableView * _Nonnull)tableView;
 - (UITableViewHeaderFooterView * _Nonnull)dequeueTableViewHeaderFooterView:(UITableView * _Nonnull)tableView;
 @end

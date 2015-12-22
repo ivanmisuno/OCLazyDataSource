@@ -32,11 +32,11 @@
 - (id _Nullable)nextObject
 {
     id item;
-    while((item = [self.currentEnumerator nextObject]) == nil) {
+    while((item = [self.currentEnumerator nextObject]) == nil)
+    {
         id nextItem = [self.sourceEnumerator nextObject];
-        if ([nextItem conformsToProtocol:@protocol(OCLazyDataSourceEnumerable)]
-            //|| [nextItem respondsToSelector:@selector(enumerator)]
-            ) {
+        if ([nextItem conformsToProtocol:@protocol(OCLazyDataSourceEnumerable)])
+        {
             self.currentEnumerator = lazyDataSourceFlatteningEnumeratorWithEnumerator([nextItem enumerator]);
             continue;
         }

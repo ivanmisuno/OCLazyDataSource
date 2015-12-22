@@ -10,7 +10,7 @@
 @protocol OCLazyDataSourceSection;
 @protocol OCLazyDataSourceItem;
 
-@protocol OCLazySectionBridge
+@protocol OCLazySectionBridge <NSObject>
 @property (nonatomic, readonly) id<OCLazyDataSourceSection> _Nonnull section;
 @property (nonatomic, readonly, copy) NSArray<id<OCLazyDataSourceItem>> * _Nonnull items;
 - (void)appendItem:(id<OCLazyDataSourceItem> _Nonnull)item;
