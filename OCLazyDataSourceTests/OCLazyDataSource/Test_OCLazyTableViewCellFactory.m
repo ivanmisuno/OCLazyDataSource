@@ -33,7 +33,7 @@ static NSString *const kReuseIdentifier = @"ReuseIdentifier";
     [sut registerWithTableView:self.tableView];
 
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    UITableViewCell *cell = [sut dequeueTableViewCell:self.tableView forIndexPath:indexPath];
+    UITableViewCell *cell = [sut dequeueTableViewCell:self.tableView forIndexPath:indexPath withModelObject:@0];
     expect(cell).toNot(beNil());
     expect(cell).to(beAKindOf(sutClass));
 }
@@ -45,7 +45,7 @@ static NSString *const kReuseIdentifier = @"ReuseIdentifier";
     [sut registerWithTableView:self.tableView];
 
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    UITableViewCell *cell = [sut dequeueTableViewCell:self.tableView forIndexPath:indexPath];
+    UITableViewCell *cell = [sut dequeueTableViewCell:self.tableView forIndexPath:indexPath withModelObject:@0];
     expect(cell).toNot(beNil());
     expect(cell).to(beAKindOf([OCLazySampleTableCell class]));
 }
@@ -56,7 +56,7 @@ static NSString *const kReuseIdentifier = @"ReuseIdentifier";
     [sut registerWithTableView:self.tableView];
 
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    UITableViewCell *cell = [sut dequeueTableViewCell:self.tableView forIndexPath:indexPath];
+    UITableViewCell *cell = [sut dequeueTableViewCell:self.tableView forIndexPath:indexPath withModelObject:@0];
     expect(cell).toNot(beNil());
     expect(cell).to(beAnInstanceOf([UITableViewCell class]));
 }

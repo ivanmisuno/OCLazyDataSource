@@ -56,7 +56,7 @@
 
     UINib *cell1nib = [UINib nibWithNibName:@"OCSampleNewsCell" bundle:nil];
     id<OCLazyTableViewCellFactory> cellFactory1 = lazyTableViewCellFactoryWithNib(cell1nib, @"OCSampleNewsCell");
-    cellFactory1.configureBlock = ^(UITableViewCell * _Nonnull cell, NSDictionary * _Nonnull model, UITableView * _Nonnull tableView) {
+    cellFactory1.configureBlock = ^(NSDictionary * _Nonnull model, UITableView * _Nonnull tableView, UITableViewCell * _Nonnull cell) {
         OCSampleNewsCell *sampleNewsCell = (OCSampleNewsCell *)cell;
         sampleNewsCell.titleLabel.text = model[@"title"];
         sampleNewsCell.sourceLabel.text = model[@"source"];
@@ -66,7 +66,7 @@
     id<OCLazyDataSourceSection> section1 = lazyDataSourceSectionWithEnumerable(section1data, cellFactory1);
 
     id<OCLazyTableViewCellFactory> cellFactory2 = lazyTableViewCellFactoryWithStyle(UITableViewCellStyleDefault, @"SimpleCell2");
-    cellFactory2.configureBlock = ^(UITableViewCell * _Nonnull cell, NSString * _Nonnull model, UITableView * _Nonnull tableView) {
+    cellFactory2.configureBlock = ^(NSString * _Nonnull model, UITableView * _Nonnull tableView, UITableViewCell * _Nonnull cell) {
         cell.textLabel.text = model;
         cell.textLabel.textColor = [UIColor blueColor];
         cell.textLabel.font = [UIFont systemFontOfSize:12];
@@ -74,7 +74,7 @@
     id<OCLazyDataSourceSection> section2 = lazyDataSourceSectionWithEnumerable(section2data, cellFactory2);
 
     id<OCLazyTableViewCellFactory> bannerCellFactory = lazyTableViewCellFactoryWithStyle(UITableViewCellStyleDefault, @"BannerCell");
-    bannerCellFactory.configureBlock = ^(UITableViewCell * _Nonnull cell, NSString * _Nonnull model, UITableView * _Nonnull tableView) {
+    bannerCellFactory.configureBlock = ^(NSString * _Nonnull model, UITableView * _Nonnull tableView, UITableViewCell * _Nonnull cell) {
         cell.backgroundColor = [UIColor blueColor];
         cell.textLabel.text = model;
         cell.textLabel.textColor = [UIColor whiteColor];

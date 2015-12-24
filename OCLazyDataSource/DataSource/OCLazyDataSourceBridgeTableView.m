@@ -85,9 +85,9 @@
     if (item)
     {
         id<OCLazyTableViewCellFactory> cellFactory = item.section.cellFactory;
-        UITableViewCell *cell = [cellFactory dequeueTableViewCell:tableView forIndexPath:indexPath];
+        UITableViewCell *cell = [cellFactory dequeueTableViewCell:tableView forIndexPath:indexPath withModelObject:item.sourceItem];
         if (cellFactory.configureBlock)
-            cellFactory.configureBlock(cell, item.sourceItem, tableView);
+            cellFactory.configureBlock(item.sourceItem, tableView, cell);
         return cell;
     }
 

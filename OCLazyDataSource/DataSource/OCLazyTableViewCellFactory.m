@@ -8,11 +8,10 @@
 #import "OCLazyTableViewCellFactory.h"
 
 typedef void(^RegisterBlockType)(UITableView * _Nonnull tableView);
-typedef UITableViewCell * _Nonnull (^DequeueBlockType)(UITableView * _Nonnull tableView, NSIndexPath * _Nonnull indexPath);
 
 @interface OCLazyTableViewCellFactoryImpl : NSObject <OCLazyTableViewCellFactory>
-@property (nonatomic, readonly) RegisterBlockType _Nonnull registerBlock;
-@property (nonatomic, readonly) DequeueBlockType _Nonnull dequeueBlock;
+@property (nonatomic, readonly) RegisterBlockType _Nullable registerBlock;
+@property (nonatomic, readonly) OCLazyTableViewCellDequeueBlock _Nonnull dequeueBlock;
 @end
 
 @implementation OCLazyTableViewCellFactoryImpl
@@ -21,8 +20,8 @@ typedef UITableViewCell * _Nonnull (^DequeueBlockType)(UITableView * _Nonnull ta
 @synthesize estimatedHeightBlock;
 @synthesize heightBlock;
 
-- (instancetype _Nullable)initWithRegisterBlock:(RegisterBlockType _Nonnull)registerBlock
-                                   dequeueBlock:(DequeueBlockType _Nonnull)dequeueBlock
+- (instancetype _Nullable)initWithRegisterBlock:(RegisterBlockType _Nullable)registerBlock
+                                   dequeueBlock:(OCLazyTableViewCellDequeueBlock _Nonnull)dequeueBlock
 {
     self = [super init];
     if (self)
@@ -35,11 +34,12 @@ typedef UITableViewCell * _Nonnull (^DequeueBlockType)(UITableView * _Nonnull ta
 
 - (void)registerWithTableView:(UITableView * _Nonnull)tableView
 {
-    self.registerBlock(tableView);
+    if (self.registerBlock)
+        self.registerBlock(tableView);
 }
-- (UITableViewCell * _Nonnull)dequeueTableViewCell:(UITableView * _Nonnull)tableView forIndexPath:(NSIndexPath * _Nonnull)indexPath
+- (UITableViewCell * _Nonnull)dequeueTableViewCell:(UITableView * _Nonnull)tableView forIndexPath:(NSIndexPath * _Nonnull)indexPath withModelObject:(id _Nonnull)model
 {
-    return self.dequeueBlock(tableView, indexPath);
+    return self.dequeueBlock(model, tableView, indexPath);
 }
 @end
 
@@ -47,7 +47,7 @@ id<OCLazyTableViewCellFactory> _Nonnull lazyTableViewCellFactoryWithNib(UINib * 
 {
     return [[OCLazyTableViewCellFactoryImpl alloc] initWithRegisterBlock:^(UITableView * _Nonnull tableView) {
         [tableView registerNib:nibForCell forCellReuseIdentifier:reuseIdentifier];
-    } dequeueBlock:^UITableViewCell * _Nonnull(UITableView * _Nonnull tableView, NSIndexPath * _Nonnull indexPath) {
+    } dequeueBlock:^UITableViewCell * _Nonnull(id _Nonnull model, UITableView * _Nonnull tableView, NSIndexPath * _Nonnull indexPath) {
         return [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     }];
 }
@@ -55,14 +55,13 @@ id<OCLazyTableViewCellFactory> _Nonnull lazyTableViewCellFactoryWithClass(Class 
 {
     return [[OCLazyTableViewCellFactoryImpl alloc] initWithRegisterBlock:^(UITableView * _Nonnull tableView) {
         [tableView registerClass:classForCell forCellReuseIdentifier:reuseIdentifier];
-    } dequeueBlock:^UITableViewCell * _Nonnull(UITableView * _Nonnull tableView, NSIndexPath * _Nonnull indexPath) {
+    } dequeueBlock:^UITableViewCell * _Nonnull(id _Nonnull model, UITableView * _Nonnull tableView, NSIndexPath * _Nonnull indexPath) {
         return [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     }];
 }
 id<OCLazyTableViewCellFactory> _Nonnull lazyTableViewCellFactoryWithStyle(UITableViewCellStyle cellStyle, NSString * _Nonnull reuseIdentifier)
 {
-    return [[OCLazyTableViewCellFactoryImpl alloc] initWithRegisterBlock:^(UITableView * _Nonnull tableView) {
-    } dequeueBlock:^UITableViewCell * _Nonnull(UITableView * _Nonnull tableView, NSIndexPath * _Nonnull indexPath) {
+    return [[OCLazyTableViewCellFactoryImpl alloc] initWithRegisterBlock:nil dequeueBlock:^UITableViewCell * _Nonnull(id _Nonnull model, UITableView * _Nonnull tableView, NSIndexPath * _Nonnull indexPath) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
         if (!cell)
         {
@@ -70,4 +69,8 @@ id<OCLazyTableViewCellFactory> _Nonnull lazyTableViewCellFactoryWithStyle(UITabl
         }
         return cell;
     }];
+}
+id<OCLazyTableViewCellFactory> _Nonnull lazyTableViewCellFactoryWithBlock(OCLazyTableViewCellDequeueBlock _Nonnull dequeueBlock)
+{
+    return [[OCLazyTableViewCellFactoryImpl alloc] initWithRegisterBlock:nil dequeueBlock:dequeueBlock];
 }
