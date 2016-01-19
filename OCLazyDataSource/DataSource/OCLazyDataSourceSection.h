@@ -20,9 +20,8 @@
 @property (nonatomic, readonly) id<OCLazyTableViewCellFactory> _Nonnull cellFactory;
 
 // optional header/footer
-@property (nonatomic) id _Nullable headerViewItem;
-@property (nonatomic) id _Nullable footerViewItem;
-@property (nonatomic) id<OCLazyTableViewHeaderFooterViewFactory> _Nullable headerFooterFactory;
+@property (nonatomic) id<OCLazyTableViewHeaderFooterViewFactory> _Nullable headerViewFactory;
+@property (nonatomic) id<OCLazyTableViewHeaderFooterViewFactory> _Nullable footerViewFactory;
 
 // optional event handlers
 

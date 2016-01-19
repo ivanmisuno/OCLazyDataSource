@@ -11,6 +11,7 @@
 #import "OCLazyDataSourceSection.h"
 #import "OCLazyDataSourceItem.h"
 #import "OCLazyTableViewCellFactory.h"
+#import "OCLazyTableViewHeaderFooterViewFactory.h"
 
 @interface OCLazyDataSourceBridgeTableView : NSObject <OCLazyDataSourceBridge, UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, readonly) UITableView *tableView;
@@ -38,7 +39,24 @@
         {
             [sectionBridge.section.cellFactory registerWithTableView:self.tableView];
         }
+        if (sectionBridge.section.headerViewFactory)
+        {
+            [sectionBridge.section.headerViewFactory registerWithTableView:self.tableView];
+        }
+        if (sectionBridge.section.footerViewFactory)
+        {
+            [sectionBridge.section.footerViewFactory registerWithTableView:self.tableView];
+        }
     }
+}
+
+- (id<OCLazyDataSourceSection>)sectionWithIndex:(NSInteger)sectionIndex
+{
+    if (sectionIndex < self.combinedDataSource.count)
+    {
+        return self.combinedDataSource[sectionIndex].section;
+    }
+    return nil;
 }
 
 - (id<OCLazyDataSourceItem> _Nullable)itemForIndexPath:(NSIndexPath * _Nonnull)indexPath
@@ -97,12 +115,10 @@
 
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    // TODO: To be implemented
     return nil;
 }
 - (nullable NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
-    // TODO: To be implemented
     return nil;
 }
 
@@ -181,14 +197,28 @@
 
     return UITableViewAutomaticDimension;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)sectionIndex
 {
-    // TODO: To be implemented
+    id<OCLazyDataSourceSection> section = [self sectionWithIndex:sectionIndex];
+    if (section && section.headerViewFactory)
+    {
+        if (section.headerViewFactory.heightBlock)
+        {
+            return section.headerViewFactory.heightBlock(tableView);
+        }
+    }
     return 0;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)sectionIndex
 {
-    // TODO: To be implemented
+    id<OCLazyDataSourceSection> section = [self sectionWithIndex:sectionIndex];
+    if (section && section.footerViewFactory)
+    {
+        if (section.footerViewFactory.heightBlock)
+        {
+            return section.footerViewFactory.heightBlock(tableView);
+        }
+    }
     return 0;
 }
 
@@ -206,26 +236,68 @@
 
     return 80;
 }
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)sectionIndex
 {
-    // TODO: To be implemented
+    id<OCLazyDataSourceSection> section = [self sectionWithIndex:sectionIndex];
+    if (section && section.headerViewFactory)
+    {
+        if (section.headerViewFactory.estimatedHeightBlock)
+        {
+            return section.headerViewFactory.estimatedHeightBlock(tableView);
+        }
+        if (section.headerViewFactory.heightBlock)
+        {
+            // return non-zero value so that tableView will later call heightForHeaderInSection:
+            return 20;
+        }
+    }
     return 0;
 }
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)sectionIndex
 {
-    // TODO: To be implemented
+    id<OCLazyDataSourceSection> section = [self sectionWithIndex:sectionIndex];
+    if (section && section.footerViewFactory)
+    {
+        if (section.footerViewFactory.estimatedHeightBlock)
+        {
+            return section.footerViewFactory.estimatedHeightBlock(tableView);
+        }
+        if (section.footerViewFactory.heightBlock)
+        {
+            // return non-zero value so that tableView will later call heightForHeaderInSection:
+            return 20;
+        }
+    }
     return 0;
 }
 
 // Section header & footer information. Views are preferred over title should you decide to provide both
-- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sectionIndex
 {
-    // TODO: To be implemented
+    id<OCLazyDataSourceSection> section = [self sectionWithIndex:sectionIndex];
+    if (section && section.headerViewFactory)
+    {
+        UITableViewHeaderFooterView *v = [section.headerViewFactory dequeueTableViewHeaderFooterView:tableView];
+        if (section.headerViewFactory.configureBlock)
+        {
+            section.headerViewFactory.configureBlock(tableView, v);
+        }
+        return v;
+    }
     return nil;
 }
-- (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+- (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)sectionIndex
 {
-    // TODO: To be implemented
+    id<OCLazyDataSourceSection> section = [self sectionWithIndex:sectionIndex];
+    if (section && section.footerViewFactory)
+    {
+        UITableViewHeaderFooterView *v = [section.footerViewFactory dequeueTableViewHeaderFooterView:tableView];
+        if (section.footerViewFactory.configureBlock)
+        {
+            section.footerViewFactory.configureBlock(tableView, v);
+        }
+        return v;
+    }
     return nil;
 }
 

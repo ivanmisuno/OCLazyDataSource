@@ -7,17 +7,17 @@
 
 #import "OCLazyTableViewHeaderFooterViewFactory.h"
 
-typedef void(^RegisterBlockType)(UITableView * _Nonnull tableView);
-typedef UITableViewHeaderFooterView * _Nonnull (^DequeueBlockType)(UITableView * _Nonnull tableView);
-
 @interface OCLazyTableViewHeaderFooterViewFactoryImpl : NSObject <OCLazyTableViewHeaderFooterViewFactory>
-@property (nonatomic, readonly) RegisterBlockType _Nonnull registerBlock;
-@property (nonatomic, readonly) DequeueBlockType _Nonnull dequeueBlock;
+@property (nonatomic, readonly) OCLazyTableViewHeaderFooterRegisterBlock _Nullable registerBlock;
+@property (nonatomic, readonly) OCLazyTableViewHeaderFooterDequeueBlock _Nonnull dequeueBlock;
 @end
 
 @implementation OCLazyTableViewHeaderFooterViewFactoryImpl
-- (instancetype _Nullable)initWithRegisterBlock:(RegisterBlockType _Nonnull)registerBlock
-                                   dequeueBlock:(DequeueBlockType _Nonnull)dequeueBlock
+@synthesize configureBlock = _configureBlock;
+@synthesize estimatedHeightBlock = _estimatedHeightBlock;
+@synthesize heightBlock = _heightBlock;
+- (instancetype _Nullable)initWithRegisterBlock:(OCLazyTableViewHeaderFooterRegisterBlock _Nullable)registerBlock
+                                   dequeueBlock:(OCLazyTableViewHeaderFooterDequeueBlock _Nonnull)dequeueBlock
 {
     self = [super init];
     if (self)
@@ -30,7 +30,10 @@ typedef UITableViewHeaderFooterView * _Nonnull (^DequeueBlockType)(UITableView *
 
 - (void)registerWithTableView:(UITableView * _Nonnull)tableView
 {
-    self.registerBlock(tableView);
+    if (self.registerBlock)
+    {
+        self.registerBlock(tableView);
+    }
 }
 - (UITableViewHeaderFooterView * _Nonnull)dequeueTableViewHeaderFooterView:(UITableView *)tableView
 {
@@ -53,4 +56,8 @@ id<OCLazyTableViewHeaderFooterViewFactory> _Nonnull lazyTableViewHeaderFooterVie
     } dequeueBlock:^UITableViewHeaderFooterView * _Nonnull(UITableView * _Nonnull tableView) {
         return [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
     }];
+}
+id<OCLazyTableViewHeaderFooterViewFactory> _Nonnull lazyTableViewHeaderFooterViewFactoryWithRegisterAndDequeueBlocks(OCLazyTableViewHeaderFooterRegisterBlock _Nullable registerBlock, OCLazyTableViewHeaderFooterDequeueBlock _Nonnull dequeueBlock)
+{
+    return [[OCLazyTableViewHeaderFooterViewFactoryImpl alloc] initWithRegisterBlock:registerBlock dequeueBlock:dequeueBlock];
 }

@@ -17,10 +17,9 @@
 
 @implementation OCLazyDataSourceSectionImpl
 
-@synthesize headerViewItem = _headerViewItem;
-@synthesize footerViewItem = _footerViewItem;
 @synthesize cellFactory = _cellFactory;
-@synthesize headerFooterFactory = _headerFooterFactory;
+@synthesize headerViewFactory = _headerViewFactory;
+@synthesize footerViewFactory = _footerViewFactory;
 
 - (instancetype _Nullable)initWithSourceItemsCollection:(id<OCLazyDataSourceEnumerable> _Nonnull)sourceItemsCollection
                                             cellFactory:(id<OCLazyTableViewCellFactory> _Nonnull)cellFactory
