@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void                       (^OCLazyTableViewCellRegisterBlock)       (UITableView * _Nonnull tableView);
 typedef UITableViewCell * _Nonnull (^OCLazyTableViewCellDequeueBlock)        (id _Nonnull model, UITableView * _Nonnull tableView, NSIndexPath * _Nonnull indexPath);
 typedef void                       (^OCLazyTableViewCellConfigureBlock)      (id _Nonnull model, UITableView * _Nonnull tableView, UITableViewCell * _Nonnull cell);
 typedef CGFloat                    (^OCLazyTableViewCellEstimatedHeightBlock)(id _Nonnull model, UITableView * _Nonnull tableView);
@@ -25,4 +26,4 @@ typedef CGFloat                    (^OCLazyTableViewCellHeightBlock)         (id
 id<OCLazyTableViewCellFactory> _Nonnull lazyTableViewCellFactoryWithNib(UINib * _Nonnull nibForCell, NSString * _Nonnull reuseIdentifier);
 id<OCLazyTableViewCellFactory> _Nonnull lazyTableViewCellFactoryWithClass(Class _Nonnull classForCell, NSString * _Nonnull reuseIdentifier);
 id<OCLazyTableViewCellFactory> _Nonnull lazyTableViewCellFactoryWithStyle(UITableViewCellStyle cellStyle, NSString * _Nonnull reuseIdentifier);
-id<OCLazyTableViewCellFactory> _Nonnull lazyTableViewCellFactoryWithBlock(OCLazyTableViewCellDequeueBlock _Nonnull dequeueBlock);
+id<OCLazyTableViewCellFactory> _Nonnull lazyTableViewCellFactoryWithRegisterAndDequeueBlocks(OCLazyTableViewCellRegisterBlock _Nullable registerBlock, OCLazyTableViewCellDequeueBlock _Nonnull dequeueBlock);

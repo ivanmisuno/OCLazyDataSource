@@ -7,10 +7,8 @@
 
 #import "OCLazyTableViewCellFactory.h"
 
-typedef void(^RegisterBlockType)(UITableView * _Nonnull tableView);
-
 @interface OCLazyTableViewCellFactoryImpl : NSObject <OCLazyTableViewCellFactory>
-@property (nonatomic, readonly) RegisterBlockType _Nullable registerBlock;
+@property (nonatomic, readonly) OCLazyTableViewCellRegisterBlock _Nullable registerBlock;
 @property (nonatomic, readonly) OCLazyTableViewCellDequeueBlock _Nonnull dequeueBlock;
 @end
 
@@ -20,7 +18,7 @@ typedef void(^RegisterBlockType)(UITableView * _Nonnull tableView);
 @synthesize estimatedHeightBlock;
 @synthesize heightBlock;
 
-- (instancetype _Nullable)initWithRegisterBlock:(RegisterBlockType _Nullable)registerBlock
+- (instancetype _Nullable)initWithRegisterBlock:(OCLazyTableViewCellRegisterBlock _Nullable)registerBlock
                                    dequeueBlock:(OCLazyTableViewCellDequeueBlock _Nonnull)dequeueBlock
 {
     self = [super init];
@@ -70,7 +68,7 @@ id<OCLazyTableViewCellFactory> _Nonnull lazyTableViewCellFactoryWithStyle(UITabl
         return cell;
     }];
 }
-id<OCLazyTableViewCellFactory> _Nonnull lazyTableViewCellFactoryWithBlock(OCLazyTableViewCellDequeueBlock _Nonnull dequeueBlock)
+id<OCLazyTableViewCellFactory> _Nonnull lazyTableViewCellFactoryWithRegisterAndDequeueBlocks(OCLazyTableViewCellRegisterBlock _Nullable registerBlock, OCLazyTableViewCellDequeueBlock _Nonnull dequeueBlock)
 {
-    return [[OCLazyTableViewCellFactoryImpl alloc] initWithRegisterBlock:nil dequeueBlock:dequeueBlock];
+    return [[OCLazyTableViewCellFactoryImpl alloc] initWithRegisterBlock:registerBlock dequeueBlock:dequeueBlock];
 }
