@@ -230,11 +230,12 @@
     if (item)
     {
         id<OCLazyTableViewCellFactory> cellFactory = item.section.cellFactory;
-        if (cellFactory.heightBlock)
+        if (cellFactory.estimatedHeightBlock)
+        {
             return cellFactory.estimatedHeightBlock(item.sourceItem, tableView);
+        }
     }
-
-    return 80;
+    return 44;
 }
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)sectionIndex
 {
