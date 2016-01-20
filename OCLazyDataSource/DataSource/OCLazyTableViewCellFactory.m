@@ -39,7 +39,12 @@
 }
 - (UITableViewCell * _Nonnull)dequeueTableViewCell:(UITableView * _Nonnull)tableView forIndexPath:(NSIndexPath * _Nonnull)indexPath withModelObject:(id _Nonnull)model
 {
-    return self.dequeueBlock(model, tableView, indexPath);
+    UITableViewCell *cell = self.dequeueBlock(model, tableView, indexPath);
+    if (!cell)
+    {
+        NSAssert(NO, @"Dequeued cell should not be nil!");
+    }
+    return cell;
 }
 @end
 

@@ -166,7 +166,11 @@
     {
         id<OCLazyTableViewCellFactory> cellFactory = item.section.cellFactory;
         if (cellFactory.willDisplayBlock)
-            cellFactory.willDisplayBlock(item.sourceItem, tableView);
+        {
+            cellFactory.willDisplayBlock(item.sourceItem, tableView, ^{
+                return [tableView cellForRowAtIndexPath:indexPath];
+            });
+        }
     }
 }
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
@@ -344,7 +348,11 @@
     {
         id<OCLazyTableViewCellFactory> cellFactory = item.section.cellFactory;
         if (cellFactory.didSelectBlock)
-            cellFactory.didSelectBlock(item.sourceItem, tableView);
+        {
+            cellFactory.didSelectBlock(item.sourceItem, tableView, ^{
+                return [tableView cellForRowAtIndexPath:indexPath];
+            });
+        }
     }
 }
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
