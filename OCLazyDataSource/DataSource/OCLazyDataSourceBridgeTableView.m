@@ -161,7 +161,13 @@
 // Display customization
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // TODO: To be implemented
+    id<OCLazyDataSourceItem> item = [self itemForIndexPath:indexPath];
+    if (item)
+    {
+        id<OCLazyTableViewCellFactory> cellFactory = item.section.cellFactory;
+        if (cellFactory.willDisplayBlock)
+            cellFactory.willDisplayBlock(item.sourceItem, tableView);
+    }
 }
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
@@ -309,11 +315,11 @@
 }
 
 // Selection
-- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // TODO: To be implemented
-    return NO;
-}
+//- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    // TODO: To be implemented
+//    return NO;
+//}
 - (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // TODO: To be implemented
@@ -333,7 +339,13 @@
 // Called after the user changes the selection.
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // TODO: To be implemented
+    id<OCLazyDataSourceItem> item = [self itemForIndexPath:indexPath];
+    if (item)
+    {
+        id<OCLazyTableViewCellFactory> cellFactory = item.section.cellFactory;
+        if (cellFactory.didSelectBlock)
+            cellFactory.didSelectBlock(item.sourceItem, tableView);
+    }
 }
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {

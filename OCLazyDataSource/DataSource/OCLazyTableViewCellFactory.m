@@ -17,6 +17,8 @@
 @synthesize configureBlock;
 @synthesize estimatedHeightBlock;
 @synthesize heightBlock;
+@synthesize willDisplayBlock;
+@synthesize didSelectBlock;
 
 - (instancetype _Nullable)initWithRegisterBlock:(OCLazyTableViewCellRegisterBlock _Nullable)registerBlock
                                    dequeueBlock:(OCLazyTableViewCellDequeueBlock _Nonnull)dequeueBlock
