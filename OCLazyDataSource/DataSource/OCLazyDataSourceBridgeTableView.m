@@ -12,6 +12,7 @@
 #import "OCLazyDataSourceItem.h"
 #import "OCLazyTableViewCellFactory.h"
 #import "OCLazyTableViewHeaderFooterViewFactory.h"
+#import "OCLazyTableViewCellContext.h"
 
 @interface OCLazyDataSourceBridgeTableView : NSObject <OCLazyDataSourceBridge, UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, readonly) UITableView *tableView;
@@ -167,9 +168,16 @@
         id<OCLazyTableViewCellFactory> cellFactory = item.section.cellFactory;
         if (cellFactory.willDisplayBlock)
         {
-            cellFactory.willDisplayBlock(item.sourceItem, tableView, ^{
-                return [tableView cellForRowAtIndexPath:indexPath];
-            });
+            cellFactory.willDisplayBlock(item.sourceItem,
+                                         tableView,
+                                         lazyTableViewCellContext(/*cellBlock*/^{
+                                                                      return [tableView cellForRowAtIndexPath:indexPath];
+                                                                  }, /*indexPathBlock*/^NSIndexPath * _Nonnull{
+                                                                      return indexPath;
+                                                                  }, /*deselectBlock*/^(BOOL animated) {
+                                                                      [tableView deselectRowAtIndexPath:indexPath animated:animated];
+                                                                  })
+                                         );
         }
     }
 }
@@ -349,9 +357,16 @@
         id<OCLazyTableViewCellFactory> cellFactory = item.section.cellFactory;
         if (cellFactory.didSelectBlock)
         {
-            cellFactory.didSelectBlock(item.sourceItem, tableView, ^{
-                return [tableView cellForRowAtIndexPath:indexPath];
-            });
+            cellFactory.didSelectBlock(item.sourceItem,
+                                       tableView,
+                                       lazyTableViewCellContext(/*cellBlock*/^{
+                                                return [tableView cellForRowAtIndexPath:indexPath];
+                                            }, /*indexPathBlock*/^NSIndexPath * _Nonnull{
+                                                return indexPath;
+                                            }, /*deselectBlock*/^(BOOL animated) {
+                                                [tableView deselectRowAtIndexPath:indexPath animated:animated];
+                                            })
+                                       );
         }
     }
 }

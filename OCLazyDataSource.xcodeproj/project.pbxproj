@@ -35,6 +35,7 @@
 		789B75AA1BFCE8210081A34B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789B75A81BFCE8210081A34B /* Main.storyboard */; };
 		789B75AC1BFCE8210081A34B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 789B75AB1BFCE8210081A34B /* Assets.xcassets */; };
 		789B75AF1BFCE8210081A34B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789B75AD1BFCE8210081A34B /* LaunchScreen.storyboard */; };
+		78AB82D71C562DEF005124DC /* OCLazyTableViewCellContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 78AB82D61C562DEF005124DC /* OCLazyTableViewCellContext.m */; };
 		C03665893BC8EE732CA27FE2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4874DF969F0DDCAC84430B8D /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,8 @@
 		789B75B01BFCE8210081A34B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		789B75B51BFCE8210081A34B /* OCLazyDataSourceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCLazyDataSourceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		789B75BB1BFCE8210081A34B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78AB82D51C562DEF005124DC /* OCLazyTableViewCellContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLazyTableViewCellContext.h; sourceTree = "<group>"; };
+		78AB82D61C562DEF005124DC /* OCLazyTableViewCellContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCLazyTableViewCellContext.m; sourceTree = "<group>"; };
 		8E8346D87AA3B5C34C0766D6 /* Pods_OCLazyDataSourceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OCLazyDataSourceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		907C62E72F707D0C1A138946 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,6 +179,8 @@
 				78732D051C185B4900056D86 /* OCLazyTableViewCellFactory.m */,
 				78732D071C185DEB00056D86 /* OCLazyTableViewHeaderFooterViewFactory.h */,
 				78732D081C185DEB00056D86 /* OCLazyTableViewHeaderFooterViewFactory.m */,
+				78AB82D51C562DEF005124DC /* OCLazyTableViewCellContext.h */,
+				78AB82D61C562DEF005124DC /* OCLazyTableViewCellContext.m */,
 				78732D0D1C1860A900056D86 /* OCLazyDataSourceItem.h */,
 				78732D0E1C1860A900056D86 /* OCLazyDataSourceItem.m */,
 				78732D111C1867A300056D86 /* OCLazyDataSourceSection.h */,
@@ -472,6 +477,7 @@
 				78732D061C185B4900056D86 /* OCLazyTableViewCellFactory.m in Sources */,
 				780A4E6B1C29671F00011925 /* OCLazyDataSource.m in Sources */,
 				78732D161C18683800056D86 /* OCLazyDataSourceEnumerable.m in Sources */,
+				78AB82D71C562DEF005124DC /* OCLazyTableViewCellContext.m in Sources */,
 				78525FC81C19A9C0005D95F9 /* NSArray+OCLazyDataSourceEnumerable.m in Sources */,
 				78732D131C1867A300056D86 /* OCLazyDataSourceSection.m in Sources */,
 				78525FD01C1AF93F005D95F9 /* OCLazySectionBridge.m in Sources */,

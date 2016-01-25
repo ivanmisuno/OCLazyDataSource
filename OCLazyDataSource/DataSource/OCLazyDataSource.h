@@ -26,5 +26,6 @@ id<OCLazyDataSource> _Nonnull lazyDataSourceWithBridge(id<OCLazyDataSourceBridge
 #import "NSArray+OCLazyDataSourceEnumerable.h"
 
 // UITableView-related
+#import "OCLazyTableViewCellContext.h"
 #import "OCLazyTableViewCellFactory.h"
 #import "OCLazyTableViewHeaderFooterViewFactory.h"

@@ -7,15 +7,16 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol OCLazyTableViewCellContext;
+
 typedef void                       (^OCLazyTableViewCellRegisterBlock)       (UITableView * _Nonnull tableView);
 typedef UITableViewCell * _Nonnull (^OCLazyTableViewCellDequeueBlock)        (id _Nonnull model, UITableView * _Nonnull tableView, NSIndexPath * _Nonnull indexPath);
 typedef void                       (^OCLazyTableViewCellConfigureBlock)      (id _Nonnull model, UITableView * _Nonnull tableView, UITableViewCell * _Nonnull cell);
 typedef CGFloat                    (^OCLazyTableViewCellEstimatedHeightBlock)(id _Nonnull model, UITableView * _Nonnull tableView);
 typedef CGFloat                    (^OCLazyTableViewCellHeightBlock)         (id _Nonnull model, UITableView * _Nonnull tableView);
 
-typedef UITableViewCell * _Nonnull (^OCLazyTableViewCellBlock)               ();
-typedef void                       (^OCLazyTableViewCellWillDisplayBlock)    (id _Nonnull model, UITableView * _Nonnull tableView, OCLazyTableViewCellBlock _Nonnull cellBlock);
-typedef void                       (^OCLazyTableViewCellDidSelectBlock)      (id _Nonnull model, UITableView * _Nonnull tableView, OCLazyTableViewCellBlock _Nonnull cellBlock);
+typedef void                       (^OCLazyTableViewCellWillDisplayBlock)    (id _Nonnull model, UITableView * _Nonnull tableView, id<OCLazyTableViewCellContext> _Nonnull context);
+typedef void                       (^OCLazyTableViewCellDidSelectBlock)      (id _Nonnull model, UITableView * _Nonnull tableView, id<OCLazyTableViewCellContext> _Nonnull context);
 
 @protocol OCLazyTableViewCellFactory <NSObject>
 - (void)registerWithTableView:(UITableView * _Nonnull)tableView;
