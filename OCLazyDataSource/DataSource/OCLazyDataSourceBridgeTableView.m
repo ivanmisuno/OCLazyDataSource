@@ -52,7 +52,7 @@
     }
 }
 
-- (id<OCLazyDataSourceSection>)sectionWithIndex:(NSInteger)sectionIndex
+- (id<OCLazyDataSourceSection> _Nullable)sectionWithIndex:(NSInteger)sectionIndex
 {
     if (sectionIndex < self.combinedDataSource.count)
     {
