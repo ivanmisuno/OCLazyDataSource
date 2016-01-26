@@ -11,5 +11,9 @@
 @protocol OCLazySectionBridge;
 
 @protocol OCLazyDataSourceBridge <NSObject>
+
 @property (nonatomic) NSArray<id<OCLazySectionBridge>> * _Nonnull combinedDataSource;
+
+- (void)setScrollViewDidScrollHandler:(void(^ _Nullable)(UIScrollView * _Nonnull scrollView))scrollViewDidScrollHandler;
+
 @end

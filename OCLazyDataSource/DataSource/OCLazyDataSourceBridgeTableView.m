@@ -16,6 +16,7 @@
 
 @interface OCLazyDataSourceBridgeTableView : NSObject <OCLazyDataSourceBridge, UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, readonly) UITableView *tableView;
+@property (nonatomic, copy) void(^ _Nullable scrollViewDidScrollHandler)(UIScrollView * _Nonnull scrollView);
 @end
 
 @implementation OCLazyDataSourceBridgeTableView
@@ -82,6 +83,15 @@
     _combinedDataSource = combinedDataSource;
     [self registerCellFactoriesFromCombinedDataSource];
     [self.tableView reloadData];
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (self.scrollViewDidScrollHandler)
+    {
+        self.scrollViewDidScrollHandler(scrollView);
+    }
 }
 
 #pragma mark - UITableViewDataSource
