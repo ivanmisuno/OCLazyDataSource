@@ -17,6 +17,8 @@
 @interface OCLazyDataSourceBridgeTableView : NSObject <OCLazyDataSourceBridge, UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, readonly) UITableView *tableView;
 @property (nonatomic, copy) void(^ _Nullable scrollViewDidScrollHandler)(UIScrollView * _Nonnull scrollView);
+@property (nonatomic, copy) void(^ _Nullable scrollViewWillEndDraggingHandler)(UIScrollView * _Nonnull scrollView, CGPoint velocity, /*inout*/ CGPoint *_Nullable targetContentOffset);
+@property (nonatomic, copy) void(^ _Nullable scrollViewDidEndDraggingHandler)(UIScrollView * _Nonnull scrollView, BOOL decelerate);
 @end
 
 @implementation OCLazyDataSourceBridgeTableView
@@ -91,6 +93,20 @@
     if (self.scrollViewDidScrollHandler)
     {
         self.scrollViewDidScrollHandler(scrollView);
+    }
+}
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    if (self.scrollViewWillEndDraggingHandler)
+    {
+        self.scrollViewWillEndDraggingHandler(scrollView, velocity, targetContentOffset);
+    }
+}
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (self.scrollViewDidEndDraggingHandler)
+    {
+        self.scrollViewDidEndDraggingHandler(scrollView, decelerate);
     }
 }
 

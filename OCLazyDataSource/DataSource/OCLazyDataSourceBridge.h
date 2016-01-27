@@ -22,5 +22,7 @@
 
 // optional scrollview delegate handler
 - (void)setScrollViewDidScrollHandler:(void(^ _Nullable)(UIScrollView * _Nonnull scrollView))scrollViewDidScrollHandler;
+- (void)setScrollViewWillEndDraggingHandler:(void(^ _Nullable)(UIScrollView * _Nonnull scrollView, CGPoint velocity, /*inout*/ CGPoint * _Nullable targetContentOffset))scrollViewDidEndDraggingHandler;
+- (void)setScrollViewDidEndDraggingHandler:(void(^ _Nullable)(UIScrollView * _Nonnull scrollView, BOOL decelerate))scrollViewWillEndDraggingHandler;
 
 @end
