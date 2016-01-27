@@ -84,7 +84,17 @@
 {
     _combinedDataSource = combinedDataSource;
     [self registerCellFactoriesFromCombinedDataSource];
+
+    // disable scrollView handlers during table reloading
+    id scrollViewDidScrollHandler = self.scrollViewDidScrollHandler; self.scrollViewDidScrollHandler = nil;
+    id scrollViewWillEndDraggingHandler = self.scrollViewWillEndDraggingHandler; self.scrollViewWillEndDraggingHandler = nil;
+    id scrollViewDidEndDraggingHandler = self.scrollViewDidEndDraggingHandler; self.scrollViewDidEndDraggingHandler = nil;
+
     [self.tableView reloadData];
+
+    self.scrollViewDidScrollHandler = scrollViewDidScrollHandler;
+    self.scrollViewWillEndDraggingHandler = scrollViewWillEndDraggingHandler;
+    self.scrollViewDidEndDraggingHandler = scrollViewDidEndDraggingHandler;
 }
 
 #pragma mark - UIScrollViewDelegate
