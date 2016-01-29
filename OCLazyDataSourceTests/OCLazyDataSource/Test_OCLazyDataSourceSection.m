@@ -41,15 +41,6 @@
     }];
 }
 
-//- (void)testSectionSimpleComposing
-//{
-//    NSArray *sourceData2 = @[@11, @12, @13];
-//    id<OCLazyDataSourceSection> section2 = lazyDataSourceSectionWithEnumerable(sourceData2, @"section2 header", @"section2 footer");
-//
-//    NSArray *sections = @[ self.section, section2 ];
-//    
-//}
-
 - (void)testSectionInserting
 {
     NSArray *insertData = @[@11, @12, @13];
@@ -62,7 +53,24 @@
                                                         concat:insertSectionEnumerator()]
                                                        concat:[sourceSectionEnumerator() skip:2]]; };
     expect(@([newSectionSequence() count])).to(equal(@([sourceSectionEnumerator() count]+[insertSectionEnumerator() count])));
-    
+
+    NSArray<id<OCLazyDataSourceItem>> *materializedSequence = newSectionSequence().toArray;
+    int finalIndex = 0;
+    for (int i = 0; i < 2; i++, finalIndex++)
+    {
+        expect(materializedSequence[finalIndex].sourceItem).to(equal(self.sourceData[i]));
+        expect(materializedSequence[finalIndex].section).to(equal(self.section));
+    }
+    for (int i = 0; i < insertData.count; i++, finalIndex++)
+    {
+        expect(materializedSequence[finalIndex].sourceItem).to(equal(insertData[i]));
+        expect(materializedSequence[finalIndex].section).to(equal(insertSection));
+    }
+    for (int i = 2; i < self.sourceData.count; i++, finalIndex++)
+    {
+        expect(materializedSequence[finalIndex].sourceItem).to(equal(self.sourceData[i]));
+        expect(materializedSequence[finalIndex].section).to(equal(self.section));
+    }
 }
 
 
