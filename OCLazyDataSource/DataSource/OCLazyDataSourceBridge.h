@@ -21,6 +21,6 @@
 - (id<OCLazyDataSourceItem> _Nullable)itemForIndexPath:(NSIndexPath * _Nonnull)indexPath;
 
 // optional scrollview delegate proxy
-@property (nonatomic) id<UIScrollViewDelegate> _Nullable scrollViewDelegate;
+@property (nonatomic, weak) id<UIScrollViewDelegate> _Nullable scrollViewDelegate;
 
 @end
