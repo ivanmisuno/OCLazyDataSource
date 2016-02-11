@@ -71,6 +71,36 @@ describe(@"OCLazyTableViewCellFactory", ^{
         expect(cell).to(beAnInstanceOf([UITableViewCell class]));
     });
 
+    it(@"TableViewCellFactoryWithRegisterAndDequeueBlocks -> blocks get called", ^{
+        __block BOOL registerBlockCalled = NO;
+        __block BOOL dequeueBlockCalled = NO;
+        id<OCLazyTableViewCellFactory> sut = lazyTableViewCellFactoryWithRegisterAndDequeueBlocks(/*registerBlock*/^(UITableView * _Nonnull tableView_) {
+            registerBlockCalled = YES;
+        }, /*dequeueBlock*/^UITableViewCell * _Nonnull(id  _Nonnull model, UITableView * _Nonnull tableView_, NSIndexPath * _Nonnull indexPath) {
+            dequeueBlockCalled = YES;
+            return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""];
+        });
+
+        [sut registerWithTableView:tableView];
+        expect(@(registerBlockCalled)).to(beTrue());
+
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        __unused UITableViewCell *cell = [sut dequeueTableViewCell:tableView forIndexPath:indexPath withModelObject:@0];
+        expect(@(dequeueBlockCalled)).to(beTrue());
+    });
+
+    it(@"TableViewCellFactoryWithRegisterAndDequeueBlocks -> dequeueBlock returning nil causes assertion", ^{
+        id<OCLazyTableViewCellFactory> sut = lazyTableViewCellFactoryWithRegisterAndDequeueBlocks(/*registerBlock*/^(UITableView * _Nonnull tableView_) {
+        }, /*dequeueBlock*/^UITableViewCell * _Nonnull(id  _Nonnull model, UITableView * _Nonnull tableView_, NSIndexPath * _Nonnull indexPath) {
+            return nil;
+        });
+
+        expectAction(^{
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+            __unused UITableViewCell *cell = [sut dequeueTableViewCell:tableView forIndexPath:indexPath withModelObject:@0];
+        }).to(raiseException());
+    });
+
 });
 
 QuickSpecEnd
