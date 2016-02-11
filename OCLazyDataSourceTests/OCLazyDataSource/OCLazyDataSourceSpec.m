@@ -6,6 +6,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <OCMock/OCMock.h>
 #import "OCLazyDataSource.h"
 @import NSEnumeratorLinq;
 @import Nimble;
@@ -33,6 +34,21 @@ describe(@"OCLazyDataSource", ^{
         ds = lazyDataSourceWithBridge(bridge);
 
         validateContentsOfTableView();
+    });
+
+    it(@"tableView.dataSource property edited after being assigned by lazyDataSourceBridgeForTableView() -> assertion", ^{
+        id mockTableViewDataSource = OCMProtocolMock(@protocol(UITableViewDataSource));
+        tableView.dataSource = mockTableViewDataSource;
+        expectAction(^{
+            [ds setSource:@[@0]];
+        }).to(raiseException());
+    });
+    it(@"tableView.delegate property edited after being assigned by lazyDataSourceBridgeForTableView() -> assertion", ^{
+        id mockTableViewDelegate = OCMProtocolMock(@protocol(UITableViewDelegate));
+        tableView.delegate = mockTableViewDelegate;
+        expectAction(^{
+            [ds setSource:@[@0]];
+        }).to(raiseException());
     });
 
     it(@"Empty data source -> empty table", ^{

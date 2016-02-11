@@ -57,7 +57,7 @@
     [currentSection appendItem:currentItem];
 }
 
-- (void)setSource:(id<OCLazyDataSourceEnumerable/*<OCLazyDataSourceItem>*/> _Nonnull)sourceDataItems
+- (NSArray<id<OCLazySectionBridge>> *)flattenSourceData:(id<OCLazyDataSourceEnumerable/*<OCLazyDataSourceItem>*/> _Nonnull)sourceDataItems
 {
     id<OCLazyDataSourceEnumerator> enumerator = lazyDataSourceFlatteningEnumeratorWithEnumerator(sourceDataItems.enumerator);
 
@@ -74,7 +74,13 @@
         }
     }
 
-    self.bridgeObject.combinedDataSource = [combinedDataSource copy];
+    return [combinedDataSource copy];
+}
+
+- (void)setSource:(id<OCLazyDataSourceEnumerable/*<OCLazyDataSourceItem>*/> _Nonnull)sourceDataItems
+{
+    NSArray<id<OCLazySectionBridge>> *flattenedSourceData = [self flattenSourceData:sourceDataItems];
+    self.bridgeObject.combinedDataSource = flattenedSourceData;
 }
 
 @end

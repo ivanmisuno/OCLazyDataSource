@@ -81,6 +81,15 @@
 @synthesize combinedDataSource = _combinedDataSource;
 - (void)setCombinedDataSource:(NSArray<id<OCLazySectionBridge>> *)combinedDataSource
 {
+    if (self.tableView.dataSource != self) {
+        NSAssert(NO, @"self.tableView.dataSource != self");
+        return;
+    }
+    if (self.tableView.delegate != self) {
+        NSAssert(NO, @"self.tableView.delegate != self");
+        return;
+    }
+
     _combinedDataSource = combinedDataSource;
     [self registerCellFactoriesFromCombinedDataSource];
 
