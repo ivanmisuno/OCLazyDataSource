@@ -60,7 +60,7 @@ id<OCLazyDataSourceSection> section2 = lazyDataSourceSectionWithEnumerable(secti
 NSArray *sections = @[section1, section2];
 [self.dataSource setSource:sections];
 ```
-![Basic setup, default fixed-height cells](_img/OCLazyDataSource1_basic.png)
+<img src="_img/OCLazyDataSource1_basic.png" width="300"/>
 
 ### Self-sizing cells
 
@@ -78,7 +78,7 @@ cellFactory1.configureBlock = ^(UITableViewCell * _Nonnull cell, NSDictionary * 
 	[sampleNewsCell.thumbnail setImageWithURL:[NSURL URLWithString:model[@"thumbnail"]]];
 };
 ```
-![Self-sizing cells](_img/OCLazyDataSource2_autoheight.png)
+<img src="_img/OCLazyDataSource2_autoheight.png" width="300"/>
 
 ### Now let's compose something more fancy
 
@@ -117,7 +117,7 @@ id<OCLazyDataSourceEnumerator> (^finalSectionEnumerator)() = ^ {
 // we’ve got enough to display our table:
 [self.dataSource setSource:lazyDataSourceEnumerableWithGeneratorBlock(finalSectionEnumerator) forTableView:self.tableView];
 ```
-![Composition](img/OCLazyDataSource3_banner.png)
+<img src="_img/OCLazyDataSource3_banner.png" width="300"/>
 
 NO INDEX PATH TRANSFORMATIONS, NO SUBCLASSING, NO BOILERPLATE UITableViewDelegate code.  
 JUST COMPOSITION.
@@ -141,7 +141,7 @@ id<OCLazyDataSourceEnumerator> (^finalSectionEnumerator)() = ^ {
 
 [self.dataSource setSource:lazyDataSourceEnumerableWithGeneratorBlock(finalSectionEnumerator) forTableView:self.tableView];
 ```
-![More composition](_img/OCLazyDataSource4_mix.png)
+<img src="_img/OCLazyDataSource4_mix.png" width="300"/>
 
 
 ## Disclaimer
